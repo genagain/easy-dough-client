@@ -11,6 +11,7 @@ RUN npm run build
 
 ### STAGE 2: Production Environment ###
 FROM nginx:1.13.12-alpine
+COPY default.conf.template /etc/nginx/conf.d/default.conf.template
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 RUN apk update && apk add bash
 EXPOSE 80
