@@ -1,11 +1,11 @@
 import React from 'react';
-import Button from '@material-ui/core/Button'
+import NavBar from './components/NavBar'
 
 function App() {
   return (
-    <Button variant="contained" color="primary">
-      Hello World
-    </Button>
+    <>
+    <NavBar />
+    </>
   );
 }
 
