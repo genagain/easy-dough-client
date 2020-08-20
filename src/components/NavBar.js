@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
     title: {
           flexGrow: 1,
         },
+    login : {
+      'text-decoration': 'none',
+      color: 'white'
+    },
 }));
 
 function NavBar() {
@@ -27,7 +31,9 @@ function NavBar() {
                 <Typography variant="h6" className={classes.title}>
                   Easy Dough
                 </Typography>
-                <Button color="inherit">Login</Button>
+                <Button color="inherit" href="/login" className={classes.login}>
+                  Login
+                </Button>
               </Toolbar>
             </AppBar>
           </div>
