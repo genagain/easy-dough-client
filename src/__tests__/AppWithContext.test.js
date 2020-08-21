@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 import {render, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
@@ -7,10 +7,11 @@ import AppWithContext from '../AppWithContext'
 
 
 function renderWithRouter(
-	ui
+	ui,
+  initialEntries = ["/"]
 ) {
 	return {
-		...render(<BrowserRouter>{ui}</BrowserRouter>),
+		...render(<MemoryRouter initialEntries={initialEntries}>{ui}</MemoryRouter>),
 	}
 }
 
@@ -26,4 +27,10 @@ test('test navigation', () => {
 	fireEvent.click(indexLink)
 	const indexText = getByRole("heading", { name: /index/i })
 	expect(indexText.textContent).toMatchInlineSnapshot(`"index"`)
+})
+
+test('test unauthorized dashboard', () => {
+	const { getByRole } = renderWithRouter(<AppWithContext />, ["/dashboard"])
+	const header = getByRole("heading", { name: /login/i })
+	expect(header.textContent).toMatchInlineSnapshot(`"Login"`)
 })
