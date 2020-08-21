@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import  Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -20,6 +21,13 @@ const useStyles = makeStyles((theme) => ({
       'text-decoration': 'none',
       color: 'white'
     },
+    index : {
+      'text-decoration': 'none',
+      color: 'white',
+      '&:hover' : {
+        'text-decoration': 'none',
+      }
+    },
 }));
 
 function NavBar() {
@@ -31,7 +39,9 @@ function NavBar() {
             <AppBar position="static">
               <Toolbar>
                 <Typography variant="h6" className={classes.title}>
-                  Easy Dough
+                  <Link href='/' className={classes.index}>
+                    Easy Dough
+                  </Link>
                 </Typography>
                { accessToken ? (
                 <Button color="inherit" onClick={logout} className={classes.login}>
