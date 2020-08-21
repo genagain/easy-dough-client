@@ -1,10 +1,11 @@
-import  React, { useState} from 'react'
+import  React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import UserContext from '../UserContext';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -26,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function Login() {
+
+  const { accessToken, login } = useContext(UserContext)
+
   const history = useHistory()
   const classes = useStyles();
 
@@ -43,6 +47,7 @@ function Login() {
 
     const json = await response.json()
     if (json['access_token']) {
+      login(json['access_token'])
       history.push('/dashboard')
     } else {
       setError('That email and password was incorrect. Please try again.')

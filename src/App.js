@@ -7,6 +7,8 @@ import Login from './pages/Login'
 import Index from './pages/Index'
 import Dashboard from './pages/Dashboard'
 
+// TODO use Context and protected routes for the dashboard
+    // TODO move router to index.js possibly
 function App() {
   return (
     <>
