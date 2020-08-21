@@ -1,4 +1,5 @@
 import  React, { useState} from 'react'
+import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
@@ -25,10 +26,12 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function Login() {
+  const history = useHistory()
   const classes = useStyles();
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
 
   async function handleSubmit(event) {
     event.preventDefault()
@@ -39,13 +42,20 @@ function Login() {
     })
 
     const json = await response.json()
-    console.log(json)
+    if (json['access_token']) {
+      history.push('/dashboard')
+    } else {
+      setError('That email and password was incorrect. Please try again.')
+    }
   }
 
   return (
     <Container maxWidth="xs" className={classes.container}>
       <Typography variant="h4" className={classes.title}>
         Login
+      </Typography>
+      <Typography variant="body1" className={classes.title}>
+        {error}
       </Typography>
       <form className={classes.form} onSubmit={handleSubmit}>
         <TextField label="Email" className={classes.email} onInput={ event => setEmail(event.target.value) } />
