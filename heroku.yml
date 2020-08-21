@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
   config:
-    REACT_APP_SERVER_BASE_URL: https://lit-mountain-22801.herokuapp.com
+    REACT_APP_SERVER_BASE_URL: 'https://lit-mountain-22801.herokuapp.com'
