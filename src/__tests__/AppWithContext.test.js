@@ -19,10 +19,16 @@ function renderWithRouter(
 	}
 }
 
-test('test navigating to the login page', () => {
+test('test navigation', () => {
 	const { container } = renderWithRouter(<AppWithContext />)
-	const loginButton = screen.getByRole("link", { name: /login/i })
-	fireEvent.click(loginButton)
+
+	const loginLink = screen.getByRole("link", { name: /login/i })
+	fireEvent.click(loginLink)
 	const header = screen.getByRole("heading", { name: /login/i })
 	expect(header.textContent).toMatchInlineSnapshot(`"Login"`)
+
+	const indexLink = screen.getByRole("link", { name: /easy dough/i })
+	fireEvent.click(indexLink)
+	const indexText = screen.getByRole("heading", { name: /index/i })
+	expect(indexText.textContent).toMatchInlineSnapshot(`"index"`)
 })
