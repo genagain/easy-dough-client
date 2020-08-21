@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Login() {
 
-  const { accessToken, login } = useContext(UserContext)
+  const { login } = useContext(UserContext)
 
   const history = useHistory()
   const classes = useStyles();
