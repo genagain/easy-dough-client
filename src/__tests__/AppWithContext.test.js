@@ -12,11 +12,10 @@ import AppWithContext from '../AppWithContext'
 
 
 function renderWithRouter(
-	ui,
-	{route = '/', history = createMemoryHistory({initialEntries: [route]})} = {},
+	ui
 ) {
 	return {
-		...render(<BrowserRouter history={history}>{ui}</BrowserRouter>),
+		...render(<BrowserRouter>{ui}</BrowserRouter>),
 		// adding `history` to the returned utilities to allow us
 		// to reference it in our tests (just try to avoid using
 		// this to test implementation details).

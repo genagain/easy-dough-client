@@ -41,7 +41,7 @@ function NavBar() {
             <AppBar position="static">
               <Toolbar>
                 <Typography variant="h6" className={classes.title}>
-                  <Link href='/' className={classes.index}>
+                  <Link to='/' className={classes.index}>
                     Easy Dough
                   </Link>
                 </Typography>
