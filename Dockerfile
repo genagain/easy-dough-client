@@ -6,14 +6,15 @@ ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY package.json /usr/src/app/package.json
 COPY public /usr/src/app/public
 COPY src /usr/src/app/src
+ARG REACT_APP_SERVER_BASE_URL
+ENV REACT_APP_SERVER_BASE_URL=$REACT_APP_SERVER_BASE_URL
+RUN touch .env.production
+RUN echo "export REACT_APP_SERVER_BASE_URL=$REACT_APP_SERVER_BASE_URL" > .env.production
 RUN npm install --silent
 RUN npm run build
 
 ### STAGE 2: Production Environment ###
 FROM nginx:1.13.12-alpine
-ARG REACT_APP_SERVER_BASE_URL
-ENV REACT_APP_SERVER_BASE_URL=$REACT_APP_SERVER_BASE_URL
-RUN echo $REACT_APP_SERVER_BASE_URL
 COPY default.conf.template /etc/nginx/conf.d/default.conf.template
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 RUN apk update && apk add bash
