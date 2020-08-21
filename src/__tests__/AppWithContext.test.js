@@ -26,12 +26,3 @@ test('test navigating to the login page', () => {
 	const header = screen.getByRole("heading", { name: /login/i })
 	expect(header.textContent).toMatchInlineSnapshot(`"Login"`)
 })
-
-/*test('test material ui button showing something', () => {*/
-  //const { container } = renderWithRouter(<AppWithContext />, { route: '/' })
-  //const testMessage = 'Some Message'
-  //expect(screen.queryByText(testMessage)).toBeNull()
-	//const show = screen.getByRole("button", { name: /show/i })
-  //fireEvent.click(show)
-  //expect(screen.queryByText(testMessage)).toBeInTheDocument()
-/*})*/
