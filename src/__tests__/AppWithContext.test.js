@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import {render, fireEvent, screen } from '@testing-library/react'
+import {render, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import AppWithContext from '../AppWithContext'
