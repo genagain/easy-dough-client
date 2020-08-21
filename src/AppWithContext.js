@@ -15,7 +15,7 @@ function AppWithContext() {
 
   function logout() {
   //TODO unset accessToken cookie
-  //TODO unset accessToken state
+    setAccessToken(undefined)
   }
 
   return (
