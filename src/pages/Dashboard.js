@@ -7,7 +7,7 @@ function Dashboard() {
   return (
     <>
     <h1>dashboard</h1>
-    <p>{accessToken}</p>
+    <h6>{accessToken}</h6>
     </>
   )
 }
