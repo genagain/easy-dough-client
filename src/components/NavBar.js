@@ -50,9 +50,11 @@ function NavBar() {
                   Logout
                 </Button>
                ) : (
-                 <Link to='/login'>
+                <Typography variant="button">
+                 <Link to='/login' className={classes.login}>
                   Login
                  </Link>
+                </Typography>
                )
                }
               </Toolbar>
