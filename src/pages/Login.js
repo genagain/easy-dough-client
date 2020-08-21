@@ -1,4 +1,4 @@
-import React from 'react'
+import  React, { useState} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
@@ -13,11 +13,13 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     'flex-direction': 'column'
   },
+  title: {
+    'padding-bottom': '1rem'
+  },
   email: {
-    'padding-top': '1rem'
+    'padding-bottom': '1rem'
   },
   password: {
-    'padding-top': '1rem',
     'padding-bottom': '1rem'
   }
 }))
@@ -25,15 +27,30 @@ const useStyles = makeStyles((theme) => ({
 function Login() {
   const classes = useStyles();
 
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  async function handleSubmit(event) {
+    event.preventDefault()
+    const response = await fetch('http://localhost:5000/auth/login', {method: 'POST', headers: {
+      'Content-Type': 'application/json',
+          },
+      body: JSON.stringify({ email, password})
+    })
+
+    const json = await response.json()
+    console.log(json)
+  }
+
   return (
     <Container maxWidth="xs" className={classes.container}>
-      <Typography variant="h4">
+      <Typography variant="h4" className={classes.title}>
         Login
       </Typography>
-      <form className={classes.form}>
-        <TextField label="Email" className={classes.email} />
-        <TextField label="Password" className={classes.password}/>
-        <Button variant="contained" color="primary">Login</Button>
+      <form className={classes.form} onSubmit={handleSubmit}>
+        <TextField label="Email" className={classes.email} onInput={ event => setEmail(event.target.value) } />
+        <TextField label="Password" type="password" className={classes.password} onInput={ event => setPassword(event.target.value) }/>
+        <Button variant="contained" type="submit" color="primary">Login</Button>
       </form>
     </Container>
   )
