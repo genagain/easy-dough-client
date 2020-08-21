@@ -5,6 +5,7 @@ import NavBar from './components/NavBar'
 
 import Login from './pages/Login'
 import Index from './pages/Index'
+import Dashboard from './pages/Dashboard'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Switch>
         <Route path="/" exact component = {Index} />
         <Route path="/login" component = {Login} />
+        <Route path="/dashboard" component = {Dashboard} />
       </Switch>
     </Router>
     </>
