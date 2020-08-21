@@ -14,5 +14,6 @@ FROM nginx:1.13.12-alpine
 COPY default.conf.template /etc/nginx/conf.d/default.conf.template
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 RUN apk update && apk add bash
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 CMD /bin/bash -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
