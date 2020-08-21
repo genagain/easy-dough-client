@@ -1,20 +1,21 @@
 import React, {useState} from 'react'
+import Cookies from 'js-cookie'
 
 import UserContext from './UserContext'
 import App from './App'
 
 function AppWithContext() {
 
-  //TODO read accessToken from cookie
-  const [accessToken, setAccessToken] = useState()
+  const storedAccessToken = Cookies.get('access_token')
+  const [accessToken, setAccessToken] = useState(storedAccessToken)
 
   function login(token) {
-  //TODO set accessToken cookie
+    Cookies.set('access_token', token)
     setAccessToken(token)
   }
 
   function logout() {
-  //TODO unset accessToken cookie
+    Cookies.remove('access_token')
     setAccessToken(undefined)
   }
 
