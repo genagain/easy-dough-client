@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-//import  Link from '@material-ui/core/Link';
-import  { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -31,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-// TODO change index link
 function NavBar() {
     const classes = useStyles();
     const { accessToken, logout } = useContext(UserContext)
