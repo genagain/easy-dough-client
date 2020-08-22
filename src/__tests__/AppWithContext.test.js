@@ -8,10 +8,9 @@ import AppWithContext from '../AppWithContext'
 
 function renderWithRouter(
 	ui,
-  initialEntries = ["/"]
 ) {
 	return {
-		...render(<MemoryRouter initialEntries={initialEntries}>{ui}</MemoryRouter>),
+		...render(<BrowserRouter>{ui}</BrowserRouter>),
 	}
 }
 
@@ -29,8 +28,3 @@ test('test navigation', () => {
 	expect(indexText.textContent).toMatchInlineSnapshot(`"index"`)
 })
 
-test('test unauthorized dashboard', () => {
-	const { getByRole } = renderWithRouter(<AppWithContext />, ["/dashboard"])
-	const header = getByRole("heading", { name: /login/i })
-	expect(header.textContent).toMatchInlineSnapshot(`"Login"`)
-})
