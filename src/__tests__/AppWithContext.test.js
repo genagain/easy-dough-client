@@ -1,5 +1,5 @@
 import React from 'react'
-import { MemoryRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import {render, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
@@ -28,3 +28,17 @@ test('test navigation', () => {
 	expect(indexText.textContent).toMatchInlineSnapshot(`"index"`)
 })
 
+test('test valid login', () => {
+	const { getByRole, getByTestId } = renderWithRouter(<AppWithContext />)
+
+	const loginLink = getByRole("link", { name: /login/i })
+	fireEvent.click(loginLink)
+
+  const emailField = getByTestId("textField-email").querySelector('input')
+  const passwordField = getByTestId("textField-password").querySelector('input')
+  const loginButton = getByRole("button", { name: /login/i })
+
+  fireEvent.change(emailField, { target: { value: 'test@test.com' }} )
+  fireEvent.change(passwordField, { target: { value: 'password' }} )
+  fireEvent.click(loginButton )
+})

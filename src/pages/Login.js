@@ -64,8 +64,8 @@ function Login() {
         {error}
       </Typography>
       <form className={classes.form} onSubmit={handleSubmit}>
-        <TextField label="Email" className={classes.email} onInput={ event => setEmail(event.target.value) } />
-        <TextField label="Password" type="password" className={classes.password} onInput={ event => setPassword(event.target.value) }/>
+        <TextField data-testid="textField-email" label="Email" className={classes.email} onInput={ event => setEmail(event.target.value) } />
+        <TextField data-testid="textField-password" label="Password" type="password" className={classes.password} onInput={ event => setPassword(event.target.value) }/>
         <Button variant="contained" type="submit" color="primary">Login</Button>
       </form>
     </Container>
