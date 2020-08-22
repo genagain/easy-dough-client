@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 
 import NavBar from './components/NavBar'
 import ProtectedRoute from './hocs/ProtectedRoute'
@@ -12,13 +12,11 @@ function App() {
   return (
     <>
     <NavBar />
-    <Router>
       <Switch>
         <Route path="/" exact component = {Index} />
         <Route path="/login" component = {Login} />
         <ProtectedRoute path="/dashboard" component = {Dashboard} />
       </Switch>
-    </Router>
     </>
   );
 }
