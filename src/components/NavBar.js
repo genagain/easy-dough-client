@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     title: {
       
         },
-    login : {
+    auth : {
       'text-decoration': 'none',
       color: 'white',
       padding: '1 rem'
@@ -52,21 +52,23 @@ function NavBar() {
                 </Typography>
       </Grid>
                { accessToken ? (
-                <Button color="inherit" onClick={logout} className={classes.login}>
-                  Logout
-                </Button>
+                 <Typography variant="button">
+                    <Link onClick={logout} className={classes.auth}>
+                     Logout
+                   </Link>
+                  </Typography>
                ) : (
                  <>
       <Grid item>
                   <Typography variant="button">
-                   <Link to='/signup' className={classes.login}>
+                   <Link to='/signup' className={classes.auth}>
                     Sign Up
                    </Link>
                   </Typography>
       </Grid>
       <Grid item>
                   <Typography variant="button">
-                   <Link to='/login' className={classes.login}>
+                   <Link to='/login' className={classes.auth}>
                     Login
                    </Link>
                   </Typography>
