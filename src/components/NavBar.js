@@ -43,7 +43,6 @@ function NavBar() {
          <Grid
             justify="space-between" // Add it here :)
             container 
-            spacing={24}
           >
       <Grid item xs={10}>
                 <Typography variant="h6" className={classes.title}>
