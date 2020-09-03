@@ -1,11 +1,10 @@
-import  React, { useState, useContext } from 'react'
+import  React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import UserContext from '../UserContext';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -18,23 +17,18 @@ const useStyles = makeStyles((theme) => ({
   title: {
     'padding-bottom': '1rem'
   },
-  email: {
+  field: {
     'padding-bottom': '1rem'
   },
-  password: {
-    'padding-bottom': '1rem'
-  }
 }))
 
 function Signup() {
 
-  const { login } = useContext(UserContext)
-
   const history = useHistory()
   const classes = useStyles();
 
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
+  const [firstname, setFirstname] = useState('')
+  const [lastname, setLastname] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
@@ -42,20 +36,24 @@ function Signup() {
 
   async function handleSubmit(event) {
     event.preventDefault()
+    if (password !== passwordConfirmation) {
+      setError('Please make ensure the passwords provided match')
+      return
+    }
+
     const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
-    const response = await fetch(`${apiUrl}/auth/login`, {method: 'POST', headers: {
+    const response = await fetch(`${apiUrl}/auth/signup`, {method: 'POST', headers: {
       'Content-Type': 'application/json',
           },
-      body: JSON.stringify({ email, password})
+      body: JSON.stringify({ firstname, lastname, email, password})
     })
 
-/*    const json = await response.json()*/
-    //if (json['access_token']) {
-      //login(json['access_token'])
-      //history.push('/dashboard')
-    //} else {
-      //setError('That email and password was incorrect. Please try again.')
-    /*}*/
+    if (response.status === 200) {
+      history.push('/login')
+    } else {
+      const json = await response.json()
+      setError(json['message'])
+    }
   }
 
   return (
@@ -67,11 +65,11 @@ function Signup() {
         {error}
       </Typography>
       <form className={classes.form} onSubmit={handleSubmit}>
-        <TextField data-testid="textField-firstname" label="First Name" onInput={ event => setFirstName(event.target.value) } />
-        <TextField data-testid="textField-lastname" label="Last Name" onInput={ event => setLastName(event.target.value) } />
-        <TextField data-testid="textField-email" label="Email" className={classes.email} onInput={ event => setEmail(event.target.value) } />
-        <TextField data-testid="textField-password" label="Password" type="password" className={classes.password} onInput={ event => setPassword(event.target.value) }/>
-        <TextField data-testid="textField-password-confirmation" label="Password" type="password" className={classes.password} onInput={ event => setPasswordConfirmation(event.target.value) }/>
+        <TextField required data-testid="textField-firstname" label="First Name" className={classes.field} onInput={ event => setFirstname(event.target.value) } />
+        <TextField required data-testid="textField-lastname" label="Last Name" className={classes.field} onInput={ event => setLastname(event.target.value) } />
+        <TextField required data-testid="textField-email" label="Email" className={classes.field} onInput={ event => setEmail(event.target.value) } />
+        <TextField required data-testid="textField-password" label="Password" type="password" className={classes.field} onInput={ event => setPassword(event.target.value) }/>
+        <TextField required data-testid="textField-password-confirmation" label="Password Confirmation" type="password" className={classes.field} onInput={ event => setPasswordConfirmation(event.target.value) }/>
         <Button variant="contained" type="submit" color="primary">Sign Up</Button>
       </form>
     </Container>
