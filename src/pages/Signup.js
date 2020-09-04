@@ -41,6 +41,13 @@ function Signup() {
 
   async function handleSubmit(event) {
     event.preventDefault()
+
+    let validEmail = /^[A-Za-z0-9_.]+@\w+.\w+.\w+/
+    if(!validEmail.test(email)) {
+      setError('Please provide a valid email')
+      return
+    }
+
     if (password !== passwordConfirmation) {
       setError('Please make ensure the passwords provided match')
       return
