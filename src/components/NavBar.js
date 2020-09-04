@@ -14,9 +14,6 @@ const useStyles = makeStyles((theme) => ({
     menuButton: {
           marginRight: theme.spacing(2),
         },
-    title: {
-      
-        },
     auth : {
       'text-decoration': 'none',
       color: 'white',
@@ -44,7 +41,7 @@ function NavBar() {
             container 
           >
       <Grid item xs={10}>
-                <Typography variant="h6" className={classes.title}>
+                <Typography variant="h6">
                   <Link to='/' className={classes.index}>
                     Easy Dough
                   </Link>
