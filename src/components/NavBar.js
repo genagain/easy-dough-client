@@ -49,7 +49,7 @@ function NavBar() {
       </Grid>
                { accessToken ? (
                  <Typography variant="button">
-                    <Link onClick={logout} className={classes.auth}>
+                    <Link to='/' onClick={logout} className={classes.auth}>
                      Logout
                    </Link>
                   </Typography>
