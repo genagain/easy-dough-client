@@ -17,6 +17,11 @@ const useStyles = makeStyles((theme) => ({
   title: {
     'padding-bottom': '1rem'
   },
+  names: {
+    display: 'flex',
+    'flex-direction': 'row',
+    'justify-content': 'space-between'
+  },
   field: {
     'padding-bottom': '1rem'
   },
@@ -65,8 +70,10 @@ function Signup() {
         {error}
       </Typography>
       <form className={classes.form} onSubmit={handleSubmit}>
-        <TextField required data-testid="textField-firstname" label="First Name" className={classes.field} onInput={ event => setFirstname(event.target.value) } />
-        <TextField required data-testid="textField-lastname" label="Last Name" className={classes.field} onInput={ event => setLastname(event.target.value) } />
+        <div className={classes.names}>
+          <TextField required data-testid="textField-firstname" label="First Name" className={classes.field} onInput={ event => setFirstname(event.target.value) } />
+          <TextField required data-testid="textField-lastname" label="Last Name" className={classes.field} onInput={ event => setLastname(event.target.value) } />
+        </div>
         <TextField required data-testid="textField-email" label="Email" className={classes.field} onInput={ event => setEmail(event.target.value) } />
         <TextField required data-testid="textField-password" label="Password" type="password" className={classes.field} onInput={ event => setPassword(event.target.value) }/>
         <TextField required data-testid="textField-password-confirmation" label="Password Confirmation" type="password" className={classes.field} onInput={ event => setPasswordConfirmation(event.target.value) }/>
