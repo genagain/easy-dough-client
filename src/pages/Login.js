@@ -21,6 +21,11 @@ const useStyles = makeStyles((theme) => ({
   field: {
     'padding-bottom': '1rem'
   },
+  buttons: {
+    display: 'flex',
+    'flex-direction': 'row',
+    'justify-content': 'space-between'
+  }
 }))
 
 // TODO after removing MUI, refactor into one Auth form with isSignup prop, make the errors red and add component the tests using jest.fn() (hopefully I don't have to touch the page tests) 
@@ -64,8 +69,10 @@ function Login() {
       <form className={classes.form} onSubmit={handleSubmit}>
         <TextField data-testid="textField-email" label="Email" className={classes.field} onInput={ event => setEmail(event.target.value) } />
         <TextField data-testid="textField-password" label="Password" type="password" className={classes.field} onInput={ event => setPassword(event.target.value) }/>
-        <Button variant="contained" type="submit" color="primary">Log In</Button>
-        <Button variant="contained" color="primary">Demo Log In</Button>
+        <div className={classes.buttons}>
+          <Button variant="contained" type="submit" color="primary">Log In</Button>
+          <Button variant="contained" color="secondary">Demo Log In</Button>
+        </div>
       </form>
     </Container>
   )
