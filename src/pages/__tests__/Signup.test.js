@@ -1,24 +1,45 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import Signup from '../Signup'
 import UserContext from '../../UserContext'
 
-test('render Signup page', () => {
-  const { getByRole, getByTestId } = render(<UserContext.Provider value={{}}><Signup /></UserContext.Provider>)
-  const title = getByRole("heading", { name: /sign up/i }).textContent
-  expect(title).toMatchInlineSnapshot(`"Sign Up"`)
+describe('The Signup component', () => {
+  beforeEach(() => {
+    render(<UserContext.Provider value={{}}><Signup /></UserContext.Provider>)
+  })
 
-  const firstnameField = getByTestId('textField-firstname')
-  const lastnameField = getByTestId('textField-lastname')
-  const emailField = getByTestId('textField-email')
-  const passwordField = getByTestId('textField-password')
-  const passwordConfirmationField = getByTestId('textField-password-confirmation')
-  const signup = getByRole("button", { name: /sign up/i}).textContent;
+  test('renders the Sign Up title', () => {
+    const title = screen.getByRole("heading", { name: /sign up/i }).textContent
+    expect(title).toMatchInlineSnapshot(`"Sign Up"`)
+  })
 
-  expect(firstnameField).not.toBeNull()
-  expect(lastnameField).not.toBeNull()
-  expect(emailField).not.toBeNull()
-  expect(passwordField).not.toBeNull()
-  expect(passwordConfirmationField).not.toBeNull()
-  expect(signup).not.toBeNull()
+  test('renders the firstname field', () => {
+    const firstnameField = screen.getByTestId('textField-firstname')
+    expect(firstnameField).not.toBeNull()
+  })
+
+  test('renders the lastname field', () => {
+    const lastnameField = screen.getByTestId('textField-lastname')
+    expect(lastnameField).not.toBeNull()
+  })
+
+  test('renders the email field', () => {
+    const emailField = screen.getByTestId('textField-email')
+    expect(emailField).not.toBeNull()
+  })
+
+  test('renders the password field', () => {
+    const passwordField = screen.getByTestId('textField-password')
+    expect(passwordField).not.toBeNull()
+  })
+
+  test('renders the password confirmation field', () => {
+    const passwordConfirmationField = screen.getByTestId('textField-password-confirmation')
+    expect(passwordConfirmationField).not.toBeNull()
+  })
+
+  test('renders the sign up button', () => {
+    const signup = screen.getByRole("button", { name: /sign up/i}).textContent;
+    expect(signup).not.toBeNull()
+  })
 })
