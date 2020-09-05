@@ -26,11 +26,11 @@ describe('The Login component', () => {
 
   test('renders the Login button', () => {
     const button = screen.getByRole("button", { name: /^log in$/i}).textContent;
-    expect(button).toMatchInlineSnapshot(`"Log in"`)
+    expect(button).toMatchInlineSnapshot(`"Log In"`)
   })
 
   test('renders the Demo User button', () => {
     const button = screen.getByRole("button", { name: /^demo log in/i}).textContent;
-    expect(button).toMatchInlineSnapshot(`"Demo Log in"`)
+    expect(button).toMatchInlineSnapshot(`"Demo Log In"`)
   })
 })

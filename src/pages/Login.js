@@ -64,8 +64,8 @@ function Login() {
       <form className={classes.form} onSubmit={handleSubmit}>
         <TextField data-testid="textField-email" label="Email" className={classes.field} onInput={ event => setEmail(event.target.value) } />
         <TextField data-testid="textField-password" label="Password" type="password" className={classes.field} onInput={ event => setPassword(event.target.value) }/>
-        <Button variant="contained" type="submit" color="primary">Log in</Button>
-        <Button variant="contained" color="primary">Demo Log in</Button>
+        <Button variant="contained" type="submit" color="primary">Log In</Button>
+        <Button variant="contained" color="primary">Demo Log In</Button>
       </form>
     </Container>
   )
