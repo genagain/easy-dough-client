@@ -1,18 +1,31 @@
 import React from 'react';
-import {render} from '@testing-library/react'
+import {render, screen} from '@testing-library/react'
 import Login from '../Login'
 import UserContext from '../../UserContext'
 
-test('render Login page', () => {
-  const { getByRole, getByTestId } = render(<UserContext.Provider value={{}}><Login /></UserContext.Provider>)
-  const title = getByRole("heading", { name: /login/i}).textContent;
-  expect(title).toMatchInlineSnapshot(`"Login"`)
+describe('The Login component', () => {
+  beforeEach(() => {
+    render(<UserContext.Provider value={{}}><Login /></UserContext.Provider>)
+  })
 
-  const emailField = getByTestId('textField-email')
-  const passwordField = getByTestId('textField-password')
-  const login = getByRole("button", { name: /login/i}).textContent;
+  test('renders the Login header', () => {
+    const title = screen.getByRole("heading", { name: /login/i}).textContent;
+    expect(title).toMatchInlineSnapshot(`"Login"`)
+  })
 
-  expect(emailField).not.toBeNull()
-  expect(passwordField).not.toBeNull()
-  expect(login).not.toBeNull()
+  // TODO: test firing changes to the input fields after removing MUI
+  test('renders the email field', () => {
+    const emailField = screen.getByTestId('textField-email')
+    expect(emailField).not.toBeNull()
+  })
+
+  test('renders the password field', () => {
+    const passwordField = screen.getByTestId('textField-password')
+    expect(passwordField).not.toBeNull()
+  })
+
+  test('renders the Login button', () => {
+    const button = screen.getByRole("button", { name: /login/i}).textContent;
+    expect(button).toMatchInlineSnapshot(`"Login"`)
+  })
 })
