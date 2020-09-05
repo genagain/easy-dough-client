@@ -21,6 +21,11 @@ const useStyles = makeStyles((theme) => ({
   field: {
     'padding-bottom': '1rem'
   },
+  buttons: {
+    display: 'flex',
+    'flex-direction': 'row',
+    'justify-content': 'space-between'
+  }
 }))
 
 // TODO after removing MUI, refactor into one Auth form with isSignup prop, make the errors red and add component the tests using jest.fn() (hopefully I don't have to touch the page tests) 
@@ -35,8 +40,7 @@ function Login() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
-  async function handleSubmit(event) {
-    event.preventDefault()
+  async function authenticate(email, password) {
     const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
     const response = await fetch(`${apiUrl}/auth/login`, {method: 'POST', headers: {
       'Content-Type': 'application/json',
@@ -53,6 +57,17 @@ function Login() {
     }
   }
 
+  async function handleLogin(event) {
+    event.preventDefault()
+    await authenticate(email, password)
+  }
+
+  async function handleDemoLogin() {
+    const email = 'john@test.com'
+    const password = 'test_password'
+    await authenticate(email, password)
+  }
+
   return (
     <Container maxWidth="xs" className={classes.container}>
       <Typography variant="h4" className={classes.title}>
@@ -61,10 +76,13 @@ function Login() {
       <Typography variant="body1" className={classes.title}>
         {error}
       </Typography>
-      <form className={classes.form} onSubmit={handleSubmit}>
+      <form className={classes.form} onSubmit={handleLogin}>
         <TextField data-testid="textField-email" label="Email" className={classes.field} onInput={ event => setEmail(event.target.value) } />
         <TextField data-testid="textField-password" label="Password" type="password" className={classes.field} onInput={ event => setPassword(event.target.value) }/>
-        <Button variant="contained" type="submit" color="primary">Login</Button>
+        <div className={classes.buttons}>
+          <Button variant="contained" type="submit" color="primary">Log In</Button>
+          <Button variant="contained" color="secondary" onClick={handleDemoLogin}>Demo Log In</Button>
+        </div>
       </form>
     </Container>
   )
