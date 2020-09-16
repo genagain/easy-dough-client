@@ -1,25 +1,6 @@
 import  React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 
-    //<Container maxWidth="xs" className={classes.container}>
-      //<Typography variant="h4" className={classes.title}>
-        //Sign Up
-      //</Typography>
-      //<Typography variant="body1" className={classes.title}>
-        //{error}
-      //</Typography>
-      //<form className={classes.form} onSubmit={handleSubmit}>
-        //<div className={classes.names}>
-          //<TextField required data-testid="textField-firstname" label="First Name" className={classes.field} onInput={ event => setFirstname(event.target.value) } />
-          //<TextField required data-testid="textField-lastname" label="Last Name" className={classes.field} onInput={ event => setLastname(event.target.value) } />
-        //</div>
-        //<TextField required data-testid="textField-email" label="Email" className={classes.field} onInput={ event => setEmail(event.target.value) } />
-        //<TextField required data-testid="textField-password" label="Password" type="password" className={classes.field} onInput={ event => setPassword(event.target.value) }/>
-        //<TextField required data-testid="textField-password-confirmation" label="Password Confirmation" type="password" className={classes.field} onInput={ event => setPasswordConfirmation(event.target.value) }/>
-        //<Button variant="contained" type="submit" color="primary">Sign Up</Button>
-      //</form>
-    //</Container>
-
 function Signup() {
 
   const history = useHistory()
