@@ -45,8 +45,8 @@ function Login() {
     <>
     <h4>Login</h4>
     <form onSubmit={handleLogin}>
-      <input name="email" type="text" placeholder="Email" onChange={ event => setEmail(event.target.value)} />
-      <input name="password" type="password" placeholder="Password" onChange={ event => setPassword(event.target.value)}/>
+      <input type="text" placeholder="Email" onChange={ event => setEmail(event.target.value)} />
+      <input type="password" placeholder="Password" onChange={ event => setPassword(event.target.value)}/>
       <button type="submit">Log In</button>
     </form>
     <button onClick={handleDemoLogin}>Demo Log In</button>

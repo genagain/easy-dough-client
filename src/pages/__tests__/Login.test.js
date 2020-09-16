@@ -15,12 +15,12 @@ describe('The Login component', () => {
 
   test('renders the email field', () => {
     const emailField = screen.getByPlaceholderText("Email")
-    expect(emailField).not.toBeNull()
+    expect(emailField.type).toBe('text')
   })
 
   test('renders the password field', () => {
     const passwordField = screen.getByPlaceholderText("Password")
-    expect(passwordField).not.toBeNull()
+    expect(passwordField.type).toBe('password')
   })
 
   test('renders the Login button', () => {
