@@ -1,40 +1,30 @@
 import  React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import UserContext from '../UserContext';
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    'padding': '2rem'
-  },
-  form: {
-    display: 'flex',
-    'flex-direction': 'column'
-  },
-  title: {
-    'padding-bottom': '1rem'
-  },
-  field: {
-    'padding-bottom': '1rem'
-  },
-  buttons: {
-    display: 'flex',
-    'flex-direction': 'row',
-    'justify-content': 'space-between'
-  }
-}))
-
+    //<Container maxWidth="xs" className={classes.container}>
+      //<Typography variant="h4" className={classes.title}>
+        //Login
+      //</Typography>
+      //<Typography variant="body1" className={classes.title}>
+        //{error}
+      //</Typography>
+      //<form className={classes.form} onSubmit={handleLogin}>
+        //<TextField data-testid="textField-email" label="Email" className={classes.field} onInput={ event => setEmail(event.target.value) } />
+        //<TextField data-testid="textField-password" label="Password" type="password" className={classes.field} onInput={ event => setPassword(event.target.value) }/>
+        //<div className={classes.buttons}>
+          //<Button variant="contained" type="submit" color="primary">Log In</Button>
+          //<Button variant="contained" color="secondary" onClick={handleDemoLogin}>Demo Log In</Button>
+        //</div>
+      //</form>
+    //</Container>
+//
 // TODO after removing MUI, refactor into one Auth form with isSignup prop, make the errors red and add component the tests using jest.fn() (hopefully I don't have to touch the page tests) 
 function Login() {
 
   const { login } = useContext(UserContext)
 
   const history = useHistory()
-  const classes = useStyles();
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -69,22 +59,16 @@ function Login() {
   }
 
   return (
-    <Container maxWidth="xs" className={classes.container}>
-      <Typography variant="h4" className={classes.title}>
-        Login
-      </Typography>
-      <Typography variant="body1" className={classes.title}>
-        {error}
-      </Typography>
-      <form className={classes.form} onSubmit={handleLogin}>
-        <TextField data-testid="textField-email" label="Email" className={classes.field} onInput={ event => setEmail(event.target.value) } />
-        <TextField data-testid="textField-password" label="Password" type="password" className={classes.field} onInput={ event => setPassword(event.target.value) }/>
-        <div className={classes.buttons}>
-          <Button variant="contained" type="submit" color="primary">Log In</Button>
-          <Button variant="contained" color="secondary" onClick={handleDemoLogin}>Demo Log In</Button>
-        </div>
-      </form>
-    </Container>
+    <>
+    <h4>Login</h4>
+    <form onSubmit={handleLogin}>
+      <input name="email" type="text" placeholder="Email" onChange={ event => setEmail(event.target.value)} />
+      <input name="password" type="password" placeholder="Password" onChange={ event => setPassword(event.target.value)}/>
+      <button type="submit">Log In</button>
+    </form>
+    <button onClick={handleDemoLogin}>Demo Log In</button>
+    </>
+
   )
 }
 
