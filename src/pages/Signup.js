@@ -44,6 +44,7 @@ function Signup() {
   return (
     <>
     <h4>Sign Up</h4>
+    {error ? <p>{error}</p> : null}
     <form onSubmit={handleSubmit}>
       <input placeholder="First Name" type="text" onChange={ event => setFirstname(event.target.value)} />
       <input placeholder="Last Name" type="text" onChange={ event => setLastname(event.target.value)}/>

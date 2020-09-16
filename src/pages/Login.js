@@ -44,7 +44,7 @@ function Login() {
   return (
     <>
     <h4>Login</h4>
-    error ? <p>{error}</p> : null
+    {error ? <p>{error}</p> : null}
     <form onSubmit={handleLogin}>
       <input type="text" placeholder="Email" onChange={ event => setEmail(event.target.value)} />
       <input type="password" placeholder="Password" onChange={ event => setPassword(event.target.value)}/>
