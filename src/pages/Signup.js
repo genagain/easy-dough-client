@@ -1,36 +1,28 @@
 import  React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    'padding': '2rem'
-  },
-  form: {
-    display: 'flex',
-    'flex-direction': 'column'
-  },
-  title: {
-    'padding-bottom': '1rem'
-  },
-  names: {
-    display: 'flex',
-    'flex-direction': 'row',
-    'justify-content': 'space-between'
-  },
-  field: {
-    'padding-bottom': '1rem'
-  },
-}))
+    //<Container maxWidth="xs" className={classes.container}>
+      //<Typography variant="h4" className={classes.title}>
+        //Sign Up
+      //</Typography>
+      //<Typography variant="body1" className={classes.title}>
+        //{error}
+      //</Typography>
+      //<form className={classes.form} onSubmit={handleSubmit}>
+        //<div className={classes.names}>
+          //<TextField required data-testid="textField-firstname" label="First Name" className={classes.field} onInput={ event => setFirstname(event.target.value) } />
+          //<TextField required data-testid="textField-lastname" label="Last Name" className={classes.field} onInput={ event => setLastname(event.target.value) } />
+        //</div>
+        //<TextField required data-testid="textField-email" label="Email" className={classes.field} onInput={ event => setEmail(event.target.value) } />
+        //<TextField required data-testid="textField-password" label="Password" type="password" className={classes.field} onInput={ event => setPassword(event.target.value) }/>
+        //<TextField required data-testid="textField-password-confirmation" label="Password Confirmation" type="password" className={classes.field} onInput={ event => setPasswordConfirmation(event.target.value) }/>
+        //<Button variant="contained" type="submit" color="primary">Sign Up</Button>
+      //</form>
+    //</Container>
 
 function Signup() {
 
   const history = useHistory()
-  const classes = useStyles();
 
   const [firstname, setFirstname] = useState('')
   const [lastname, setLastname] = useState('')
@@ -69,24 +61,17 @@ function Signup() {
   }
 
   return (
-    <Container maxWidth="xs" className={classes.container}>
-      <Typography variant="h4" className={classes.title}>
-        Sign Up
-      </Typography>
-      <Typography variant="body1" className={classes.title}>
-        {error}
-      </Typography>
-      <form className={classes.form} onSubmit={handleSubmit}>
-        <div className={classes.names}>
-          <TextField required data-testid="textField-firstname" label="First Name" className={classes.field} onInput={ event => setFirstname(event.target.value) } />
-          <TextField required data-testid="textField-lastname" label="Last Name" className={classes.field} onInput={ event => setLastname(event.target.value) } />
-        </div>
-        <TextField required data-testid="textField-email" label="Email" className={classes.field} onInput={ event => setEmail(event.target.value) } />
-        <TextField required data-testid="textField-password" label="Password" type="password" className={classes.field} onInput={ event => setPassword(event.target.value) }/>
-        <TextField required data-testid="textField-password-confirmation" label="Password Confirmation" type="password" className={classes.field} onInput={ event => setPasswordConfirmation(event.target.value) }/>
-        <Button variant="contained" type="submit" color="primary">Sign Up</Button>
-      </form>
-    </Container>
+    <>
+    <h4>Sign Up</h4>
+    <form onSubmit={handleSubmit}>
+      <input placeholder="First Name" type="text" onChange={ event => setFirstname(event.target.value)} />
+      <input placeholder="Last Name" type="text" onChange={ event => setLastname(event.target.value)}/>
+      <input placeholder="Email" type="text" onChange={ event => setEmail(event.target.value)} />
+      <input placeholder="Password" type="password" onChange={ event => setPassword(event.target.value)}/>
+      <input placeholder="Confirm Password" type="password" onChange={ event => setPasswordConfirmation(event.target.value)}/>
+      <button type="submit">Sign Up</button>
+    </form>
+    </>
   )
 }
 

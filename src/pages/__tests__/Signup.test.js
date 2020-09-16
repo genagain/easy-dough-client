@@ -14,28 +14,28 @@ describe('The Signup component', () => {
   })
 
   test('renders the firstname field', () => {
-    const firstnameField = screen.getByTestId('textField-firstname')
-    expect(firstnameField).not.toBeNull()
+    const firstnameField = screen.getByPlaceholderText('First Name')
+    expect(firstnameField.type).toBe('text')
   })
 
   test('renders the lastname field', () => {
-    const lastnameField = screen.getByTestId('textField-lastname')
-    expect(lastnameField).not.toBeNull()
+    const lastnameField = screen.getByPlaceholderText('Last Name')
+    expect(lastnameField.type).toBe('text')
   })
 
   test('renders the email field', () => {
-    const emailField = screen.getByTestId('textField-email')
-    expect(emailField).not.toBeNull()
+    const emailField = screen.getByPlaceholderText("Email")
+    expect(emailField.type).toBe('text')
   })
 
   test('renders the password field', () => {
-    const passwordField = screen.getByTestId('textField-password')
-    expect(passwordField).not.toBeNull()
+    const passwordField = screen.getByPlaceholderText("Password")
+    expect(passwordField.type).toBe('password')
   })
 
   test('renders the password confirmation field', () => {
-    const passwordConfirmationField = screen.getByTestId('textField-password-confirmation')
-    expect(passwordConfirmationField).not.toBeNull()
+    const passwordField = screen.getByPlaceholderText("Confirm Password")
+    expect(passwordField.type).toBe('password')
   })
 
   test('renders the sign up button', () => {
