@@ -13,15 +13,14 @@ describe('The Login component', () => {
     expect(title).toMatchInlineSnapshot(`"Login"`)
   })
 
-  // TODO: test firing changes to the input fields after removing MUI
   test('renders the email field', () => {
-    const emailField = screen.getByTestId('textField-email')
-    expect(emailField).not.toBeNull()
+    const emailField = screen.getByPlaceholderText("Email")
+    expect(emailField.type).toBe('text')
   })
 
   test('renders the password field', () => {
-    const passwordField = screen.getByTestId('textField-password')
-    expect(passwordField).not.toBeNull()
+    const passwordField = screen.getByPlaceholderText("Password")
+    expect(passwordField.type).toBe('password')
   })
 
   test('renders the Login button', () => {
@@ -33,4 +32,7 @@ describe('The Login component', () => {
     const button = screen.getByRole("button", { name: /^demo log in/i}).textContent;
     expect(button).toMatchInlineSnapshot(`"Demo Log In"`)
   })
+
+/*  // TODO: test firing changes to the input fields after removing MUI*/
+  // TODO test error message rendering
 })
