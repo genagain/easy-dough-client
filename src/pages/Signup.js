@@ -33,7 +33,7 @@ function Signup() {
       body: JSON.stringify({ firstname, lastname, email, password})
     })
 
-    if (response.status === 200) {
+    if (response.ok) {
       history.push('/login')
     } else {
       const json = await response.json()
