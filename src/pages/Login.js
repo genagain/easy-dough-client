@@ -1,5 +1,6 @@
 import  React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom';
+import AuthForm from '../components/AuthForm'
 import UserContext from '../UserContext';
 
 // TODO after removing MUI, refactor into one Auth form with isSignup prop, make the errors red and add component the tests using jest.fn() (hopefully I don't have to touch the page tests) 
@@ -9,8 +10,6 @@ function Login() {
 
   const history = useHistory()
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
   async function authenticate(email, password) {
@@ -32,6 +31,8 @@ function Login() {
 
   async function handleLogin(event) {
     event.preventDefault()
+    const email = event.currentTarget.email.value
+    const password = event.currentTarget.password.value
     await authenticate(email, password)
   }
 
@@ -45,11 +46,7 @@ function Login() {
     <>
     <h4>Login</h4>
     {error ? <p>{error}</p> : null}
-    <form onSubmit={handleLogin}>
-      <input type="text" placeholder="Email" onChange={ event => setEmail(event.target.value)} />
-      <input type="password" placeholder="Password" onChange={ event => setPassword(event.target.value)}/>
-      <button type="submit">Log In</button>
-    </form>
+    <AuthForm onSubmit={handleLogin} />
     <button onClick={handleDemoLogin}>Demo Log In</button>
     </>
 

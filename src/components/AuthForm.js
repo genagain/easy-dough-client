@@ -9,10 +9,10 @@ function AuthForm({onSubmit, isSignup}) {
         <input type="text" placeholder="Last Name"/>
       </>
       : null }
-      <input type="text" placeholder="Email"/>
-      <input type="password" placeholder="Password"/>
+      <input type="text" name="email" placeholder="Email"/>
+      <input type="password" name="password" placeholder="Password"/>
     { isSignup ?
-      <input placeholder="Confirm Password" type="password"/>
+      <input type="password" name placeholder="Confirm Password" />
       : null }
       <button type="submit">{ isSignup ? 'Sign Up' : 'Log In'}</button>
     </form>
