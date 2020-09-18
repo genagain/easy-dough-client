@@ -1,19 +1,21 @@
 import  React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
+import AuthForm from '../components/AuthForm'
 
 function Signup() {
 
   const history = useHistory()
 
-  const [firstname, setFirstname] = useState('')
-  const [lastname, setLastname] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [passwordConfirmation, setPasswordConfirmation] = useState('')
   const [error, setError] = useState('')
 
   async function handleSubmit(event) {
     event.preventDefault()
+
+    const firstname = event.currentTarget.firstname.value
+    const lastname = event.currentTarget.lastname.value
+    const email = event.currentTarget.email.value
+    const password = event.currentTarget.password.value
+    const passwordConfirmation = event.currentTarget.password_confirmation.value
 
     let validEmail = /^[A-Za-z0-9_.]+@\w+.\w+.\w+/
     if(!validEmail.test(email)) {
@@ -45,14 +47,7 @@ function Signup() {
     <>
     <h4>Sign Up</h4>
     {error ? <p>{error}</p> : null}
-    <form onSubmit={handleSubmit}>
-      <input placeholder="First Name" type="text" onChange={ event => setFirstname(event.target.value)} />
-      <input placeholder="Last Name" type="text" onChange={ event => setLastname(event.target.value)}/>
-      <input placeholder="Email" type="text" onChange={ event => setEmail(event.target.value)} />
-      <input placeholder="Password" type="password" onChange={ event => setPassword(event.target.value)}/>
-      <input placeholder="Confirm Password" type="password" onChange={ event => setPasswordConfirmation(event.target.value)}/>
-      <button type="submit">Sign Up</button>
-    </form>
+    <AuthForm isSignup onSubmit={handleSubmit}/>
     </>
   )
 }
