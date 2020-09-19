@@ -3,10 +3,12 @@ FROM node:10.16.3 as build
 RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
+## Ideally copy everything instead of each thing
 COPY package.json /usr/src/app/package.json
 COPY public /usr/src/app/public
 COPY src /usr/src/app/src
 COPY tailwind.js /usr/src/app/tailwind.js
+COPY postcss.config.js /usr/src/app/postcss.config.js
 ARG REACT_APP_SERVER_BASE_URL
 ENV REACT_APP_SERVER_BASE_URL=$REACT_APP_SERVER_BASE_URL
 RUN touch .env.production
