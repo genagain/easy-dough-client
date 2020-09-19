@@ -11,10 +11,12 @@
     "react-scripts": "3.4.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "npm run watch:css && react-scripts start",
+    "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
+    "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,6 +36,9 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.3",
     "@testing-library/react": "^10.4.9",
-    "@testing-library/user-event": "^12.1.1"
+    "@testing-library/user-event": "^12.1.1",
+    "autoprefixer": "^10.0.0",
+    "postcss-cli": "^7.1.2",
+    "tailwindcss": "^1.8.10"
   }
 }
