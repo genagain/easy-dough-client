@@ -10,6 +10,8 @@ function Login() {
 
   const history = useHistory()
 
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
   async function authenticate(email, password) {
@@ -31,8 +33,6 @@ function Login() {
 
   async function handleLogin(event) {
     event.preventDefault()
-    const email = event.currentTarget.email.value
-    const password = event.currentTarget.password.value
     await authenticate(email, password)
   }
 
@@ -46,7 +46,7 @@ function Login() {
     <>
     <h4>Login</h4>
     {error ? <p>{error}</p> : null}
-    <AuthForm onSubmit={handleLogin} />
+    <AuthForm onSubmit={handleLogin} fieldSetters={{ setEmail, setPassword }}/>
     <button onClick={handleDemoLogin}>Demo Log In</button>
     </>
 
