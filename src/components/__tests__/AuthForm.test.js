@@ -7,7 +7,15 @@ describe('When the isSignup prop is false, the AuthForm component', () => {
   describe('does not render', () => {
     beforeEach(() => {
       const onSubmit = jest.fn()
-      render(<AuthForm onSubmit={onSubmit}/>)
+      const setFirstname = jest.fn()
+      const setLastname = jest.fn()
+      const setEmail = jest.fn()
+      const setPassword = jest.fn()
+      const setPasswordConfirmation = jest.fn()
+
+      const fieldSetters = {setFirstname, setLastname, setEmail, setPassword, setPasswordConfirmation}
+
+      render(<AuthForm onSubmit={onSubmit} fieldSetters={fieldSetters}/>)
     })
 
     test('the firstname field', () => {
@@ -34,7 +42,15 @@ describe('When the isSignup prop is false, the AuthForm component', () => {
   describe('renders', () => {
     beforeEach(() => {
       const onSubmit = jest.fn()
-      render(<AuthForm onSubmit={onSubmit}/>)
+      const setFirstname = jest.fn()
+      const setLastname = jest.fn()
+      const setEmail = jest.fn()
+      const setPassword = jest.fn()
+      const setPasswordConfirmation = jest.fn()
+
+      const fieldSetters = {setFirstname, setLastname, setEmail, setPassword, setPasswordConfirmation}
+
+      render(<AuthForm onSubmit={onSubmit} fieldSetters={fieldSetters}/>)
     })
 
     test('the email field', () => {
@@ -58,7 +74,15 @@ describe('When the isSignup prop is false, the AuthForm component', () => {
     const password = "test_password"
 
     const onSubmit = jest.fn()
-    render(<AuthForm onSubmit={onSubmit}/>)
+    const setFirstname = jest.fn()
+    const setLastname = jest.fn()
+    const setEmail = jest.fn()
+    const setPassword = jest.fn()
+    const setPasswordConfirmation = jest.fn()
+
+    const fieldSetters = {setFirstname, setLastname, setEmail, setPassword, setPasswordConfirmation}
+
+    render(<AuthForm onSubmit={onSubmit} fieldSetters={fieldSetters}/>)
 
     const emailField = screen.getByPlaceholderText("Email")
     const passwordField = screen.getByPlaceholderText("Password")
@@ -76,7 +100,15 @@ describe('When the signup prop is true, the AuthForm component', () => {
   describe('does not render', () => {
     beforeEach(() => {
       const onSubmit = jest.fn()
-      render(<AuthForm isSignup onSubmit={onSubmit}/>)
+      const setFirstname = jest.fn()
+      const setLastname = jest.fn()
+      const setEmail = jest.fn()
+      const setPassword = jest.fn()
+      const setPasswordConfirmation = jest.fn()
+
+      const fieldSetters = {setFirstname, setLastname, setEmail, setPassword, setPasswordConfirmation}
+
+      render(<AuthForm isSignup onSubmit={onSubmit} fieldSetters={fieldSetters}/>)
     })
 
     test('the Login button', () => {
@@ -88,7 +120,15 @@ describe('When the signup prop is true, the AuthForm component', () => {
   describe('renders', () => {
     beforeEach(() => {
       const onSubmit = jest.fn()
-      render(<AuthForm isSignup onSubmit={onSubmit}/>)
+      const setFirstname = jest.fn()
+      const setLastname = jest.fn()
+      const setEmail = jest.fn()
+      const setPassword = jest.fn()
+      const setPasswordConfirmation = jest.fn()
+
+      const fieldSetters = {setFirstname, setLastname, setEmail, setPassword, setPasswordConfirmation}
+
+      render(<AuthForm isSignup onSubmit={onSubmit} fieldSetters={fieldSetters}/>)
     })
 
     test('the firstname field', () => {
@@ -129,7 +169,15 @@ describe('When the signup prop is true, the AuthForm component', () => {
     const password = "test_password"
 
     const onSubmit = jest.fn()
-    render(<AuthForm isSignup onSubmit={onSubmit}/>)
+    const setFirstname = jest.fn()
+    const setLastname = jest.fn()
+    const setEmail = jest.fn()
+    const setPassword = jest.fn()
+    const setPasswordConfirmation = jest.fn()
+
+    const fieldSetters = {setFirstname, setLastname, setEmail, setPassword, setPasswordConfirmation}
+
+    render(<AuthForm isSignup onSubmit={onSubmit} fieldSetters={fieldSetters}/>)
 
     const firstnameField = screen.getByPlaceholderText("First Name")
     const lastnameField = screen.getByPlaceholderText("Last Name")
@@ -137,6 +185,7 @@ describe('When the signup prop is true, the AuthForm component', () => {
     const passwordField = screen.getByPlaceholderText("Password")
     const passwordConfirmationField = screen.getByPlaceholderText("Confirm Password")
 
+    // TODO possibily change to fireEvent
     userEvent.type(firstnameField, firstname)
     userEvent.type(lastnameField, lastname)
     userEvent.type(emailField, email)
