@@ -32,7 +32,4 @@ describe('The Login component', () => {
     const button = screen.getByRole("button", { name: /^demo log in/i}).textContent;
     expect(button).toMatchInlineSnapshot(`"Demo Log In"`)
   })
-
-/*  // TODO: test firing changes to the input fields after removing MUI*/
-  // TODO test error message rendering
 })

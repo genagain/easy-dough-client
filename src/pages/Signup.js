@@ -1,5 +1,6 @@
 import  React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
+import AuthForm from '../components/AuthForm'
 
 function Signup() {
 
@@ -45,14 +46,7 @@ function Signup() {
     <>
     <h4>Sign Up</h4>
     {error ? <p>{error}</p> : null}
-    <form onSubmit={handleSubmit}>
-      <input placeholder="First Name" type="text" onChange={ event => setFirstname(event.target.value)} />
-      <input placeholder="Last Name" type="text" onChange={ event => setLastname(event.target.value)}/>
-      <input placeholder="Email" type="text" onChange={ event => setEmail(event.target.value)} />
-      <input placeholder="Password" type="password" onChange={ event => setPassword(event.target.value)}/>
-      <input placeholder="Confirm Password" type="password" onChange={ event => setPasswordConfirmation(event.target.value)}/>
-      <button type="submit">Sign Up</button>
-    </form>
+    <AuthForm isSignup onSubmit={handleSubmit} fieldSetters={{setFirstname, setLastname, setEmail, setPassword, setPasswordConfirmation}}/>
     </>
   )
 }
