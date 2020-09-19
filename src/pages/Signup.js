@@ -6,16 +6,15 @@ function Signup() {
 
   const history = useHistory()
 
+  const [firstname, setFirstname] = useState('')
+  const [lastname, setLastname] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [passwordConfirmation, setPasswordConfirmation] = useState('')
   const [error, setError] = useState('')
 
   async function handleSubmit(event) {
     event.preventDefault()
-
-    const firstname = event.currentTarget.firstname.value
-    const lastname = event.currentTarget.lastname.value
-    const email = event.currentTarget.email.value
-    const password = event.currentTarget.password.value
-    const passwordConfirmation = event.currentTarget.password_confirmation.value
 
     let validEmail = /^[A-Za-z0-9_.]+@\w+.\w+.\w+/
     if(!validEmail.test(email)) {
@@ -47,7 +46,7 @@ function Signup() {
     <>
     <h4>Sign Up</h4>
     {error ? <p>{error}</p> : null}
-    <AuthForm isSignup onSubmit={handleSubmit}/>
+    <AuthForm isSignup onSubmit={handleSubmit} fieldSetters={{setFirstname, setLastname, setEmail, setPassword, setPasswordConfirmation}}/>
     </>
   )
 }
