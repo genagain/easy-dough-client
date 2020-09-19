@@ -1,6 +1,5 @@
 import React from 'react';
 import {render, screen, fireEvent} from '@testing-library/react'
-import userEvent from '@testing-library/user-event';
 import AuthForm from '../AuthForm'
 
 describe('When the isSignup prop is false, the AuthForm component', () => {
@@ -86,10 +85,10 @@ describe('When the isSignup prop is false, the AuthForm component', () => {
 
     const emailField = screen.getByPlaceholderText("Email")
     const passwordField = screen.getByPlaceholderText("Password")
-    userEvent.type(emailField, email)
-    userEvent.type(passwordField, password)
 
-    //NOTE: I need to fireEvent instead of userEvent because userEvent does not support the submit method
+    fireEvent.change(emailField, { target: { value: email}})
+    fireEvent.change(passwordField, { target: { value: password}})
+
     fireEvent.submit(screen.getByTestId("form"))
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
@@ -185,14 +184,12 @@ describe('When the signup prop is true, the AuthForm component', () => {
     const passwordField = screen.getByPlaceholderText("Password")
     const passwordConfirmationField = screen.getByPlaceholderText("Confirm Password")
 
-    // TODO possibily change to fireEvent
-    userEvent.type(firstnameField, firstname)
-    userEvent.type(lastnameField, lastname)
-    userEvent.type(emailField, email)
-    userEvent.type(passwordField, password)
-    userEvent.type(passwordConfirmationField, password)
+    fireEvent.change(firstnameField, { target: { value: firstname}})
+    fireEvent.change(lastnameField, { target: { value: lastname}})
+    fireEvent.change(emailField, { target: { value: email}})
+    fireEvent.change(passwordField, { target: { value: password}})
+    fireEvent.change(passwordConfirmationField, { target: { value: password}})
 
-    //NOTE: I need to fireEvent instead of userEvent because userEvent does not support the submit method
     fireEvent.submit(screen.getByTestId("form"))
 
     expect(onSubmit).toHaveBeenCalledTimes(1);

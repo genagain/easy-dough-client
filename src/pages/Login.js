@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import AuthForm from '../components/AuthForm'
 import UserContext from '../UserContext';
 
-// TODO after removing MUI, refactor into one Auth form with isSignup prop, make the errors red and add component the tests using jest.fn() (hopefully I don't have to touch the page tests) 
 function Login() {
 
   const { login } = useContext(UserContext)

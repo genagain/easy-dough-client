@@ -1,7 +1,6 @@
 import React from 'react'
 
 function AuthForm({onSubmit, isSignup, fieldSetters}) {
-  // TODO consider conditionally destructuring these
   const {setFirstname, setLastname, setEmail, setPassword, setPasswordConfirmation} = fieldSetters
 
   return (
