@@ -36,10 +36,10 @@ function NavBar() {
            ):
            (
              <>
-               <Link to='/signup' className="text-4xl md:text-2xl px-4">
+               <Link to='/signup' className="text-4xl md:text-2xl md:px-4">
                  Sign Up
                </Link>
-               <Link to='/login' className="text-4xl md:text-2xl px-4">
+               <Link to='/login' className="text-4xl md:text-2xl md:px-4">
                  Login
                </Link>
              </>
