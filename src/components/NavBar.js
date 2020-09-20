@@ -15,7 +15,7 @@ function NavBar() {
       <div className="container mx-auto px-6 py-4">
         <div className="flex flex-col">
         <div className="flex justify-between">
-          <Link to='/' className="text-6xl">
+          <Link to='/' className="text-6xl md:text-4xl">
             <h1>Easy Dough</h1>
           </Link>
         <div className="md:hidden">
@@ -29,16 +29,16 @@ function NavBar() {
           {
           accessToken ? 
            (
-              <Link to='/' onClick={logout} className="text-4xl">
+              <Link to='/' onClick={logout} className="text-4xl md:text-2xl">
                Logout
              </Link>
            ):
            (
              <>
-               <Link to='/signup' className="text-4xl">
+               <Link to='/signup' className="text-4xl md:text-2xl">
                  Sign Up
                </Link>
-               <Link to='/login' className="text-4xl">
+               <Link to='/login' className="text-4xl md:text-2xl">
                  Login
                </Link>
              </>
