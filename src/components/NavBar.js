@@ -6,33 +6,38 @@ function NavBar() {
     const { accessToken, logout } = useContext(UserContext)
 
     return (
-      <>
-        <div className="flex flex-row">
-          <Link to='/'>
+      <div className="container mx-auto px-6 py-4">
+        <div className="flex flex-col">
+        <div className="flex justify-between">
+          <Link to='/' className="text-6xl">
             <h1>Easy Dough</h1>
           </Link>
-          <div className="flex-grow"></div>
-          <div clasName="flex-none">
-          { accessToken ? 
-            (
+        <button type="button" className="focus:outline-none focus:text-gray-600" aria-label="toggle menu">
+                  <svg viewBox="0 0 24 24" className="h-16 w-16 fill-current">
+                    <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+                  </svg>
+                </button>
+        </div>
+          {
+          accessToken ? 
+           (
               <Link to='/' onClick={logout}>
-                Logout
-              </Link>
-            ):
+               Logout
+             </Link>
+           ):
            (
              <>
-               <Link to='/signup'>
+               <Link to='/signup' className="text-4xl">
                  Sign Up
                </Link>
-               <Link to='/login'>
+               <Link to='/login' className="text-4xl">
                  Login
                </Link>
              </>
            )
-         }
-          </div>
+          }
         </div>
-      </>
+      </div>
               );
 }
 
