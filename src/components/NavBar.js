@@ -26,6 +26,7 @@ function NavBar() {
                 </button>
         </div>
         </div>
+        <div className="md:flex-grow"></div>
           {
           accessToken ? 
            (
