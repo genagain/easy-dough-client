@@ -577,30 +577,6 @@ video {
   height: auto;
 }
 
-h1 {
-  font-size: 4rem;
-}
-
-h2 {
-  font-size: 3rem;
-}
-
-h3 {
-  font-size: 2.25rem;
-}
-
-h4 {
-  font-size: 1.875rem;
-}
-
-h5 {
-  font-size: 1.5rem;
-}
-
-h6 {
-  font-size: 1.25rem;
-}
-
 a {
   --text-opacity: 1;
   color: #2b6cb0;
