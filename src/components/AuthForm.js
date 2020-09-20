@@ -17,7 +17,7 @@ function AuthForm({onSubmit, isSignup, fieldSetters}) {
     { isSignup ?
       <input type="password" name="password_confirmation" placeholder="Confirm Password" onChange={e => setPasswordConfirmation(e.target.value)}/>
       : null }
-      <button type="submit" className="block py-3 text-4xl">{ isSignup ? 'Sign Up' : 'Log In'}</button>
+      <button type="submit" className="block m-auto py-3 text-4xl">{ isSignup ? 'Sign Up' : 'Log In'}</button>
     </form>
     </div>
   )
