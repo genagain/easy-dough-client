@@ -11,6 +11,7 @@ function NavBar() {
       setShowAuth(!showAuth)
     }
 
+    // TODO figure out why the md breakpoints aren't working as expected using the lg ones seem a bit too large
     return (
       <div className="container mx-auto px-6 py-4">
         <div className="flex flex-col lg:flex-row">
