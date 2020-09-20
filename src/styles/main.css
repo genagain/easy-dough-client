@@ -577,6 +577,12 @@ video {
   height: auto;
 }
 
+a {
+  --text-opacity: 1;
+  color: #2b6cb0;
+  color: rgba(43, 108, 176, var(--text-opacity))
+}
+
 .container {
   width: 100%;
 }
