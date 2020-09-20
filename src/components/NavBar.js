@@ -16,7 +16,7 @@ function NavBar() {
       <div className="container mx-auto px-6 py-4">
         <div className="flex flex-col lg:flex-row">
         <div className="flex justify-between">
-          <Link to='/' className="text-6xl lg:text-4xl">
+          <Link to='/' className="text-5xl lg:text-4xl">
             <h1>Easy Dough</h1>
           </Link>
         <div className="lg:hidden">
