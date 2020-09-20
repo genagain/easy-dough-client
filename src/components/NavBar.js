@@ -18,11 +18,13 @@ function NavBar() {
           <Link to='/' className="text-6xl">
             <h1>Easy Dough</h1>
           </Link>
+        <div className="md:hidden">
         <button type="button" className={ showAuth ? "focus:text-gray-600" : "focus:outline-none"} aria-label="toggle menu">
                   <svg viewBox="0 0 24 24" className="h-16 w-16 fill-current">
                     <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
                   </svg>
                 </button>
+        </div>
         </div>
           {
           accessToken ? 
