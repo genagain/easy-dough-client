@@ -1,14 +1,8 @@
-import React, {useContext} from 'react'
-import UserContext from '../UserContext'
+import React from 'react'
 
 function Dashboard() {
-  const { accessToken } = useContext(UserContext)
-
   return (
-    <>
-    <h1>dashboard</h1>
-    <h6>{accessToken}</h6>
-    </>
+    <p>Dashboard</p>
   )
 }
 
