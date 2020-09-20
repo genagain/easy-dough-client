@@ -41,12 +41,12 @@ function Login() {
     await authenticate(email, password)
   }
 
-  //<button onClick={handleDemoLogin} className="text-4xl py-3">Demo Log In</button>
   return (
     <div className="flex flex-col items-center">
       <h4 className="text-6xl">Login</h4>
       {error ? <p>{error}</p> : null}
       <AuthForm onSubmit={handleLogin} fieldSetters={{ setEmail, setPassword }}/>
+      <button onClick={handleDemoLogin} className="text-4xl py-3">Demo Log In</button>
     </div>
 
   )
