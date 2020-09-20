@@ -7,26 +7,31 @@ function NavBar() {
 
     return (
       <>
-                  <Link to='/'>
-                    <h1>Easy Dough</h1>
-                  </Link>
-               { accessToken ? 
-                 (
-                    <Link to='/' onClick={logout}>
-                     Logout
-                   </Link>
-                 ):
-                 (
-                   <>
-                   <Link to='/signup'>
-                     Sign Up
-                   </Link>
-                   <Link to='/login'>
-                     Login
-                   </Link>
-                   </>
-                 )
-               }
+        <div className="flex flex-row">
+          <Link to='/'>
+            <h1>Easy Dough</h1>
+          </Link>
+          <div className="flex-grow"></div>
+          <div clasName="flex-none">
+          { accessToken ? 
+            (
+              <Link to='/' onClick={logout}>
+                Logout
+              </Link>
+            ):
+           (
+             <>
+               <Link to='/signup'>
+                 Sign Up
+               </Link>
+               <Link to='/login'>
+                 Login
+               </Link>
+             </>
+           )
+         }
+          </div>
+        </div>
       </>
               );
 }
