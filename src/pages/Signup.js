@@ -44,7 +44,7 @@ function Signup() {
 
   return (
     <div className="flex flex-col items-center">
-    <h4 className="text-6xl">Sign Up</h4>
+    <h4 className="text-6xl lg:text-4xl">Sign Up</h4>
     {error ? <p>{error}</p> : null}
     <AuthForm isSignup onSubmit={handleSubmit} fieldSetters={{setFirstname, setLastname, setEmail, setPassword, setPasswordConfirmation}}/>
     </div>
