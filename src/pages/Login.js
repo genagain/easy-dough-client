@@ -42,12 +42,12 @@ function Login() {
   }
 
   return (
-    <>
-    <h4>Login</h4>
-    {error ? <p>{error}</p> : null}
-    <AuthForm onSubmit={handleLogin} fieldSetters={{ setEmail, setPassword }}/>
-    <button onClick={handleDemoLogin}>Demo Log In</button>
-    </>
+    <div className="flex flex-col">
+      <h4 className="text-6xl m-auto lg:text-4xl">Login</h4>
+      {error ? <p>{error}</p> : null}
+      <AuthForm onSubmit={handleLogin} fieldSetters={{ setEmail, setPassword }}/>
+      <button onClick={handleDemoLogin} className="m-auto my-6 py-6 px-6 border border-gray-400 rounded-lg text-4xl lg:my-2 lg:p-2 text-4xl lg:text-lg">Demo Log In</button>
+    </div>
 
   )
 }
