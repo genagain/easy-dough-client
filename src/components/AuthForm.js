@@ -3,6 +3,7 @@ import React from 'react'
 function AuthForm({onSubmit, isSignup, fieldSetters}) {
   const {setFirstname, setLastname, setEmail, setPassword, setPasswordConfirmation} = fieldSetters
 
+  // TODO change py-6 px-6 to p-6
   return (
     <div className="pt-4">
     <form onSubmit={onSubmit} data-testid="form">
