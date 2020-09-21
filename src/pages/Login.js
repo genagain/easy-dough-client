@@ -43,10 +43,10 @@ function Login() {
 
   return (
     <div className="flex flex-col items-center">
-      <h4 className="text-6xl">Login</h4>
+      <h4 className="text-6xl lg:text-4xl">Login</h4>
       {error ? <p>{error}</p> : null}
       <AuthForm onSubmit={handleLogin} fieldSetters={{ setEmail, setPassword }}/>
-      <button onClick={handleDemoLogin} className="my-6 py-6 px-6 border-2 border-gray-500 rounded-lg text-4xl">Demo Log In</button>
+      <button onClick={handleDemoLogin} className="my-6 py-6 px-6 border-2 border-gray-500 rounded-lg text-4xl lg:my-2 lg:p-2 text-4xl lg:text-base">Demo Log In</button>
     </div>
 
   )

@@ -17,7 +17,7 @@ function AuthForm({onSubmit, isSignup, fieldSetters}) {
     { isSignup ?
       <input type="password" name="password_confirmation" placeholder="Confirm Password" onChange={e => setPasswordConfirmation(e.target.value)} className="block w-full my-6 p-6 text-4xl lg:my-4 lg:p-2 lg:text-base"/>
       : null }
-      <button type="submit" className="block m-auto my-5 p-6 border-2 border-gray-500 rounded-lg lg:my-4 lg:p-2 text-4xl lg:text-base">{ isSignup ? 'Sign Up' : 'Log In'}</button>
+      <button type="submit" className="block m-auto my-5 p-6 border-2 border-gray-500 rounded-lg lg:my-2 lg:p-2 text-4xl lg:text-base">{ isSignup ? 'Sign Up' : 'Log In'}</button>
     </form>
     </div>
   )
