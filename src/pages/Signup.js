@@ -43,11 +43,11 @@ function Signup() {
   }
 
   return (
-    <>
-    <h4>Sign Up</h4>
+    <div className="flex flex-col items-center">
+    <h4 className="text-6xl">Sign Up</h4>
     {error ? <p>{error}</p> : null}
     <AuthForm isSignup onSubmit={handleSubmit} fieldSetters={{setFirstname, setLastname, setEmail, setPassword, setPasswordConfirmation}}/>
-    </>
+    </div>
   )
 }
 
