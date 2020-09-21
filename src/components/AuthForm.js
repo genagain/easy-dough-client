@@ -12,8 +12,8 @@ function AuthForm({onSubmit, isSignup, fieldSetters}) {
         <input type="text" name="lastname" placeholder="Last Name" onChange={e => setLastname(e.target.value)} className="py-6 text-4xl"/>
       </div>
       : null }
-      <input type="text" name="email" placeholder="Email" onChange={e => setEmail(e.target.value) } className="block w-full my-10 py-6 text-4xl"/>
-      <input type="password" name="password" placeholder="Password" onChange={e => setPassword(e.target.value) } className="block w-full my-10 py-6 text-4xl"/>
+      <input type="text" name="email" placeholder="Email" onChange={e => setEmail(e.target.value) } className="block w-full my-10 py-6 px-6 text-4xl"/>
+      <input type="password" name="password" placeholder="Password" onChange={e => setPassword(e.target.value) } className="block w-full my-10 py-6 px-6 text-4xl"/>
     { isSignup ?
       <input type="password" name="password_confirmation" placeholder="Confirm Password" onChange={e => setPasswordConfirmation(e.target.value)} className="block w-full my-10 py-6 text-4xl"/>
       : null }
