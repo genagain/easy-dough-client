@@ -46,7 +46,7 @@ function Login() {
       <h4 className="text-6xl">Login</h4>
       {error ? <p>{error}</p> : null}
       <AuthForm onSubmit={handleLogin} fieldSetters={{ setEmail, setPassword }}/>
-      <button onClick={handleDemoLogin} className="text-4xl py-3">Demo Log In</button>
+      <button onClick={handleDemoLogin} className="my-6 py-6 px-6 border-2 border-gray-500 rounded-lg text-4xl">Demo Log In</button>
     </div>
 
   )
