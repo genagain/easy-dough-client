@@ -12,12 +12,12 @@ function AuthForm({onSubmit, isSignup, fieldSetters}) {
         <input type="text" name="lastname" placeholder="Last Name" onChange={e => setLastname(e.target.value)}/>
       </>
       : null }
-      <input type="text" name="email" placeholder="Email" onChange={e => setEmail(e.target.value) } className="block py-3 text-4xl"/>
-      <input type="password" name="password" placeholder="Password" onChange={e => setPassword(e.target.value) } className="block py-3 text-4xl"/>
+      <input type="text" name="email" placeholder="Email" onChange={e => setEmail(e.target.value) } className="block my-10 py-6 text-4xl"/>
+      <input type="password" name="password" placeholder="Password" onChange={e => setPassword(e.target.value) } className="block my-10 py-6 text-4xl"/>
     { isSignup ?
       <input type="password" name="password_confirmation" placeholder="Confirm Password" onChange={e => setPasswordConfirmation(e.target.value)}/>
       : null }
-      <button type="submit" className="block m-auto py-3 text-4xl">{ isSignup ? 'Sign Up' : 'Log In'}</button>
+      <button type="submit" className="block m-auto my-10 py-6 py-3 text-4xl">{ isSignup ? 'Sign Up' : 'Log In'}</button>
     </form>
     </div>
   )
