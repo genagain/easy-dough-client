@@ -37,10 +37,10 @@ function NavBar() {
            ):
            (
              <>
-               <Link to='/signup' className={`${showAuth ? null : 'invisible'} text-4xl lg:visible lg:text-2xl lg:px-4`}>
+               <Link to='/signup' className={`${showAuth ? null : 'invisible'} my-2 py-2 text-4xl lg:visible lg:text-2xl lg:px-4`}>
                  Sign Up
                </Link>
-               <Link to='/login' className={`${showAuth ? null : 'invisible'} text-4xl lg:visible lg:text-2xl lg:px-4`}>
+               <Link to='/login' className={`${showAuth ? null : 'invisible'} my-2 py-2 text-4xl lg:visible lg:text-2xl lg:px-4`}>
                  Login
                </Link>
              </>
