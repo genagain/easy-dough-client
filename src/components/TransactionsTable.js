@@ -2,9 +2,8 @@ import React from 'react';
 
 function TransactionsTable({transactions}) {
   // TODO create a transactions row component
-  // Ideally not use a nested map
   return (
-        <div>
+        <>
             {
               transactions.map( transaction => {
                 const { date, description, amount } = transaction
@@ -17,7 +16,7 @@ function TransactionsTable({transactions}) {
                 )
               })
             }
-          </div>
+          </>
   )
 }
 
