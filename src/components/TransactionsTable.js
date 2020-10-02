@@ -1,21 +1,10 @@
 import React from 'react';
 
-function TransactionsTable({allTransactions}) {
-  if (allTransactions.length === 0) {
-    return (
-      <p>Looks like we don't have any transactions to show yet</p>
-    )
-  }
+function TransactionsTable({transactions}) {
   // TODO create a transactions row component
   // Ideally not use a nested map
   return (
-    <div>
-    { 
-      allTransactions.map( monthsTransactions => {
-        const { month, transactions } = monthsTransactions
-        return (
-          <div key={month}>
-            <h1>{month}</h1>
+        <div>
             {
               transactions.map( transaction => {
                 const { date, description, amount } = transaction
@@ -29,10 +18,6 @@ function TransactionsTable({allTransactions}) {
               })
             }
           </div>
-        )
-      })
-    }
-    </div>
   )
 }
 
