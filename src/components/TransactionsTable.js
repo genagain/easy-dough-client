@@ -1,9 +1,10 @@
 import React from 'react';
 
 function TransactionsTable({transactions}) {
-  // TODO create a transactions row component
+  // TODO consider creating a transactions row component
+  // TODO consider testing order of rendered transactions
   return (
-        <>
+        <div>
             {
               transactions.map( transaction => {
                 const { date, description, amount } = transaction
@@ -16,7 +17,7 @@ function TransactionsTable({transactions}) {
                 )
               })
             }
-          </>
+          </div>
   )
 }
 
