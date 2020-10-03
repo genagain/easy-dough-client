@@ -31,9 +31,14 @@ function NavBar() {
           {
           accessToken ? 
            (
+            <>
+              <Link to='/transactions' className="text-4xl lg:text-2xl">
+               Transactions
+             </Link>
               <Link to='/' onClick={logout} className="text-4xl lg:text-2xl">
                Logout
              </Link>
+            </>
            ):
            (
              <>
