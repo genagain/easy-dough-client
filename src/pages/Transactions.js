@@ -4,7 +4,7 @@ import UserContext from '../UserContext'
 
 function Transactions() {
 
-  const { accessToken } = useContext(UserContext)
+  const { accessToken, logout } = useContext(UserContext)
   const [allTransactions, setAllTransactions] = useState([])
 
   function deduceDate(date, isStart = false) {
@@ -44,6 +44,8 @@ function Transactions() {
       if (response.ok) {
         const transactions = await response.json()
         setAllTransactions(transactions)
+      } else {
+        logout()
       }
     }
 
