@@ -50,7 +50,7 @@ function Transactions() {
     }
 
     fetchTransactions()
-  }, [accessToken])
+  }, [accessToken, logout])
 
   return (
     <>
