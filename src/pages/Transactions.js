@@ -9,36 +9,36 @@ function Transactions() {
 
   const { accessToken, logout } = useContext(UserContext)
 
-  const today = new Date(Date.now())
-  const [endDate, setEndDate] = useState(today)
-  const [startDate, setStartDate] = useState(deduceDate(today, true))
+  const [initialStartDate, initialEndDate] = initialDates()
 
+  const [endDate, setEndDate] = useState(initialEndDate)
+  const [startDate, setStartDate] = useState(initialStartDate)
   const [allTransactions, setAllTransactions] = useState([])
 
-  // TODO consider creating an options object
-  function deduceDate(date, isStart = false) {
-    if (isStart) {
-      date.setMonth(date.getMonth() - 2)
-    }
+  function initialDates() {
+    const endDate = new Date(Date.now())
+    const startYear = endDate.getFullYear()
+    const startMonth = endDate.getMonth() - 2
+    const startDate = new Date(startYear, startMonth)
+    return [startDate, endDate]
+  }
 
+  function formatDate(date) {
     const options = { year: 'numeric', month: '2-digit', day: '2-digit'}
     const [month, day, year] = date.toLocaleDateString('en-US', options).split('/')
-    
-    const intlDate = isStart ? [year, month, '01'] : [year, month, day]
-    return intlDate.join('-')
+    return [year, month, day].join('-')
   }
 
   useEffect(() => {
     const fetchTransactions = async () => {
       const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
       
-      const today = new Date(Date.now())
-      const end_date = deduceDate(today)
-      const start_date = deduceDate(today, true)
+      const end_date = formatDate(endDate)
+      const start_date = formatDate(startDate)
 
       const params = new URLSearchParams({
-        start_date: start_date,
-        end_date: end_date,
+        start_date,
+        end_date,
       })
 
       const response = await fetch(`${apiUrl}/transactions?${params}`,
@@ -59,11 +59,13 @@ function Transactions() {
     }
 
     fetchTransactions()
-  }, [accessToken, logout])
+  }, [accessToken, logout, startDate, endDate])
 
   return (
     <>
     <h1>Transactions</h1>
+    <label>Start Date:</label>
+    <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
     <label>End Date:</label>
     <DatePicker selected={endDate} onChange={date => setEndDate(date)} />
     <TransactionsTableList allTransactions={allTransactions} />
