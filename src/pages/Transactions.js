@@ -1,12 +1,21 @@
 import React, { useContext, useState, useEffect } from 'react'
 import TransactionsTableList from '../components/TransactionsTableList'
 import UserContext from '../UserContext'
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 function Transactions() {
 
   const { accessToken, logout } = useContext(UserContext)
+
+  const today = new Date(Date.now())
+  const [endDate, setEndDate] = useState(today)
+  const [startDate, setStartDate] = useState(deduceDate(today, true))
+
   const [allTransactions, setAllTransactions] = useState([])
 
+  // TODO consider creating an options object
   function deduceDate(date, isStart = false) {
     if (isStart) {
       date.setMonth(date.getMonth() - 2)
@@ -55,6 +64,8 @@ function Transactions() {
   return (
     <>
     <h1>Transactions</h1>
+    <label>End Date:</label>
+    <DatePicker selected={endDate} onChange={date => setEndDate(date)} />
     <TransactionsTableList allTransactions={allTransactions} />
     </>
   )
