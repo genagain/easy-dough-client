@@ -75,10 +75,10 @@ function Transactions() {
   return (
     <>
     <h1>Transactions</h1>
-    <label>Start Date:</label>
-    <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
-    <label>End Date:</label>
-    <DatePicker selected={endDate} onChange={date => setEndDate(date)} />
+    <label htmlFor="startdate-input">Start Date:</label>
+    <DatePicker id="startdate-input" selected={startDate} onChange={date => setStartDate(date)} />
+    <label htmlFor="enddate-input">End Date:</label>
+    <DatePicker id="enddate-input" selected={endDate} onChange={date => setEndDate(date)} />
     <input placeholder="Search Term (optional)" value={searchTerm} onChange={e => setSearchTerm(e.target.value)}/>
     <button onClick={ searchHandler }>Search</button>
     <TransactionsTableList allTransactions={allTransactions} />
