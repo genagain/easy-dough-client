@@ -79,7 +79,7 @@ function Transactions() {
     <DatePicker id="startdate-input" selected={startDate} onChange={date => setStartDate(date)} />
     <label htmlFor="enddate-input">End Date:</label>
     <DatePicker id="enddate-input" selected={endDate} onChange={date => setEndDate(date)} />
-    <input placeholder="Search Term (optional)" value={searchTerm} onChange={e => setSearchTerm(e.target.value)}/>
+    <input placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
     <button onClick={ searchHandler }>Search</button>
     <TransactionsTableList allTransactions={allTransactions} />
     </>
