@@ -1,39 +1,42 @@
 import React from 'react';
-import {render} from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import MockDate from 'mockdate'
+
 import Transactions from '../Transactions'
 import UserContext from '../../UserContext'
 
 test('render Transactions page', () => {
   const fakeAccessToken = 'fakeAccessToken'
-  const { getByRole } = render(<UserContext.Provider value={{ accessToken: fakeAccessToken }}><Transactions /></UserContext.Provider>)
-  const title = getByRole("heading", { name: /transactions/i}).textContent;
+  render(<UserContext.Provider value={{ accessToken: fakeAccessToken }}><Transactions /></UserContext.Provider>)
+  const title = screen.getByRole("heading", { name: /transactions/i}).textContent;
   expect(title).toMatchInlineSnapshot(`"Transactions"`)
 })
 
-//TODO consider mocking date with https://www.npmjs.com/package/mockdate
 test('renders date pickers', () => {
+  MockDate.set('2020-10-04')
   const fakeAccessToken = 'fakeAccessToken'
-  const { getByLabelText } = render(<UserContext.Provider value={{ accessToken: fakeAccessToken }}><Transactions /></UserContext.Provider>)
+  render(<UserContext.Provider value={{ accessToken: fakeAccessToken }}><Transactions /></UserContext.Provider>)
 
-  const startDate = getByLabelText('Start Date:')
-  expect(startDate).not.toBeNull()
+  const startDate = screen.getByLabelText('Start Date:')
+  expect(startDate.value).toEqual('08/01/2020')
 
-  const endDate = getByLabelText('End Date:')
-  expect(endDate).not.toBeNull()
+  // Note: for some reason the date picker component subtracts one day from its selected prop
+  const endDate = screen.getByLabelText('End Date:')
+  expect(endDate.value).toEqual('10/03/2020')
 })
 
 test('renders search term input field', () => {
   const fakeAccessToken = 'fakeAccessToken'
-  const { getByPlaceholderText } = render(<UserContext.Provider value={{ accessToken: fakeAccessToken }}><Transactions /></UserContext.Provider>)
+  render(<UserContext.Provider value={{ accessToken: fakeAccessToken }}><Transactions /></UserContext.Provider>)
 
-  const searchTerm = getByPlaceholderText("Search Term (optional)")
+  const searchTerm = screen.getByPlaceholderText("Search Term (optional)")
   expect(searchTerm).not.toBeNull()
 })
 
 test('renders search button', () => {
   const fakeAccessToken = 'fakeAccessToken'
-  const { getByRole } = render(<UserContext.Provider value={{ accessToken: fakeAccessToken }}><Transactions /></UserContext.Provider>)
+  render(<UserContext.Provider value={{ accessToken: fakeAccessToken }}><Transactions /></UserContext.Provider>)
 
-  const button = getByRole("button", { name: /search/i}).textContent;
+  const button = screen.getByRole("button", { name: /search/i}).textContent;
   expect(button).toMatchInlineSnapshot(`"Search"`)
 })
