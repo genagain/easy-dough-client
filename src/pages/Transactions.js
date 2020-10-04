@@ -12,7 +12,9 @@ function Transactions() {
   const [initialStartDate, initialEndDate] = initialDates()
   const [endDate, setEndDate] = useState(initialEndDate)
   const [startDate, setStartDate] = useState(initialStartDate)
+
   const [searchTerm, setSearchTerm] = useState()
+
   const [queryParams, setQueryParams] = useState({ start_date: formatDate(startDate), end_date: formatDate(endDate)})
 
 
@@ -35,7 +37,6 @@ function Transactions() {
   useEffect(() => {
     const fetchTransactions = async () => {
       const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
-      
       const searchParams = new URLSearchParams(queryParams)
 
       const response = await fetch(`${apiUrl}/transactions?${searchParams}`,
@@ -64,6 +65,10 @@ function Transactions() {
       end_date: formatDate(endDate)
     }
 
+    if (searchTerm) {
+      params['search_term'] = searchTerm
+    }
+
     setQueryParams(params)
   }
 
@@ -74,6 +79,7 @@ function Transactions() {
     <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
     <label>End Date:</label>
     <DatePicker selected={endDate} onChange={date => setEndDate(date)} />
+    <input placeholder="Search Term (optional)" value={searchTerm} onChange={e => setSearchTerm(e.target.value)}/>
     <button onClick={ searchHandler }>Search</button>
     <TransactionsTableList allTransactions={allTransactions} />
     </>
