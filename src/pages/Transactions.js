@@ -10,9 +10,12 @@ function Transactions() {
   const { accessToken, logout } = useContext(UserContext)
 
   const [initialStartDate, initialEndDate] = initialDates()
-
   const [endDate, setEndDate] = useState(initialEndDate)
   const [startDate, setStartDate] = useState(initialStartDate)
+  const [searchTerm, setSearchTerm] = useState()
+  const [queryParams, setQueryParams] = useState({ start_date: formatDate(startDate), end_date: formatDate(endDate)})
+
+
   const [allTransactions, setAllTransactions] = useState([])
 
   function initialDates() {
@@ -33,15 +36,9 @@ function Transactions() {
     const fetchTransactions = async () => {
       const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
       
-      const end_date = formatDate(endDate)
-      const start_date = formatDate(startDate)
+      const searchParams = new URLSearchParams(queryParams)
 
-      const params = new URLSearchParams({
-        start_date,
-        end_date,
-      })
-
-      const response = await fetch(`${apiUrl}/transactions?${params}`,
+      const response = await fetch(`${apiUrl}/transactions?${searchParams}`,
         {
           method: 'GET',
           headers: {
@@ -59,7 +56,16 @@ function Transactions() {
     }
 
     fetchTransactions()
-  }, [accessToken, logout, startDate, endDate])
+  }, [accessToken, logout, queryParams])
+
+  function searchHandler() {
+    const params = {
+      start_date: formatDate(startDate),
+      end_date: formatDate(endDate)
+    }
+
+    setQueryParams(params)
+  }
 
   return (
     <>
@@ -68,6 +74,7 @@ function Transactions() {
     <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
     <label>End Date:</label>
     <DatePicker selected={endDate} onChange={date => setEndDate(date)} />
+    <button onClick={ searchHandler }>Search</button>
     <TransactionsTableList allTransactions={allTransactions} />
     </>
   )
