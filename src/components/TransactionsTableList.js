@@ -7,6 +7,8 @@ function TransactionsTableList({allTransactions}) {
       <p>Looks like we don't have any transactions to show yet</p>
     )
   }
+  console.log('TransactionsTableList')
+  console.log(allTransactions)
   return (
     <div>
     { 
