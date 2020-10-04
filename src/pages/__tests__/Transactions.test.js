@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react'
 import MockDate from 'mockdate'
-
 import Transactions from '../Transactions'
 import UserContext from '../../UserContext'
 
