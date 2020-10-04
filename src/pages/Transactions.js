@@ -50,6 +50,8 @@ function Transactions() {
 
       if (response.ok) {
         const transactions = await response.json()
+        console.log('get transactions')
+        console.log(transactions)
         setAllTransactions(transactions)
       } else {
         logout()
