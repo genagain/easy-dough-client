@@ -5,7 +5,7 @@ import TransactionsTableList from '../TransactionsTableList'
 describe('When there are no transactions to render, the TransactionsTableList component', () => {
   test('renders a message that says there are no transactions', () => {
     render(<TransactionsTableList allTransactions={[]} />)
-    const message = screen.getByText("Looks like we don't have any transactions to show yet")
+    const message = screen.getByText("No transactions were found that matched the provided date range or search term")
     expect(message).not.toBeNull()
   })
 })

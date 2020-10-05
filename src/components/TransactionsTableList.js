@@ -4,11 +4,10 @@ import TransactionsTable from './TransactionsTable';
 function TransactionsTableList({allTransactions}) {
   if (allTransactions.length === 0) {
     return (
-      <p>Looks like we don't have any transactions to show yet</p>
+      <p>No transactions were found that matched the provided date range or search term</p>
     )
   }
-  console.log('TransactionsTableList')
-  console.log(allTransactions)
+
   return (
     <div>
     { 
