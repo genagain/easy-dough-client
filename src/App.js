@@ -7,7 +7,7 @@ import ProtectedRoute from './hocs/ProtectedRoute'
 import Index from './pages/Index'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
-import Dashboard from './pages/Dashboard'
+import Transactions from './pages/Transactions'
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route path="/" exact component = {Index} />
         <Route path="/signup" component = {Signup} />
         <Route path="/login" component = {Login} />
-        <ProtectedRoute path="/dashboard" component = {Dashboard} />
+        <ProtectedRoute path="/transactions" component = {Transactions} />
       </Switch>
     </>
   );

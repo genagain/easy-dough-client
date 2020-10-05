@@ -33,6 +33,11 @@ describe('When the access token does not exist, the NavBar component', () => {
     const logoutLink = screen.queryByRole("link", { name: /logout/i})
     expect(logoutLink).toBeNull()
   })
+
+  it('does not render the transactions link', () => {
+    const transactions = screen.queryByRole("link", { name: /transactions/i })
+    expect(transactions).toBeNull()
+  })
 })
 
 describe('When the access token exists, the NavBar component', () => {
@@ -43,6 +48,11 @@ describe('When the access token exists, the NavBar component', () => {
   it('renders the Easy Dough link', () => {
     const indexLink = screen.getByRole("heading", { name: /easy dough/i}).textContent;
     expect(indexLink).toMatchInlineSnapshot(`"Easy Dough"`)
+  })
+
+  it('renders the transactions link', () => {
+    const transactionsLink = screen.getByRole("link", { name: /transactions/i}).textContent;
+    expect(transactionsLink).toMatchInlineSnapshot(`"Transactions"`)
   })
 
   it('renders the logout link', () => {
