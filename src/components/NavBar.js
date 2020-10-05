@@ -13,8 +13,8 @@ function NavBar() {
 
     // TODO figure out why the md breakpoints aren't working as expected using the lg ones seem a bit too large
     return (
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex flex-col lg:flex-row">
+      <div className="container mx-auto px-6 py-4 lg:px-2">
+        <div className="flex flex-col lg:flex-row lg:items-center">
         <div className="flex justify-between">
           <Link to='/' className="text-6xl lg:text-4xl">
             <h1>Easy Dough</h1>
@@ -27,16 +27,22 @@ function NavBar() {
                 </button>
         </div>
         </div>
-        <div className="lg:flex-grow"></div>
           {
           accessToken ? 
            (
-              <Link to='/' onClick={logout} className="text-4xl lg:text-2xl">
+            <>
+              <Link to='/transactions' className="my-2 py-2 text-4xl lg:mx-10 lg:text-2xl">
+               Transactions
+             </Link>
+             <div className="lg:flex-grow"></div>
+              <Link to='/' onClick={logout} className="my-2 py-2 text-4xl lg:text-2xl">
                Logout
              </Link>
+            </>
            ):
            (
              <>
+               <div className="lg:flex-grow"></div>
                <Link to='/signup' className={`${showAuth ? null : 'invisible'} my-2 py-2 text-4xl lg:visible lg:text-2xl lg:px-4`}>
                  Sign Up
                </Link>

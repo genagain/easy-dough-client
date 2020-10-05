@@ -5,6 +5,6 @@ import Index from '../Index'
 test('render Index page', () => {
   const testText = 'index'
   const { getByRole } = render(<Index />)
-  const title = getByRole("heading", { name: /index/}).textContent;
-  expect(title).toMatchInlineSnapshot(`"index"`)
+  const title = getByRole("heading", { name: /index/i});
+  expect(title).toHaveTextContent("Index")
 })

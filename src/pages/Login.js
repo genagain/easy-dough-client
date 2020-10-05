@@ -24,7 +24,7 @@ function Login() {
     const json = await response.json()
     if (json['access_token']) {
       login(json['access_token'])
-      history.push('/dashboard')
+      history.push('/transactions')
     } else {
       setError('That email and password was incorrect. Please try again.')
     }

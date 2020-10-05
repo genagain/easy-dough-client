@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "js-cookie": "^2.2.1",
+    "mockdate": "^3.0.2",
     "msw": "^0.21.2",
     "react": "^16.13.1",
+    "react-datepicker": "^3.2.2",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
