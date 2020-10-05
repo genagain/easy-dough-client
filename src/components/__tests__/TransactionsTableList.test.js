@@ -69,7 +69,5 @@ describe('When there are transactions to render, the TransactionsTableList compo
         })
       })
     })
-
-        // TODO expect that each month renders the children under it
   })
 })
