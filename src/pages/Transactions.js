@@ -83,7 +83,7 @@ function Transactions() {
     <DatePicker id="enddate-input" selected={endDate} onChange={date => setEndDate(date)} />
     <input placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
     <button onClick={ searchHandler }>Search</button>
-    <button onClick={ () => { setToggleCreate(true)} }>Add Transaction</button>
+    <button onClick={ () => { setToggleCreate(true)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
     { toggleCreate ?
       (
         <>
