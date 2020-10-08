@@ -30,6 +30,7 @@ function Transactions() {
     return [startDate, endDate]
   }
 
+  // Consider putting this in a utils file
   function formatDate(date) {
     const options = { year: 'numeric', month: '2-digit', day: '2-digit'}
     const [month, day, year] = date.toLocaleDateString('en-US', options).split('/')

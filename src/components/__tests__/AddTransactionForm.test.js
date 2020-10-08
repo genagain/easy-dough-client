@@ -1,11 +1,12 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import MockDate from 'mockdate'
+import UserContext from '../../UserContext'
 import AddTransactionForm from '../AddTransactionForm'
 
 beforeEach(() => {
   MockDate.set(new Date('10/04/2020'))
-  render(<AddTransactionForm />)
+  render(<UserContext.Provider value={{}}><AddTransactionForm /></UserContext.Provider>)
 })
 
 test('renders a date input field with today selected', () => {
