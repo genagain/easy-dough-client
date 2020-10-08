@@ -9,6 +9,8 @@ function Transactions() {
 
   const { accessToken, logout } = useContext(UserContext)
 
+  const [toggleCreate, setToggleCreate] = useState(false)
+
   const [initialStartDate, initialEndDate] = initialDates()
   const [endDate, setEndDate] = useState(initialEndDate)
   const [startDate, setStartDate] = useState(initialStartDate)
@@ -16,7 +18,6 @@ function Transactions() {
   const [searchTerm, setSearchTerm] = useState()
 
   const [queryParams, setQueryParams] = useState({ start_date: formatDate(startDate), end_date: formatDate(endDate)})
-
 
   const [allTransactions, setAllTransactions] = useState([])
 
@@ -50,8 +51,6 @@ function Transactions() {
 
       if (response.ok) {
         const transactions = await response.json()
-        console.log('get transactions')
-        console.log(transactions)
         setAllTransactions(transactions)
       } else {
         logout()
@@ -74,6 +73,7 @@ function Transactions() {
     setQueryParams(params)
   }
 
+  // Add to show Hide to close
   return (
     <>
     <h1>Transactions</h1>
@@ -83,7 +83,19 @@ function Transactions() {
     <DatePicker id="enddate-input" selected={endDate} onChange={date => setEndDate(date)} />
     <input placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
     <button onClick={ searchHandler }>Search</button>
-    <button onClick={ () => {} }>Add Transaction</button>
+    <button onClick={ () => { setToggleCreate(true)} }>Add Transaction</button>
+    { toggleCreate ?
+      (
+        <>
+          <label htmlFor="startdate-input">Date:</label>
+          <DatePicker id="startdate-input" selected={new Date(Date.now())} onChange={date => setStartDate(date)} />
+          <input placeholder="Description" onChange={ () => {} }/>
+          <input placeholder="Amount" onChange={ () => {} }/>
+          <button onClick={ () => { } }>Create Transaction</button>
+        </>
+      ) : 
+        null
+    }
     <TransactionsTableList allTransactions={allTransactions} />
     </>
   )

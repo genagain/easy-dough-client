@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import MockDate from 'mockdate'
 import Transactions from '../Transactions'
 import UserContext from '../../UserContext'
@@ -36,4 +36,28 @@ test('renders search button', () => {
 test('renders add transaction button', () => {
   const button = screen.getByRole("button", { name: /add transaction/i}).textContent;
   expect(button).toMatchInlineSnapshot(`"Add Transaction"`)
+})
+
+test('clicking the add transaction button renders a form', () => {
+  const noDate = screen.queryByLabelText('Date:')
+  expect(noDate).toBeNull()
+  const noDescription = screen.queryByPlaceholderText("Description")
+  expect(noDescription).toBeNull()
+  const noAmount = screen.queryByPlaceholderText("Amount")
+  expect(noAmount).toBeNull()
+  const noCreateButton = screen.queryByRole("button", { name: /create transaction/i});
+  expect(noCreateButton).toBeNull()
+
+  const button = screen.getByRole("button", { name: /add transaction/i});
+  fireEvent.click(button)
+
+  const date = screen.getByLabelText('Date:')
+  expect(date).not.toBeNull()
+  const description = screen.getByPlaceholderText("Description")
+  expect(description).not.toBeNull()
+  const amount = screen.getByPlaceholderText("Amount")
+  expect(amount).not.toBeNull()
+
+  const createButton = screen.getByRole("button", { name: /create transaction/i});
+  expect(createButton).not.toBeNull()
 })
