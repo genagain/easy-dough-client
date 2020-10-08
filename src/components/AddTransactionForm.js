@@ -11,6 +11,7 @@ function AddTransactionForm() {
   const [amount, setAmount] = useState()
 
   async function handleAddTransaction() {
+    // TODO handle amount validation
     const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
     const response = await fetch(`${apiUrl}/transactions/add`,
       {
