@@ -68,3 +68,29 @@ test('clicking the add transaction button renders a form', () => {
   const noAddButton = screen.queryByRole("button", { name: /add transaction/i});
   expect(noAddButton).toBeNull()
 })
+
+test('clicking the hide transaction button hides a form', () => {
+  const addButton = screen.getByRole("button", { name: /add transaction/i});
+  fireEvent.click(addButton)
+
+  const date = screen.getByLabelText('Date:')
+  expect(date).not.toBeNull()
+  const description = screen.getByPlaceholderText("Description")
+  expect(description).not.toBeNull()
+  const amount = screen.getByPlaceholderText("Amount")
+  expect(amount).not.toBeNull()
+  const createButton = screen.getByRole("button", { name: /create transaction/i});
+  expect(createButton).not.toBeNull()
+
+  const hideButton = screen.getByRole("button", { name: /hide transaction/i});
+  fireEvent.click(hideButton)
+
+  const noDate = screen.queryByLabelText('Date:')
+  expect(noDate).toBeNull()
+  const noDescription = screen.queryByPlaceholderText("Description")
+  expect(noDescription).toBeNull()
+  const noAmount = screen.queryByPlaceholderText("Amount")
+  expect(noAmount).toBeNull()
+  const noCreateButton = screen.queryByRole("button", { name: /create transaction/i});
+  expect(noCreateButton).toBeNull()
+})
