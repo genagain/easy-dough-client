@@ -5,6 +5,7 @@ import Transactions from '../Transactions'
 import UserContext from '../../UserContext'
 
 beforeEach(() => {
+  MockDate.set(new Date('10/04/2020'))
   const fakeAccessToken = 'fakeAccessToken'
   render(<UserContext.Provider value={{ accessToken: fakeAccessToken }}><Transactions /></UserContext.Provider>)
 })
@@ -15,7 +16,6 @@ test('render Transactions page', () => {
 })
 
 test('renders date pickers', () => {
-  MockDate.set('2020-10-04')
   const startDate = screen.getByLabelText('Start Date:')
   expect(startDate.value).toEqual('08/01/2020')
 
@@ -31,4 +31,9 @@ test('renders search term input field', () => {
 test('renders search button', () => {
   const button = screen.getByRole("button", { name: /search/i}).textContent;
   expect(button).toMatchInlineSnapshot(`"Search"`)
+})
+
+test('renders add transaction button', () => {
+  const button = screen.getByRole("button", { name: /add transaction/i}).textContent;
+  expect(button).toMatchInlineSnapshot(`"Add Transaction"`)
 })
