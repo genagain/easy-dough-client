@@ -73,7 +73,11 @@ function Transactions() {
     setQueryParams(params)
   }
 
-  // Add to show Hide to close
+  function handleAddTransaction() {
+  }
+
+  // Consider creating a separate search form component
+  // Consider creating a separate add transaction form component
   return (
     <>
     <h1>Transactions</h1>
@@ -91,7 +95,7 @@ function Transactions() {
           <DatePicker id="startdate-input" selected={new Date(Date.now())} onChange={date => setStartDate(date)} />
           <input placeholder="Description" onChange={ () => {} }/>
           <input placeholder="Amount" onChange={ () => {} }/>
-          <button onClick={ () => { } }>Create Transaction</button>
+          <button onClick={ handleAddTransaction }>Create Transaction</button>
         </>
       ) : 
         null
