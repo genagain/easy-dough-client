@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import TransactionsTableList from '../components/TransactionsTableList'
+import AddTransactionForm from '../components/AddTransactionForm'
 import UserContext from '../UserContext'
 import DatePicker from "react-datepicker";
 
@@ -73,11 +74,7 @@ function Transactions() {
     setQueryParams(params)
   }
 
-  function handleAddTransaction() {
-  }
-
   // Consider creating a separate search form component
-  // Consider creating a separate add transaction form component
   return (
     <>
     <h1>Transactions</h1>
@@ -90,13 +87,7 @@ function Transactions() {
     <button onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
     { toggleCreate ?
       (
-        <>
-          <label htmlFor="startdate-input">Date:</label>
-          <DatePicker id="startdate-input" selected={new Date(Date.now())} onChange={date => setStartDate(date)} />
-          <input placeholder="Description" onChange={ () => {} }/>
-          <input placeholder="Amount" onChange={ () => {} }/>
-          <button onClick={ handleAddTransaction }>Create Transaction</button>
-        </>
+        <AddTransactionForm />
       ) : 
         null
     }
