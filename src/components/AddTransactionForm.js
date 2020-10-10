@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import DatePicker from 'react-datepicker'
 import UserContext from '../UserContext'
+import { formatDate } from '../utils'
 
 function AddTransactionForm() {
 
@@ -11,23 +12,28 @@ function AddTransactionForm() {
   const [amount, setAmount] = useState()
 
   async function handleAddTransaction() {
+    // TODO flash some sort of added message
     // TODO handle amount validation
+    const body = {
+          date: formatDate(date),
+          description,
+          amount
+        }
     const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
-    const response = await fetch(`${apiUrl}/transactions/add`,
+    const response = await fetch(`${apiUrl}/transactions/create`,
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${accessToken}`
         },
-        body: {
-          date,
-          description,
-          amount
-        }
+        body: JSON.stringify(body)
       })
+      const responseJson = await response.json()
+      console.log(responseJson)
   }
 
+  // Have a better input field for currency
   return (
     <>
       <label htmlFor="date-input">Date:</label>
