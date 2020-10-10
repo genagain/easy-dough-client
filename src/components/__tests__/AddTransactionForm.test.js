@@ -15,12 +15,12 @@ test('renders a date input field with today selected', () => {
 })
 
 test('renders a description input field', () => {
-  const description = screen.getByPlaceholderText("Description")
+  const description = screen.getByLabelText('Description:')
   expect(description).not.toBeNull()
 })
 
 test('renders a amount input field', () => {
-  const amount = screen.getByPlaceholderText("Amount")
+  const amount = screen.getByLabelText('Amount:')
   expect(amount).not.toBeNull()
 })
 

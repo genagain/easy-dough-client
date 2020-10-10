@@ -14,6 +14,13 @@ function AddTransactionForm() {
   async function handleAddTransaction() {
     // TODO flash some sort of added message
     // TODO handle amount validation
+    let currencyRegex = /^\d{0,3},{0,1}\d{0,3}\.{0,1}\d{0,2}$/
+
+    if (!currencyRegex.test(amount)) {
+      console.log('invalid currency')
+      return
+    }
+
     const body = {
           date: formatDate(date),
           description,
@@ -38,8 +45,10 @@ function AddTransactionForm() {
     <>
       <label htmlFor="date-input">Date:</label>
       <DatePicker id="date-input" selected={date} onChange={ date => { setDate(date)}} />
-      <input placeholder="Description" onChange={ e => { setDescription(e.target.value)}}/>
-      <input placeholder="Amount" onChange={ e => { setAmount(e.target.value)}}/>
+      <label htmlFor="description-input">Description:</label>
+      <input id="description-input" placeholder="Coffee" onChange={ e => { setDescription(e.target.value)}}/>
+      <label htmlFor="amount-input">Amount:</label>
+      <input id="amount-input" placeholder="15.00" type="text" onChange={ e => { setAmount(e.target.value)}}/>
       <button onClick={handleAddTransaction}>Create Transaction</button>
     </>
   )
