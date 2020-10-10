@@ -14,8 +14,6 @@ function AddTransactionForm() {
   const [flashMessage, setFlashMessage] = useState()
 
   async function handleAddTransaction() {
-    // TODO flash some sort of added message
-    // TODO handle amount validation
     let currencyRegex = /^\d{0,3},{0,1}\d{0,3}\.{0,1}\d{0,2}$/
 
     if (!currencyRegex.test(amount)) {
@@ -38,7 +36,9 @@ function AddTransactionForm() {
         },
         body: JSON.stringify(body)
       })
-      const responseJson = await response.json()
+      const jsonResponse = await response.json()
+      const message = jsonResponse['message']
+      setFlashMessage(message)
   }
 
   // Have a better input field for currency
