@@ -31,7 +31,7 @@ function AddTransactionForm() {
   return (
     <>
       <label htmlFor="date-input">Date:</label>
-      <DatePicker id="date-input" selected={new Date(Date.now())} onChange={ date => { setDate(date)}} />
+      <DatePicker id="date-input" selected={date} onChange={ date => { setDate(date)}} />
       <input placeholder="Description" onChange={ e => { setDescription(e.target.value)}}/>
       <input placeholder="Amount" onChange={ e => { setAmount(e.target.value)}}/>
       <button onClick={handleAddTransaction}>Create Transaction</button>
