@@ -28,3 +28,5 @@ test('renders a create transaction button', () => {
   const createButton = screen.getByRole("button", { name: /create transaction/i});
   expect(createButton).not.toBeNull()
 })
+
+// TODO test flash message ideally

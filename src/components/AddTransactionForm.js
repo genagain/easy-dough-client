@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import DatePicker from 'react-datepicker'
+import FlashMessage from 'react-flash-message'
 import UserContext from '../UserContext'
 import { formatDate } from '../utils'
 
@@ -10,6 +11,7 @@ function AddTransactionForm() {
   const [date, setDate] = useState(new Date(Date.now()))
   const [description, setDescription] = useState()
   const [amount, setAmount] = useState()
+  const [flashMessage, setFlashMessage] = useState()
 
   async function handleAddTransaction() {
     // TODO flash some sort of added message
@@ -17,7 +19,7 @@ function AddTransactionForm() {
     let currencyRegex = /^\d{0,3},{0,1}\d{0,3}\.{0,1}\d{0,2}$/
 
     if (!currencyRegex.test(amount)) {
-      console.log('invalid currency')
+      setFlashMessage('Please enter a valid dollar amount')
       return
     }
 
@@ -37,12 +39,18 @@ function AddTransactionForm() {
         body: JSON.stringify(body)
       })
       const responseJson = await response.json()
-      console.log(responseJson)
   }
 
   // Have a better input field for currency
   return (
     <>
+      { flashMessage ?
+        (
+          <FlashMessage duration={5000}>
+            <strong>{flashMessage}</strong>
+          </FlashMessage>
+        ) : null
+      }
       <label htmlFor="date-input">Date:</label>
       <DatePicker id="date-input" selected={date} onChange={ date => { setDate(date)}} />
       <label htmlFor="description-input">Description:</label>
