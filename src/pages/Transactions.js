@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react'
+import DatePicker from "react-datepicker";
 import TransactionsTableList from '../components/TransactionsTableList'
 import AddTransactionForm from '../components/AddTransactionForm'
 import UserContext from '../UserContext'
-import DatePicker from "react-datepicker";
+import { formatDate } from '../utils'
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -28,13 +29,6 @@ function Transactions() {
     const startMonth = endDate.getMonth() - 2
     const startDate = new Date(startYear, startMonth)
     return [startDate, endDate]
-  }
-
-  // Consider putting this in a utils file
-  function formatDate(date) {
-    const options = { year: 'numeric', month: '2-digit', day: '2-digit'}
-    const [month, day, year] = date.toLocaleDateString('en-US', options).split('/')
-    return [year, month, day].join('-')
   }
 
   useEffect(() => {
