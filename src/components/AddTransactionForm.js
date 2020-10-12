@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import DatePicker from 'react-datepicker'
 import FlashMessage from 'react-flash-message'
 import UserContext from '../UserContext'
-import { formatDate } from '../utils'
+import { formatDate, formatAmount } from '../utils'
 
 function AddTransactionForm({setToggleCreate, queryParams, setQueryParams}) {
 
@@ -13,18 +13,25 @@ function AddTransactionForm({setToggleCreate, queryParams, setQueryParams}) {
   const [amount, setAmount] = useState()
   const [flashMessage, setFlashMessage] = useState()
 
-  async function handleAddTransaction() {
-    let currencyRegex = /^\d{0,3},{0,1}\d{0,3}\.{0,1}\d{0,2}$/
-
-    if (!currencyRegex.test(amount)) {
+  function validateAmount(amount) {
+    let validCurrency = /^\d{0,3},{0,1}\d{0,3}(\.{0,1}\d{2})?$/
+    if (!validCurrency.test(amount)) {
       setFlashMessage('Please enter a valid dollar amount')
+      return false
+    } else {
+      return true
+    }
+  }
+
+  async function handleAddTransaction() {
+    if (!validateAmount(amount)) {
       return
     }
 
     const body = {
           date: formatDate(date),
           description,
-          amount
+          amount: formatAmount(amount)
         }
     const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
     const response = await fetch(`${apiUrl}/transactions/create`,
