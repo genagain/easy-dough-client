@@ -51,8 +51,6 @@ function AddTransactionForm({setToggleCreate, queryParams, setQueryParams}) {
       setTimeout( () => setToggleCreate(false), 5000)
   }
 
-  // Consider having a useEffect for the FlashMessages in order to update them a bunch
-
   return (
     <>
       { flashMessage &&
