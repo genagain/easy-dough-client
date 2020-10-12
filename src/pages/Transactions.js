@@ -81,11 +81,8 @@ function Transactions() {
     <input placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
     <button onClick={ searchHandler }>Search</button>
     <button onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
-    { toggleCreate ?
-      (
+    { toggleCreate &&
         <AddTransactionForm setToggleCreate={setToggleCreate} queryParams={queryParams} setQueryParams={setQueryParams} />
-      ) : 
-        null
     }
     <TransactionsTableList allTransactions={allTransactions} />
     </>

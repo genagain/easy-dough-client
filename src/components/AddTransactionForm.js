@@ -8,7 +8,8 @@ function AddTransactionForm({setToggleCreate, queryParams, setQueryParams}) {
 
   const { accessToken } = useContext(UserContext)
 
-  const [date, setDate] = useState(new Date(Date.now()))
+  const today = new Date(Date.now())
+  const [date, setDate] = useState(today)
   const [description, setDescription] = useState()
   const [amount, setAmount] = useState()
   const [flashMessage, setFlashMessage] = useState()
@@ -50,17 +51,17 @@ function AddTransactionForm({setToggleCreate, queryParams, setQueryParams}) {
       setTimeout( () => setToggleCreate(false), 5000)
   }
 
+  // Consider having a useEffect for the FlashMessages in order to update them a bunch
+
   return (
     <>
-      { flashMessage ?
-        (
+      { flashMessage &&
           <FlashMessage duration={5000}>
             <strong>{flashMessage}</strong>
           </FlashMessage>
-        ) : null
       }
       <label htmlFor="date-input">Date:</label>
-      <DatePicker id="date-input" selected={date} onChange={ date => { setDate(date)}} />
+      <DatePicker id="date-input" selected={date} maxDate={today} onChange={ date => { setDate(date)}} />
       <label htmlFor="description-input">Description:</label>
       <input id="description-input" placeholder="Coffee" onChange={ e => { setDescription(e.target.value)}}/>
       <label htmlFor="amount-input">Amount:</label>
