@@ -55,9 +55,9 @@ test('clicking the add transaction button renders a form', () => {
 
   const date = screen.getByLabelText('Date:')
   expect(date).not.toBeNull()
-  const description = screen.getByPlaceholderText("Description")
+  const description = screen.getByLabelText("Description:")
   expect(description).not.toBeNull()
-  const amount = screen.getByPlaceholderText("Amount")
+  const amount = screen.getByLabelText("Amount:")
   expect(amount).not.toBeNull()
 
   const createButton = screen.getByRole("button", { name: /create transaction/i});
@@ -75,9 +75,9 @@ test('clicking the hide transaction button hides a form', () => {
 
   const date = screen.getByLabelText('Date:')
   expect(date).not.toBeNull()
-  const description = screen.getByPlaceholderText("Description")
+  const description = screen.getByLabelText("Description:")
   expect(description).not.toBeNull()
-  const amount = screen.getByPlaceholderText("Amount")
+  const amount = screen.getByLabelText("Amount:")
   expect(amount).not.toBeNull()
   const createButton = screen.getByRole("button", { name: /create transaction/i});
   expect(createButton).not.toBeNull()
@@ -87,9 +87,9 @@ test('clicking the hide transaction button hides a form', () => {
 
   const noDate = screen.queryByLabelText('Date:')
   expect(noDate).toBeNull()
-  const noDescription = screen.queryByPlaceholderText("Description")
+  const noDescription = screen.queryByLabelText("Description")
   expect(noDescription).toBeNull()
-  const noAmount = screen.queryByPlaceholderText("Amount")
+  const noAmount = screen.queryByLabelText("Amount")
   expect(noAmount).toBeNull()
   const noCreateButton = screen.queryByRole("button", { name: /create transaction/i});
   expect(noCreateButton).toBeNull()
