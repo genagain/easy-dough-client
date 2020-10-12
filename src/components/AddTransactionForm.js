@@ -4,7 +4,7 @@ import FlashMessage from 'react-flash-message'
 import UserContext from '../UserContext'
 import { formatDate } from '../utils'
 
-function AddTransactionForm({setToggleCreate}) {
+function AddTransactionForm({setToggleCreate, queryParams, setQueryParams}) {
 
   const { accessToken } = useContext(UserContext)
 
@@ -39,8 +39,8 @@ function AddTransactionForm({setToggleCreate}) {
       const jsonResponse = await response.json()
       const message = jsonResponse['message']
       setFlashMessage(message)
+      setQueryParams({...queryParams})
       setTimeout( () => setToggleCreate(false), 5000)
-    // TODO somehow hide form after successful submission
   }
 
   return (
