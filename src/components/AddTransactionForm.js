@@ -4,7 +4,7 @@ import FlashMessage from 'react-flash-message'
 import UserContext from '../UserContext'
 import { formatDate } from '../utils'
 
-function AddTransactionForm() {
+function AddTransactionForm({setToggleCreate}) {
 
   const { accessToken } = useContext(UserContext)
 
@@ -39,9 +39,10 @@ function AddTransactionForm() {
       const jsonResponse = await response.json()
       const message = jsonResponse['message']
       setFlashMessage(message)
+      setTimeout( () => setToggleCreate(false), 5000)
+    // TODO somehow hide form after successful submission
   }
 
-  // Have a better input field for currency
   return (
     <>
       { flashMessage ?

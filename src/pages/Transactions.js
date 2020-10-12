@@ -83,7 +83,7 @@ function Transactions() {
     <button onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
     { toggleCreate ?
       (
-        <AddTransactionForm />
+        <AddTransactionForm setToggleCreate={setToggleCreate} />
       ) : 
         null
     }
