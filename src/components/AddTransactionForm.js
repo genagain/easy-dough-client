@@ -47,8 +47,11 @@ function AddTransactionForm({setToggleCreate, queryParams, setQueryParams}) {
       const jsonResponse = await response.json()
       const message = jsonResponse['message']
       setFlashMessage(message)
+
+    if (response.ok) {
       setQueryParams({...queryParams})
       setTimeout( () => setToggleCreate(false), 5000)
+    }
   }
 
   return (
