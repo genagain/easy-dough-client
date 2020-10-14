@@ -1,13 +1,17 @@
 import React, { useContext, useState, useEffect } from 'react'
-import TransactionsTableList from '../components/TransactionsTableList'
-import UserContext from '../UserContext'
 import DatePicker from "react-datepicker";
+import TransactionsTableList from '../components/TransactionsTableList'
+import AddTransactionForm from '../components/AddTransactionForm'
+import UserContext from '../UserContext'
+import { formatDate } from '../utils'
 
 import "react-datepicker/dist/react-datepicker.css";
 
 function Transactions() {
 
   const { accessToken, logout } = useContext(UserContext)
+
+  const [toggleCreate, setToggleCreate] = useState(false)
 
   const [initialStartDate, initialEndDate] = initialDates()
   const [endDate, setEndDate] = useState(initialEndDate)
@@ -17,7 +21,6 @@ function Transactions() {
 
   const [queryParams, setQueryParams] = useState({ start_date: formatDate(startDate), end_date: formatDate(endDate)})
 
-
   const [allTransactions, setAllTransactions] = useState([])
 
   function initialDates() {
@@ -26,12 +29,6 @@ function Transactions() {
     const startMonth = endDate.getMonth() - 2
     const startDate = new Date(startYear, startMonth)
     return [startDate, endDate]
-  }
-
-  function formatDate(date) {
-    const options = { year: 'numeric', month: '2-digit', day: '2-digit'}
-    const [month, day, year] = date.toLocaleDateString('en-US', options).split('/')
-    return [year, month, day].join('-')
   }
 
   useEffect(() => {
@@ -50,8 +47,6 @@ function Transactions() {
 
       if (response.ok) {
         const transactions = await response.json()
-        console.log('get transactions')
-        console.log(transactions)
         setAllTransactions(transactions)
       } else {
         logout()
@@ -74,6 +69,7 @@ function Transactions() {
     setQueryParams(params)
   }
 
+  // Consider creating a separate search form component
   return (
     <>
     <h1>Transactions</h1>
@@ -83,6 +79,10 @@ function Transactions() {
     <DatePicker id="enddate-input" selected={endDate} onChange={date => setEndDate(date)} />
     <input placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
     <button onClick={ searchHandler }>Search</button>
+    <button onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
+    { toggleCreate &&
+        <AddTransactionForm setToggleCreate={setToggleCreate} queryParams={queryParams} setQueryParams={setQueryParams} />
+    }
     <TransactionsTableList allTransactions={allTransactions} />
     </>
   )
