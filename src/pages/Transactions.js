@@ -32,6 +32,9 @@ function Transactions() {
   }
 
   useEffect(() => {
+    if (process.env.NODE_ENV === 'test') {
+      return
+    }
     const fetchTransactions = async () => {
       const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
       const searchParams = new URLSearchParams(queryParams)
