@@ -62,7 +62,6 @@ function Transactions() {
       end_date: formatDate(endDate)
     }
 
-    // TODO Handle search term validation
     if (searchTerm) {
       params['search_term'] = searchTerm
     }
