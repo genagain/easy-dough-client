@@ -7,16 +7,16 @@ describe('The TransactionsTable component', () => {
   describe('renders', () => {
     beforeEach(() => {
       const transactions = [
-            { 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': 70.00 },
-            { 'date': '2020-07-04', 'description': 'Wine', 'amount': 15.00 }
+            { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': '70.00' },
+            { 'id': 2, 'date': '2020-07-04', 'description': 'Wine', 'amount': '15.00' }
           ]
       render(<TransactionsTable transactions={transactions} />)
     })
 
     test('each transaction', () => {
       const expectedTransactions = [
-        { 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': 70.00 },
-        { 'date': '2020-07-04', 'description': 'Wine', 'amount': 15.00 },
+        { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': '70.00' },
+        { 'id': 2, 'date': '2020-07-04', 'description': 'Wine', 'amount': '15.00' },
       ]
 
       expectedTransactions.forEach(transaction => {
@@ -28,6 +28,9 @@ describe('The TransactionsTable component', () => {
 
         const amount = screen.getByText(`${transaction.amount}`)
         expect(amount).not.toBeNull()
+
+        const deleteButton= screen.getByTestId(`delete-${transaction.id}`)
+        expect(deleteButton).not.toBeNull()
       })
     })
   })
