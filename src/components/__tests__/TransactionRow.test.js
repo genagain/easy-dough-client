@@ -54,5 +54,19 @@ describe("Clicking the TransactionRow component's delete button", () => {
       const noButton= screen.getByTestId('no-delete-1')
       expect(noButton).not.toBeNull()
     })
+
+    test('the no button and clicking it closes the modal', () => {
+      let noButton= screen.getByTestId('no-delete-1')
+      fireEvent.click(noButton)
+
+      const prompt = screen.queryByRole('heading', { name: /delete this transaction/i })
+      expect(prompt).toBeNull()
+
+      const yesButton= screen.queryByTestId('yes-delete-1')
+      expect(yesButton).toBeNull()
+
+      noButton= screen.queryByTestId('no-delete-1')
+      expect(noButton).toBeNull()
+    })
   })
 })
