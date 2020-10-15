@@ -2,21 +2,16 @@ import React, { useState } from 'react'
 import Modal from 'react-modal';
 
 function TransactionRow({transaction}) {
-  // Revert once backend is actually serving transaction id in search endpoint
   const { id, date, description, amount } = transaction
-  //const { date, description, amount } = transaction
   const [toggleModal, setToggleModal] = useState(false)
-  Modal.setAppElement(document.getElementById(`transaction-${id}`))
 
-  // Remove once backend is actually serving transaction id in search endpoint
-  //const id = 50
+  Modal.setAppElement(document.getElementById(`transaction-${id}`))
 
   function handleDelete(e) {
     setToggleModal(false)
   }
 
 
-  // TODO handle screenreader warning
   return (
     <div id={`transaction-${id}`}>
       <div key={`${id}-${date}`}>{date}</div>
