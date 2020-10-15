@@ -18,14 +18,14 @@ describe('When there are transactions to render, the TransactionsTableList compo
         { 
           'month': 'July',
           'transactions': [
-            { 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': 70.00 },
-            { 'date': '2020-07-04', 'description': 'Wine', 'amount': 15.00 }
+            { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': 70.00 },
+            { 'id': 2, 'date': '2020-07-04', 'description': 'Wine', 'amount': 15.00 }
           ]
         },
         { 'month': 'June',
           'transactions': [
-            { 'date': '2020-06-21', 'description': 'Pizza Delivery', 'amount': 20.00 },
-            { 'date': '2020-06-13', 'description': 'Beer', 'amount': 10.00 }
+            { 'id': 3, 'date': '2020-06-21', 'description': 'Pizza Delivery', 'amount': 20.00 },
+            { 'id': 4,'date': '2020-06-13', 'description': 'Beer', 'amount': 10.00 }
           ]
         }
       ]
