@@ -6,6 +6,7 @@ function TransactionRow({transaction}) {
   const { id, date, description, amount } = transaction
   //const { date, description, amount } = transaction
   const [toggleModal, setToggleModal] = useState(false)
+  Modal.setAppElement(document.getElementById(`transaction-${id}`))
 
   // Remove once backend is actually serving transaction id in search endpoint
   //const id = 50
@@ -17,7 +18,7 @@ function TransactionRow({transaction}) {
 
   // TODO handle screenreader warning
   return (
-    <>
+    <div id={`transaction-${id}`}>
       <div key={`${id}-${date}`}>{date}</div>
       <div key={`${id}-${description}`}>{description}</div>
       <div key={`${id}-${amount}`}>{amount}</div>
@@ -27,7 +28,7 @@ function TransactionRow({transaction}) {
         <button data-testid={`yes-delete-${id}`} onClick={handleDelete}>Yes</button>
         <button data-testid={`no-delete-${id}`} onClick={() => setToggleModal(false)}>No</button>
       </Modal>
-    </>
+    </div>
 
   )
 }
