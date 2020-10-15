@@ -20,16 +20,17 @@ describe('The TransactionsTable component', () => {
       ]
 
       expectedTransactions.forEach(transaction => {
-        const date = screen.getByText(transaction.date)
-        expect(date).not.toBeNull()
+        const { id, date, description, amount } = transaction
+        const dateText = screen.getByText(date)
+        expect(dateText).not.toBeNull()
 
-        const description = screen.getByText(transaction.description)
+        const descriptionText = screen.getByText(description)
         expect(description).not.toBeNull()
 
-        const amount = screen.getByText(`${transaction.amount}`)
-        expect(amount).not.toBeNull()
+        const amountText = screen.getByText(`${amount}`)
+        expect(amountText).not.toBeNull()
 
-        const deleteButton= screen.getByTestId(`delete-${transaction.id}`)
+        const deleteButton= screen.getByTestId(`delete-${id}`)
         expect(deleteButton).not.toBeNull()
       })
     })
