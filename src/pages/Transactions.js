@@ -13,6 +13,7 @@ function Transactions() {
 
   const [toggleCreate, setToggleCreate] = useState(false)
 
+  const today = new Date(Date.now())
   const [initialStartDate, initialEndDate] = initialDates()
   const [endDate, setEndDate] = useState(initialEndDate)
   const [startDate, setStartDate] = useState(initialStartDate)
@@ -74,13 +75,14 @@ function Transactions() {
   }
 
   // Consider creating a separate search form component
+  // Consider adding query params to context
   return (
     <>
     <h1>Transactions</h1>
     <label htmlFor="startdate-input">Start Date:</label>
-    <DatePicker id="startdate-input" selected={startDate} onChange={date => setStartDate(date)} />
+    <DatePicker id="startdate-input" selected={startDate} maxDate={today} onChange={date => setStartDate(date)} />
     <label htmlFor="enddate-input">End Date:</label>
-    <DatePicker id="enddate-input" selected={endDate} onChange={date => setEndDate(date)} />
+    <DatePicker id="enddate-input" selected={endDate} maxDate={today} onChange={date => setEndDate(date)} />
     <input placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
     <button onClick={ searchHandler }>Search</button>
     <button onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
