@@ -68,7 +68,6 @@ function Transactions() {
   }
 
   // Consider creating a separate search form component
-  // Consider adding query params to context
   return (
     <>
     <h1>Transactions</h1>
