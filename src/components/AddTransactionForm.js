@@ -4,9 +4,9 @@ import FlashMessage from 'react-flash-message'
 import UserContext from '../UserContext'
 import { formatDate, formatAmount } from '../utils'
 
-function AddTransactionForm({setToggleCreate, queryParams, setQueryParams}) {
+function AddTransactionForm({setToggleCreate}) {
 
-  const { accessToken } = useContext(UserContext)
+  const { accessToken, queryParams, setQueryParams } = useContext(UserContext)
 
   const today = new Date(Date.now())
   const [date, setDate] = useState(today)

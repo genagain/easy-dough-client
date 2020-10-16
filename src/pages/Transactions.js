@@ -79,7 +79,7 @@ function Transactions() {
     <button onClick={ searchHandler }>Search</button>
     <button onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
     { toggleCreate &&
-        <AddTransactionForm setToggleCreate={setToggleCreate} queryParams={queryParams} setQueryParams={setQueryParams} />
+        <AddTransactionForm setToggleCreate={setToggleCreate} />
     }
     <TransactionsTableList allTransactions={allTransactions} />
     </>
