@@ -9,28 +9,21 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function Transactions() {
 
-  const { accessToken, logout } = useContext(UserContext)
+  const { accessToken, logout, queryParams, setQueryParams } = useContext(UserContext)
 
   const [toggleCreate, setToggleCreate] = useState(false)
 
+  // TODO put today in utils
   const today = new Date(Date.now())
-  const [initialStartDate, initialEndDate] = initialDates()
+  const initialEndDate = new Date(queryParams.end_date)
+  const initialStartDate = new Date(queryParams.start_date)
   const [endDate, setEndDate] = useState(initialEndDate)
   const [startDate, setStartDate] = useState(initialStartDate)
 
   const [searchTerm, setSearchTerm] = useState()
 
-  const [queryParams, setQueryParams] = useState({ start_date: formatDate(startDate), end_date: formatDate(endDate)})
 
   const [allTransactions, setAllTransactions] = useState([])
-
-  function initialDates() {
-    const endDate = new Date(Date.now())
-    const startYear = endDate.getFullYear()
-    const startMonth = endDate.getMonth() - 2
-    const startDate = new Date(startYear, startMonth)
-    return [startDate, endDate]
-  }
 
   useEffect(() => {
     if (process.env.NODE_ENV === 'test') {
