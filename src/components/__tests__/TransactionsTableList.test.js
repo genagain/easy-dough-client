@@ -1,10 +1,11 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react'
 import TransactionsTableList from '../TransactionsTableList'
+import UserContext from '../../UserContext'
 
 describe('When there are no transactions to render, the TransactionsTableList component', () => {
   test('renders a message that says there are no transactions', () => {
-    render(<TransactionsTableList allTransactions={[]} />)
+    render(<UserContext.Provider value={{}}><TransactionsTableList allTransactions={[]} /></UserContext.Provider>)
     const message = screen.getByText("No transactions were found that matched the provided date range or search term")
     expect(message).not.toBeNull()
   })
@@ -29,7 +30,7 @@ describe('When there are transactions to render, the TransactionsTableList compo
           ]
         }
       ]
-      render(<TransactionsTableList allTransactions={allTransactions} />)
+      render(<UserContext.Provider value={{}}><TransactionsTableList allTransactions={allTransactions} /></UserContext.Provider>)
     })
 
     test('each headers for month in reverse chronological order', () => {
