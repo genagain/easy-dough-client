@@ -1,12 +1,13 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react'
 import TransactionRow from '../TransactionRow'
+import UserContext from '../../UserContext'
 
 describe('The TransactionRow component', () => {
   describe('renders', () => {
     beforeEach(() => {
       const transaction = { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': '70.00' }
-      render(<TransactionRow transaction={transaction} />)
+      render(<UserContext.Provider value={{}}><TransactionRow transaction={transaction} /></UserContext.Provider>)
     })
 
     test('the date', () => {
@@ -35,7 +36,7 @@ describe("Clicking the TransactionRow component's delete button", () => {
   describe('renders', () => {
     beforeEach(() => {
       const transaction = { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': '70.00' }
-      render(<TransactionRow transaction={transaction} />)
+      render(<UserContext.Provider value={{}}><TransactionRow transaction={transaction} /></UserContext.Provider>)
       const deleteButton= screen.getByTestId('delete-1')
       fireEvent.click(deleteButton)
     })
