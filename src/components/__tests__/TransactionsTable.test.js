@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react'
 import TransactionsTable from '../TransactionsTable'
+import UserContext from '../../UserContext'
 
 describe('The TransactionsTable component', () => {
 
@@ -10,7 +11,7 @@ describe('The TransactionsTable component', () => {
             { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': '70.00' },
             { 'id': 2, 'date': '2020-07-04', 'description': 'Wine', 'amount': '15.00' }
           ]
-      render(<TransactionsTable transactions={transactions} />)
+      render(<UserContext.Provider value={{}}><TransactionsTable transactions={transactions} /></UserContext.Provider>)
     })
 
     test('each transaction', () => {
