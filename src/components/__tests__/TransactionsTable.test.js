@@ -1,33 +1,38 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react'
 import TransactionsTable from '../TransactionsTable'
+import UserContext from '../../UserContext'
 
 describe('The TransactionsTable component', () => {
 
   describe('renders', () => {
     beforeEach(() => {
       const transactions = [
-            { 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': 70.00 },
-            { 'date': '2020-07-04', 'description': 'Wine', 'amount': 15.00 }
+            { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': '70.00' },
+            { 'id': 2, 'date': '2020-07-04', 'description': 'Wine', 'amount': '15.00' }
           ]
-      render(<TransactionsTable transactions={transactions} />)
+      render(<UserContext.Provider value={{}}><TransactionsTable transactions={transactions} /></UserContext.Provider>)
     })
 
     test('each transaction', () => {
       const expectedTransactions = [
-        { 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': 70.00 },
-        { 'date': '2020-07-04', 'description': 'Wine', 'amount': 15.00 },
+        { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': '70.00' },
+        { 'id': 2, 'date': '2020-07-04', 'description': 'Wine', 'amount': '15.00' },
       ]
 
       expectedTransactions.forEach(transaction => {
-        const date = screen.getByText(transaction.date)
-        expect(date).not.toBeNull()
+        const { id, date, description, amount } = transaction
+        const dateText = screen.getByText(date)
+        expect(dateText).not.toBeNull()
 
-        const description = screen.getByText(transaction.description)
+        const descriptionText = screen.getByText(description)
         expect(description).not.toBeNull()
 
-        const amount = screen.getByText(`${transaction.amount}`)
-        expect(amount).not.toBeNull()
+        const amountText = screen.getByText(`${amount}`)
+        expect(amountText).not.toBeNull()
+
+        const deleteButton= screen.getByTestId(`delete-${id}`)
+        expect(deleteButton).not.toBeNull()
       })
     })
   })
