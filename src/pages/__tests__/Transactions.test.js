@@ -7,7 +7,11 @@ import UserContext from '../../UserContext'
 beforeEach(() => {
   MockDate.set(new Date('10/04/2020'))
   const fakeAccessToken = 'fakeAccessToken'
-  render(<UserContext.Provider value={{ accessToken: fakeAccessToken }}><Transactions /></UserContext.Provider>)
+  const queryParams = {
+    start_date: new Date('08/01/2020'),
+    end_date: new Date('10/04/2020')
+  }
+  render(<UserContext.Provider value={{ accessToken: fakeAccessToken, queryParams }}><Transactions /></UserContext.Provider>)
 })
 
 test('render Transactions page', () => {

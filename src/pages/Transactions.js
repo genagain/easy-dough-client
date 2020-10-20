@@ -9,29 +9,26 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function Transactions() {
 
-  const { accessToken, logout } = useContext(UserContext)
+  const { accessToken, logout, queryParams, setQueryParams } = useContext(UserContext)
 
   const [toggleCreate, setToggleCreate] = useState(false)
 
-  const [initialStartDate, initialEndDate] = initialDates()
+  // TODO put today in utils
+  const today = new Date(Date.now())
+  const initialEndDate = new Date(queryParams.end_date)
+  const initialStartDate = new Date(queryParams.start_date)
   const [endDate, setEndDate] = useState(initialEndDate)
   const [startDate, setStartDate] = useState(initialStartDate)
 
   const [searchTerm, setSearchTerm] = useState()
 
-  const [queryParams, setQueryParams] = useState({ start_date: formatDate(startDate), end_date: formatDate(endDate)})
 
   const [allTransactions, setAllTransactions] = useState([])
 
-  function initialDates() {
-    const endDate = new Date(Date.now())
-    const startYear = endDate.getFullYear()
-    const startMonth = endDate.getMonth() - 2
-    const startDate = new Date(startYear, startMonth)
-    return [startDate, endDate]
-  }
-
   useEffect(() => {
+    if (process.env.NODE_ENV === 'test') {
+      return
+    }
     const fetchTransactions = async () => {
       const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
       const searchParams = new URLSearchParams(queryParams)
@@ -62,6 +59,7 @@ function Transactions() {
       end_date: formatDate(endDate)
     }
 
+    // TODO Handle search term validation
     if (searchTerm) {
       params['search_term'] = searchTerm
     }
@@ -74,14 +72,14 @@ function Transactions() {
     <>
     <h1>Transactions</h1>
     <label htmlFor="startdate-input">Start Date:</label>
-    <DatePicker id="startdate-input" selected={startDate} onChange={date => setStartDate(date)} />
+    <DatePicker id="startdate-input" selected={startDate} maxDate={today} onChange={date => setStartDate(date)} />
     <label htmlFor="enddate-input">End Date:</label>
-    <DatePicker id="enddate-input" selected={endDate} onChange={date => setEndDate(date)} />
+    <DatePicker id="enddate-input" selected={endDate} maxDate={today} onChange={date => setEndDate(date)} />
     <input placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
     <button onClick={ searchHandler }>Search</button>
     <button onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
     { toggleCreate &&
-        <AddTransactionForm setToggleCreate={setToggleCreate} queryParams={queryParams} setQueryParams={setQueryParams} />
+        <AddTransactionForm setToggleCreate={setToggleCreate} />
     }
     <TransactionsTableList allTransactions={allTransactions} />
     </>
