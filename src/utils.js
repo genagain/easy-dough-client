@@ -5,10 +5,5 @@ export const formatDate = function(date) {
 }
 
 export const formatAmount = function(amount) {
-  let withoutCents = /^\d{0,3},{0,1}\d{0,3}$/
-  if (withoutCents.test(amount)){
-    return `${amount}.00`
-  } else {
-    return amount
-  }
+  return Number.parseFloat(amount).toFixed(2)
 }
