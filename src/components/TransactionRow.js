@@ -5,7 +5,6 @@ import UserContext from '../UserContext'
 function TransactionRow({transaction}) {
   const { id, date, description, amount } = transaction
   const [toggleModal, setToggleModal] = useState(false)
-  // TODO fix this for tests
   const { accessToken, queryParams, setQueryParams } = useContext(UserContext)
 
   Modal.setAppElement(document.getElementById(`transaction-${id}`))
