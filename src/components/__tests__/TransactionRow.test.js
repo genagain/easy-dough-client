@@ -25,16 +25,26 @@ describe('The TransactionRow component', () => {
       expect(amount).not.toBeNull()
     })
 
-    test('the order of edit and delete buttons', () => {
+    test('the edit button', () => {
+      const editButton= screen.getByRole('button', { name: /edit/i })
+      expect(editButton).not.toBeNull()
+    })
+
+    test('the delete button', () => {
+      const deleteButton= screen.getByRole('button', { name: /delete/i })
+      expect(deleteButton).not.toBeNull()
+    })
+
+    test('the edit and delete buttons in the correct order', () => {
       const buttons = screen.queryAllByRole('button', { name: /(edit)|(delete)/i })
       expect(buttons[0]).toHaveTextContent('Edit')
       expect(buttons[1]).toHaveTextContent('Delete')
     })
   })
-  // TODO test that it doesn't render the update button prematurely
+  // TODO test that it doesn't render the modal, update button prematurely
 })
 
-describe("Clicking the TransactionRow component's delete button", () => {
+describe("Clicking the TransactionRow component's edit button", () => {
   describe('renders', () => {
     beforeEach(() => {
       const transaction = { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': '70.00' }
@@ -43,9 +53,20 @@ describe("Clicking the TransactionRow component's delete button", () => {
       fireEvent.click(editButton)
     })
 
+    test('the cancel button', () => {
+      const cancelButton= screen.getByRole('button', { name: /cancel/i })
+      expect(cancelButton).not.toBeNull()
+    })
+
     test('the update button', () => {
       const updateButton= screen.getByRole('button', { name: /update/i })
       expect(updateButton).not.toBeNull()
+    })
+
+    test('the cancel and update buttons in the correct order', () => {
+      const buttons = screen.queryAllByRole('button', { name: /(cancel)|(update)/i })
+      expect(buttons[0]).toHaveTextContent('Cancel')
+      expect(buttons[1]).toHaveTextContent('Update')
     })
   })
 })

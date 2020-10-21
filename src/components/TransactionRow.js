@@ -30,7 +30,10 @@ function TransactionRow({transaction}) {
     <div id={`transaction-${id}`}>
     { 
       toggleForm ? (
-        <button onClick={() => {}}>Update</button>
+        <>
+          <button onClick={() => {}}>Cancel</button>
+          <button onClick={() => {}}>Update</button>
+        </>
       ) : (
         <>
           <div key={`${id}-${date}`}>{date}</div>
