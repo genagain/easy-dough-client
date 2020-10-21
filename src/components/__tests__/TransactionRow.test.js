@@ -25,9 +25,27 @@ describe('The TransactionRow component', () => {
       expect(amount).not.toBeNull()
     })
 
-    test('the delete button', () => {
-      const deleteButton= screen.getByTestId('delete-1')
-      expect(deleteButton).not.toBeNull()
+    test('the order of edit and delete buttons', () => {
+      const buttons = screen.queryAllByRole('button', { name: /(edit)|(delete)/i })
+      expect(buttons[0]).toHaveTextContent('Edit')
+      expect(buttons[1]).toHaveTextContent('Delete')
+    })
+  })
+  // TODO test that it doesn't render the update button prematurely
+})
+
+describe("Clicking the TransactionRow component's delete button", () => {
+  describe('renders', () => {
+    beforeEach(() => {
+      const transaction = { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': '70.00' }
+      render(<UserContext.Provider value={{}}><TransactionRow transaction={transaction} /></UserContext.Provider>)
+      const editButton= screen.getByRole('button', { name: /edit/i})
+      fireEvent.click(editButton)
+    })
+
+    test('the update button', () => {
+      const updateButton= screen.getByRole('button', { name: /update/i })
+      expect(updateButton).not.toBeNull()
     })
   })
 })

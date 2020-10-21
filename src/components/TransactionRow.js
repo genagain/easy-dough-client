@@ -5,6 +5,7 @@ import UserContext from '../UserContext'
 function TransactionRow({transaction}) {
   const { id, date, description, amount } = transaction
   const [toggleModal, setToggleModal] = useState(false)
+  const [toggleForm, setToggleForm] = useState(false)
   const { accessToken, queryParams, setQueryParams } = useContext(UserContext)
 
   Modal.setAppElement(document.getElementById(`transaction-${id}`))
@@ -24,11 +25,21 @@ function TransactionRow({transaction}) {
   }
 
 
+  // TODO get rid of all of test ids
   return (
     <div id={`transaction-${id}`}>
-      <div key={`${id}-${date}`}>{date}</div>
-      <div key={`${id}-${description}`}>{description}</div>
-      <div key={`${id}-${amount}`}>{amount}</div>
+    { 
+      toggleForm ? (
+        <button onClick={() => {}}>Update</button>
+      ) : (
+        <>
+          <div key={`${id}-${date}`}>{date}</div>
+          <div key={`${id}-${description}`}>{description}</div>
+          <div key={`${id}-${amount}`}>{amount}</div>
+        </>
+      )
+    }
+      <button data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
       <button data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
       <Modal isOpen={toggleModal}>
         <h1>Are you sure you want to delete this transaction?</h1>
