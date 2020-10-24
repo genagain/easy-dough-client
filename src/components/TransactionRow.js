@@ -28,7 +28,6 @@ function TransactionRow({transaction}) {
 
   const [year, month, day] = date.split('-')
   const monthIndex = month - 1
-  // TODO get rid of all of test ids
   return (
     <div id={`transaction-${id}`}>
     { 
