@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 
 import UserContext from './UserContext'
 import App from './App'
-import {formatDate} from './utils'
+import { formatIsoDate } from './utils'
 
 function AppWithContext() {
 
@@ -11,7 +11,7 @@ function AppWithContext() {
   const [accessToken, setAccessToken] = useState(storedAccessToken)
 
   const [initialStartDate, initialEndDate] = initialDates()
-  const [queryParams, setQueryParams] = useState({ start_date: formatDate(initialStartDate), end_date: formatDate(initialEndDate)})
+  const [queryParams, setQueryParams] = useState({ start_date: formatIsoDate(initialStartDate), end_date: formatIsoDate(initialEndDate)})
 
   function initialDates() {
     const endDate = new Date(Date.now())

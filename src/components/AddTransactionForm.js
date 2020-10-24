@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import DatePicker from 'react-datepicker'
 import FlashMessage from 'react-flash-message'
 import UserContext from '../UserContext'
-import { formatDate, formatAmount } from '../utils'
+import { formatIsoDate, formatAmount } from '../utils'
 
 function AddTransactionForm({setToggleCreate}) {
 
@@ -30,7 +30,7 @@ function AddTransactionForm({setToggleCreate}) {
     }
 
     const body = {
-          date: formatDate(date),
+          date: formatIsoDate(date),
           description,
           amount: formatAmount(amount)
         }

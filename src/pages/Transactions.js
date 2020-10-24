@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import TransactionsTableList from '../components/TransactionsTableList'
 import AddTransactionForm from '../components/AddTransactionForm'
 import UserContext from '../UserContext'
-import { formatDate } from '../utils'
+import { formatIsoDate } from '../utils'
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -55,8 +55,8 @@ function Transactions() {
 
   function searchHandler() {
     const params = {
-      start_date: formatDate(startDate),
-      end_date: formatDate(endDate)
+      start_date: formatIsoDate(startDate),
+      end_date: formatIsoDate(endDate)
     }
 
     // TODO Handle search term validation
