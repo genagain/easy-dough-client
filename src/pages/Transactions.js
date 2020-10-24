@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import TransactionsTableList from '../components/TransactionsTableList'
 import AddTransactionForm from '../components/AddTransactionForm'
 import UserContext from '../UserContext'
-import { convertDatetoIso, convertIsoToDate } from '../utils'
+import { convertDateToIso, convertIsoToDate } from '../utils'
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -55,8 +55,8 @@ function Transactions() {
 
   function searchHandler() {
     const params = {
-      start_date: convertDatetoIso(startDate),
-      end_date: convertDatetoIso(endDate)
+      start_date: convertDateToIso(startDate),
+      end_date: convertDateToIso(endDate)
     }
 
     // TODO Handle search term validation
