@@ -2,9 +2,10 @@ import React, { useContext, useState } from 'react'
 import DatePicker from 'react-datepicker'
 import Modal from 'react-modal';
 import UserContext from '../UserContext'
+import { formatPrettyDate, convertIsoToDate } from '../utils'
 
 function TransactionRow({transaction}) {
-  const { id, date, description, amount } = transaction
+  const { id, date: isoDate, description, amount } = transaction
   const [toggleModal, setToggleModal] = useState(false)
   const [toggleForm, setToggleForm] = useState(false)
   const { accessToken, queryParams, setQueryParams } = useContext(UserContext)
@@ -26,17 +27,16 @@ function TransactionRow({transaction}) {
   }
 
   // TODO put in utils and rename the existing format date util
-  const [year, month, day] = date.split('-')
-  const monthIndex = month - 1
-  const options = { year: 'numeric', month: 'short', day: 'numeric' }
-  const formattedDate = new Date(year, monthIndex, day).toLocaleString('en-US', options)
+  const date = convertIsoToDate(isoDate)
+  const formattedDate = formatPrettyDate(date)
+
   return (
     <div id={`transaction-${id}`}>
     { 
       toggleForm ? (
         <>
           <label htmlFor="date-input">Date:</label>
-          <DatePicker id="date-input" selected={new Date(year, monthIndex, day)} onChange={() => {}}/>
+          <DatePicker id="date-input" selected={date} onChange={() => {}}/>
           <input placeholder="Description" type="text" value={description} onChange={() => {}}/>
           <input placeholder="Amount" type="text" value={amount} onChange={() => {}}/>
           <button onClick={() => setToggleForm(false)}>Cancel</button>
