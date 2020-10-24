@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import TransactionRow from '../TransactionRow'
 import UserContext from '../../UserContext'
 
+// TODO IDEALLY test all the not rendering also
 describe('The TransactionRow component', () => {
   describe('renders', () => {
     beforeEach(() => {
@@ -45,7 +46,6 @@ describe('The TransactionRow component', () => {
 })
 
 describe("Clicking the TransactionRow component's edit button", () => {
-  describe('renders', () => {
     beforeEach(() => {
       const transaction = { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': '70.00' }
       render(<UserContext.Provider value={{}}><TransactionRow transaction={transaction} /></UserContext.Provider>)
@@ -53,6 +53,7 @@ describe("Clicking the TransactionRow component's edit button", () => {
       fireEvent.click(editButton)
     })
 
+  describe('renders', () => {
     test('the date input field', () => {
       const date = screen.getByLabelText('Date:')
       expect(date.value).toEqual('07/10/2020')
@@ -82,6 +83,46 @@ describe("Clicking the TransactionRow component's edit button", () => {
       const buttons = screen.queryAllByRole('button', { name: /(cancel)|(update)/i })
       expect(buttons[0]).toHaveTextContent('Cancel')
       expect(buttons[1]).toHaveTextContent('Update')
+    })
+  })
+
+  describe('then clicking the cancel button', () => {
+    beforeEach(() => {
+      const cancelButton= screen.getByRole('button', { name: /cancel/i })
+      fireEvent.click(cancelButton)
+    })
+
+    describe('renders', () => {
+      test('the date', () => {
+        const date = screen.getByText('2020-07-10')
+        expect(date).not.toBeNull()
+      })
+
+      test('the description', () => {
+        const description = screen.getByText('Grocery Store')
+        expect(description).not.toBeNull()
+      })
+
+      test('the amount', () => {
+        const amount = screen.getByText('70.00')
+        expect(amount).not.toBeNull()
+      })
+
+      test('the edit button', () => {
+        const editButton= screen.getByRole('button', { name: /edit/i })
+        expect(editButton).not.toBeNull()
+      })
+
+      test('the delete button', () => {
+        const deleteButton= screen.getByRole('button', { name: /delete/i })
+        expect(deleteButton).not.toBeNull()
+      })
+
+      test('the edit and delete buttons in the correct order', () => {
+        const buttons = screen.queryAllByRole('button', { name: /(edit)|(delete)/i })
+        expect(buttons[0]).toHaveTextContent('Edit')
+        expect(buttons[1]).toHaveTextContent('Delete')
+      })
     })
   })
 })

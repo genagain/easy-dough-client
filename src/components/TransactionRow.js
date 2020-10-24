@@ -38,7 +38,7 @@ function TransactionRow({transaction}) {
           <DatePicker id="date-input" selected={new Date(year, monthIndex, day)} onChange={() => {}}/>
           <input placeholder="Description" type="text" value={description} onChange={() => {}}/>
           <input placeholder="Amount" type="text" value={amount} onChange={() => {}}/>
-          <button onClick={() => {}}>Cancel</button>
+          <button onClick={() => setToggleForm(false)}>Cancel</button>
           <button onClick={() => {}}>Update</button>
         </>
       ) : (
