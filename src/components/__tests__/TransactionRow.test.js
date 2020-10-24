@@ -42,28 +42,6 @@ describe('The TransactionRow component', () => {
       expect(buttons[1]).toHaveTextContent('Delete')
     })
   })
-
-  //describe('does not render', () => {
-    // TODO test that it doesn't render the modal prematurely may be funky because it's a modal
-    /*describe("the delete modal's", () => {*/
-      //test('prompt', () => {
-        //const prompt = screen.getByRole('heading', { name: /delete this transaction/i })
-        //console.log(prompt)
-        //expect(prompt).toBeNull()
-      //})
-
-      //test('yes button', () => {
-        //const yesButton= screen.queryByTestId('yes-delete-1')
-        //expect(yesButton).toBeNull()
-      //})
-
-      //test('no button', () => {
-        //const noButton= screen.queryByTestId('no-delete-1')
-        //expect(noButton).toBeNull()
-      //})
-    /*})*/
-    // TODO test that it doesn't render the update form prematurely
-  //})
 })
 
 describe("Clicking the TransactionRow component's edit button", () => {

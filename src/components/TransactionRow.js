@@ -37,7 +37,7 @@ function TransactionRow({transaction}) {
           <label htmlFor="date-input">Date:</label>
           <DatePicker id="date-input" selected={new Date(year, monthIndex, day)} onChange={() => {}}/>
           <input placeholder="Description" type="text" value={description} onChange={() => {}}/>
-          <input placeholder="Amount" type="text" value={amount}/>
+          <input placeholder="Amount" type="text" value={amount} onChange={() => {}}/>
           <button onClick={() => {}}>Cancel</button>
           <button onClick={() => {}}>Update</button>
         </>
@@ -46,11 +46,11 @@ function TransactionRow({transaction}) {
           <div key={`${id}-${date}`}>{date}</div>
           <div key={`${id}-${description}`}>{description}</div>
           <div key={`${id}-${amount}`}>{amount}</div>
+          <button data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
+          <button data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
         </>
       )
     }
-      <button data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
-      <button data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
       <Modal isOpen={toggleModal}>
         <h1>Are you sure you want to delete this transaction?</h1>
         <button data-testid={`yes-delete-${id}`} onClick={handleDelete}>Yes</button>
