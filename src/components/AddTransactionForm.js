@@ -55,7 +55,7 @@ function AddTransactionForm({setToggleCreate}) {
   }
 
   return (
-    <>
+    <form>
       { flashMessage &&
           <FlashMessage duration={5000}>
             <strong>{flashMessage}</strong>
@@ -68,7 +68,7 @@ function AddTransactionForm({setToggleCreate}) {
       <label htmlFor="amount-input">Amount:</label>
       <input id="amount-input" placeholder="15.00" type="text" onChange={ e => { setAmount(e.target.value)}}/>
       <button onClick={handleAddTransaction}>Create Transaction</button>
-    </>
+    </form>
   )
 }
 

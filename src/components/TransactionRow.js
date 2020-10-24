@@ -25,7 +25,6 @@ function TransactionRow({transaction}) {
     setQueryParams({...queryParams})
   }
 
-
   const [year, month, day] = date.split('-')
   const monthIndex = month - 1
   return (
