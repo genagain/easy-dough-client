@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import TransactionsTableList from '../components/TransactionsTableList'
 import AddTransactionForm from '../components/AddTransactionForm'
 import UserContext from '../UserContext'
-import { convertDatetoIso } from '../utils'
+import { convertDatetoIso, convertIsoToDate } from '../utils'
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -15,8 +15,8 @@ function Transactions() {
 
   // TODO put today in utils
   const today = new Date(Date.now())
-  const initialEndDate = new Date(queryParams.end_date)
-  const initialStartDate = new Date(queryParams.start_date)
+  const initialEndDate = convertIsoToDate(queryParams.end_date)
+  const initialStartDate = convertIsoToDate(queryParams.start_date)
   const [endDate, setEndDate] = useState(initialEndDate)
   const [startDate, setStartDate] = useState(initialStartDate)
 

@@ -8,8 +8,8 @@ beforeEach(() => {
   MockDate.set(new Date('10/04/2020'))
   const fakeAccessToken = 'fakeAccessToken'
   const queryParams = {
-    start_date: new Date('08/01/2020'),
-    end_date: new Date('10/04/2020')
+    start_date: '2020-08-01',
+    end_date: '2020-10-04'
   }
   render(<UserContext.Provider value={{ accessToken: fakeAccessToken, queryParams }}><Transactions /></UserContext.Provider>)
 })
