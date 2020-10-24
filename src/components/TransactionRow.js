@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import DatePicker from 'react-datepicker'
 import Modal from 'react-modal';
 import UserContext from '../UserContext'
 
@@ -25,12 +26,18 @@ function TransactionRow({transaction}) {
   }
 
 
+  const [year, month, day] = date.split('-')
+  const monthIndex = month - 1
   // TODO get rid of all of test ids
   return (
     <div id={`transaction-${id}`}>
     { 
       toggleForm ? (
         <>
+          <label htmlFor="date-input">Date:</label>
+          <DatePicker id="date-input" selected={new Date(year, monthIndex, day)} onChange={() => {}}/>
+          <input placeholder="Description" type="text" value={description} onChange={() => {}}/>
+          <input placeholder="Amount" type="text" value={amount}/>
           <button onClick={() => {}}>Cancel</button>
           <button onClick={() => {}}>Update</button>
         </>

@@ -10,6 +10,7 @@ describe('The TransactionRow component', () => {
       render(<UserContext.Provider value={{}}><TransactionRow transaction={transaction} /></UserContext.Provider>)
     })
 
+    // TODO if this fails with a form I don't think I need to test not rendering stuff
     test('the date', () => {
       const date = screen.getByText('2020-07-10')
       expect(date).not.toBeNull()
@@ -41,7 +42,28 @@ describe('The TransactionRow component', () => {
       expect(buttons[1]).toHaveTextContent('Delete')
     })
   })
-  // TODO test that it doesn't render the modal, update button prematurely
+
+  //describe('does not render', () => {
+    // TODO test that it doesn't render the modal prematurely may be funky because it's a modal
+    /*describe("the delete modal's", () => {*/
+      //test('prompt', () => {
+        //const prompt = screen.getByRole('heading', { name: /delete this transaction/i })
+        //console.log(prompt)
+        //expect(prompt).toBeNull()
+      //})
+
+      //test('yes button', () => {
+        //const yesButton= screen.queryByTestId('yes-delete-1')
+        //expect(yesButton).toBeNull()
+      //})
+
+      //test('no button', () => {
+        //const noButton= screen.queryByTestId('no-delete-1')
+        //expect(noButton).toBeNull()
+      //})
+    /*})*/
+    // TODO test that it doesn't render the update form prematurely
+  //})
 })
 
 describe("Clicking the TransactionRow component's edit button", () => {
@@ -51,6 +73,21 @@ describe("Clicking the TransactionRow component's edit button", () => {
       render(<UserContext.Provider value={{}}><TransactionRow transaction={transaction} /></UserContext.Provider>)
       const editButton= screen.getByRole('button', { name: /edit/i})
       fireEvent.click(editButton)
+    })
+
+    test('the date input field', () => {
+      const date = screen.getByLabelText('Date:')
+      expect(date.value).toEqual('07/10/2020')
+    })
+
+    test('the description input field', () => {
+      const descriptionField = screen.getByPlaceholderText('Description')
+      expect(descriptionField.value).toEqual('Grocery Store')
+    })
+
+    test('the amount input field', () => {
+      const amountField = screen.getByPlaceholderText('Amount')
+      expect(amountField.value).toEqual('70.00')
     })
 
     test('the cancel button', () => {
