@@ -25,8 +25,11 @@ function TransactionRow({transaction}) {
     setQueryParams({...queryParams})
   }
 
+  // TODO put in utils and rename the existing format date util
   const [year, month, day] = date.split('-')
   const monthIndex = month - 1
+  const options = { year: 'numeric', month: 'short', day: 'numeric' }
+  const formattedDate = new Date(year, monthIndex, day).toLocaleString('en-US', options)
   return (
     <div id={`transaction-${id}`}>
     { 
@@ -41,7 +44,7 @@ function TransactionRow({transaction}) {
         </>
       ) : (
         <>
-          <div key={`${id}-${date}`}>{date}</div>
+          <div key={`${id}-${date}`}>{formattedDate}</div>
           <div key={`${id}-${description}`}>{description}</div>
           <div key={`${id}-${amount}`}>{amount}</div>
           <button data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>

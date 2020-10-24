@@ -14,10 +14,11 @@ describe('The TransactionsTable component', () => {
       render(<UserContext.Provider value={{}}><TransactionsTable transactions={transactions} /></UserContext.Provider>)
     })
 
+    // TODO test table headers
     test('each transaction', () => {
       const expectedTransactions = [
-        { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': '70.00' },
-        { 'id': 2, 'date': '2020-07-04', 'description': 'Wine', 'amount': '15.00' },
+        { 'id': 1, 'date': 'Jul 10, 2020', 'description': 'Grocery Store', 'amount': '70.00' },
+        { 'id': 2, 'date': 'Jul 4, 2020', 'description': 'Wine', 'amount': '15.00' },
       ]
 
       expectedTransactions.forEach(transaction => {

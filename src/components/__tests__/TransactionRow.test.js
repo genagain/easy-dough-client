@@ -13,7 +13,7 @@ describe('The TransactionRow component', () => {
 
     // TODO if this fails with a form I don't think I need to test not rendering stuff
     test('the date', () => {
-      const date = screen.getByText('2020-07-10')
+      const date = screen.getByText('Jul 10, 2020')
       expect(date).not.toBeNull()
     })
 
@@ -94,7 +94,7 @@ describe("Clicking the TransactionRow component's edit button", () => {
 
     describe('renders', () => {
       test('the date', () => {
-        const date = screen.getByText('2020-07-10')
+        const date = screen.getByText('Jul 10, 2020')
         expect(date).not.toBeNull()
       })
 
