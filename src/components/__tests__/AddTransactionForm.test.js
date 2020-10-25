@@ -4,6 +4,7 @@ import MockDate from 'mockdate'
 import UserContext from '../../UserContext'
 import AddTransactionForm from '../AddTransactionForm'
 
+// TODO Add more describe blocks
 beforeEach(() => {
   MockDate.set(new Date('10/04/2020'))
   render(<UserContext.Provider value={{}}><AddTransactionForm /></UserContext.Provider>)
