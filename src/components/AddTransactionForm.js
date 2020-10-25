@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import DatePicker from 'react-datepicker'
 import FlashMessage from 'react-flash-message'
 import UserContext from '../UserContext'
-import { convertDateToIso, formatAmount } from '../utils'
+import { convertDateToIso, formatAmount, validateAmount } from '../utils'
 
 function AddTransactionForm({setToggleCreate}) {
 
@@ -14,18 +14,8 @@ function AddTransactionForm({setToggleCreate}) {
   const [amount, setAmount] = useState()
   const [flashMessage, setFlashMessage] = useState()
 
-  function validateAmount(amount) {
-    let validCurrency = /^\d{0,3},{0,1}\d{0,3}(\.{0,1}\d{2})?$/
-    if (!validCurrency.test(amount)) {
-      setFlashMessage('Please enter a valid dollar amount')
-      return false
-    } else {
-      return true
-    }
-  }
-
   async function handleAddTransaction() {
-    if (!validateAmount(amount)) {
+    if (!validateAmount(amount, setFlashMessage)) {
       return
     }
 

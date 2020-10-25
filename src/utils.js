@@ -16,6 +16,16 @@ export const formatPrettyDate = function(date) {
   return date.toLocaleString('en-US', options)
 }
 
+export const validateAmount = function(amount, setFlashMessage){
+  let validCurrency = /^\d{0,3},{0,1}\d{0,3}(\.{0,1}\d{2})?$/
+  if (!validCurrency.test(amount)) {
+    setFlashMessage('Please enter a valid dollar amount')
+    return false
+  } else {
+    return true
+  }
+}
+
 export const formatAmount = function(amount) {
   return Number.parseFloat(amount).toFixed(2)
 }
