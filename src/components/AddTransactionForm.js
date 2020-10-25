@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import DatePicker from 'react-datepicker'
 import FlashMessage from 'react-flash-message'
 import UserContext from '../UserContext'
-import { convertDateToIso, formatAmount, validateAmount } from '../utils'
+import { convertDateToIso, validateAmount, formatAmount } from '../utils'
 
 function AddTransactionForm({setToggleCreate}) {
 
