@@ -4,6 +4,7 @@ import MockDate from 'mockdate'
 import UserContext from '../../UserContext'
 import EditTransactionForm from '../EditTransactionForm'
 
+// TODO change all of a's to the's
 describe('The EditTransactionForm component', () => {
   describe('renders', () => {
     beforeEach(() => {
@@ -11,17 +12,17 @@ describe('The EditTransactionForm component', () => {
       render(<UserContext.Provider value={{}}><EditTransactionForm transaction={transaction} /></UserContext.Provider>)
     })
 
-    test('a prepopulated date input field', () => {
+    test('the prepopulated date input field', () => {
       const date = screen.getByLabelText('Date:')
       expect(date.value).toEqual('07/10/2020')
     })
 
-    test('a prepopulated description input field', () => {
+    test('the prepopulated description input field', () => {
       const descriptionField = screen.getByPlaceholderText('Description')
       expect(descriptionField.value).toEqual('Grocery Store')
     })
 
-    test('a prepopulated amount input field', () => {
+    test('the prepopulated amount input field', () => {
       const amountField = screen.getByPlaceholderText('Amount')
       expect(amountField.value).toEqual('70.00')
     })

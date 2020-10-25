@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
-import DatePicker from 'react-datepicker'
 import Modal from 'react-modal';
 import UserContext from '../UserContext'
+import EditTransactionForm from './EditTransactionForm'
 import { formatPrettyDate, convertIsoToDate } from '../utils'
 
 function TransactionRow({transaction}) {
@@ -26,28 +26,6 @@ function TransactionRow({transaction}) {
     setQueryParams({...queryParams})
   }
 
-  // TODO same validation logic as adding transaction
-  async function handleUpdate(e){
-    const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
-    const body = {
-      'date': '2020-10-24',
-      'description': 'Something hilarious',
-      'amount': '69.00'
-    }
-
-    await fetch(`${apiUrl}/transactions/${id}`,
-      {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${accessToken}`
-        },
-        body: JSON.stringify(body)
-      })
-    setToggleForm(false)
-    setQueryParams({...queryParams})
-  }
-
   const date = convertIsoToDate(isoDate)
   const formattedDate = formatPrettyDate(date)
 
@@ -56,14 +34,7 @@ function TransactionRow({transaction}) {
     <div id={`transaction-${id}`}>
     { 
       toggleForm ? (
-        <>
-          <label htmlFor="date-input">Date:</label>
-          <DatePicker id="date-input" selected={date} onChange={() => {}}/>
-          <input placeholder="Description" type="text" defaultValue={description} onChange={() => {}}/>
-          <input placeholder="Amount" type="text" defaultValue={amount} onChange={() => {}}/>
-          <button onClick={() => setToggleForm(false)}>Cancel</button>
-          <button onClick={handleUpdate}>Update</button>
-        </>
+        <EditTransactionForm transaction={transaction} setToggleForm={setToggleForm}/>
       ) : (
         <>
           <div key={`${id}-${date}`}>{formattedDate}</div>
