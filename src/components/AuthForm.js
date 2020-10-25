@@ -2,7 +2,7 @@ import React from 'react'
 
 function AuthForm({onSubmit, isSignup, fieldSetters}) {
   const {setFirstname, setLastname, setEmail, setPassword, setPasswordConfirmation} = fieldSetters
-  //"flex flex-col lg:m-auto lg:w-6/12 lg:flex-row lg:my-4 lg:space-x-4"
+
   return (
     <div className="pt-4">
     <form onSubmit={onSubmit} data-testid="form">
