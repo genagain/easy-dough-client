@@ -29,7 +29,6 @@ function TransactionRow({transaction}) {
   const date = convertIsoToDate(isoDate)
   const formattedDate = formatPrettyDate(date)
 
-  // TODO create a new form for updating transactions
   return (
     <div id={`transaction-${id}`}>
     { 
