@@ -79,10 +79,10 @@ describe("Clicking the TransactionRow component's edit button", () => {
       expect(updateButton).not.toBeNull()
     })
 
-    test('the cancel and update buttons in the correct order', () => {
-      const buttons = screen.queryAllByRole('button', { name: /(cancel)|(update)/i })
-      expect(buttons[0]).toHaveTextContent('Cancel')
-      expect(buttons[1]).toHaveTextContent('Update')
+    test('the update and cancel buttons in the correct order', () => {
+      const buttons = screen.queryAllByRole('button', { name: /(update)|(cancel)/i })
+      expect(buttons[0]).toHaveTextContent('Update')
+      expect(buttons[1]).toHaveTextContent('Cancel')
     })
   })
 
