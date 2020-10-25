@@ -10,7 +10,8 @@ describe('The EditTransactionForm component', () => {
     beforeEach(() => {
       const transaction = { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': '70.00' }
       const setToggleForm = jest.fn()
-      render(<UserContext.Provider value={{}}><EditTransactionForm transaction={transaction} setToggleForm={setToggleForm} /></UserContext.Provider>)
+      const setQueryParams = jest.fn()
+      render(<UserContext.Provider value={{}}><EditTransactionForm transaction={transaction} setToggleForm={setToggleForm} setQueryMarams={setQueryParams}/></UserContext.Provider>)
     })
 
     test('the prepopulated date input field', () => {
