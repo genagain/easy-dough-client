@@ -26,10 +26,32 @@ function TransactionRow({transaction}) {
     setQueryParams({...queryParams})
   }
 
-  // TODO put in utils and rename the existing format date util
+  // TODO same validation logic as adding transaction
+  async function handleUpdate(e){
+    const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
+    const body = {
+      'date': '2020-10-24',
+      'description': 'Something hilarious',
+      'amount': '69.00'
+    }
+
+    await fetch(`${apiUrl}/transactions/${id}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        },
+        body: JSON.stringify(body)
+      })
+    setToggleForm(false)
+    setQueryParams({...queryParams})
+  }
+
   const date = convertIsoToDate(isoDate)
   const formattedDate = formatPrettyDate(date)
 
+  // TODO create a new form for updating transactions
   return (
     <div id={`transaction-${id}`}>
     { 
@@ -37,10 +59,10 @@ function TransactionRow({transaction}) {
         <>
           <label htmlFor="date-input">Date:</label>
           <DatePicker id="date-input" selected={date} onChange={() => {}}/>
-          <input placeholder="Description" type="text" value={description} onChange={() => {}}/>
-          <input placeholder="Amount" type="text" value={amount} onChange={() => {}}/>
+          <input placeholder="Description" type="text" defaultValue={description} onChange={() => {}}/>
+          <input placeholder="Amount" type="text" defaultValue={amount} onChange={() => {}}/>
           <button onClick={() => setToggleForm(false)}>Cancel</button>
-          <button onClick={() => {}}>Update</button>
+          <button onClick={handleUpdate}>Update</button>
         </>
       ) : (
         <>
