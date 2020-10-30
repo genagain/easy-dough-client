@@ -31,11 +31,11 @@ function NavBar() {
           accessToken ? 
            (
             <>
-              <Link to='/transactions' className="my-2 py-2 text-4xl lg:mx-10 lg:text-2xl">
+              <Link to='/transactions' className={`${showAuth ? null : 'invisible'} my-2 py-2 text-4xl lg:visible lg:text-2xl lg:px-4`}>
                Transactions
              </Link>
              <div className="lg:flex-grow"></div>
-              <Link to='/' onClick={logout} className="my-2 py-2 text-4xl lg:text-2xl">
+              <Link to='/' onClick={logout} className={`${showAuth ? null : 'invisible'} my-2 py-2 text-4xl lg:visible lg:text-2xl lg:px-4`}>
                Logout
              </Link>
             </>
