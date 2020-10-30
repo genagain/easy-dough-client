@@ -74,17 +74,17 @@ function Transactions() {
         //<button className="text-5xl" onClick={ searchHandler }>Search</button>
         //<button className="text-5xl" onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
       //</div>
+        /*<div className="m-auto">*/
+          //<label className="text-5xl" htmlFor="enddate-input">End Date:</label>
+          //<DatePicker className="p-2 w-2/3 text-5xl" id="enddate-input" selected={endDate} maxDate={today} onChange={date => setEndDate(date)} />
+        //</div>
 
   return (
     <div className="flex flex-col">
       <h1 className="text-6xl m-auto lg:text-4xl">Transactions</h1>
-        <div className="m-auto">
-          <label className="mr-2 text-5xl" htmlFor="startdate-input">Start Date:</label>
-          <DatePicker id="startdate-input" className="ml-2 p-2 w-2/3 text-5xl" selected={startDate} maxDate={today} onChange={date => setStartDate(date)} />
-        </div>
-        <div className="m-auto">
-          <label className="mr-2 text-5xl" htmlFor="enddate-input">End Date:</label>
-          <DatePicker className="ml-2 p-2 w-2/3 text-5xl" id="enddate-input" selected={endDate} maxDate={today} onChange={date => setEndDate(date)} />
+        <div className="ml-56 m-auto">
+          <label className="m-4 text-5xl" htmlFor="startdate-input">Start Date:</label>
+          <DatePicker id="startdate-input" className="m-4 p-2 text-5xl" selected={startDate} maxDate={today} onChange={date => setStartDate(date)} />
         </div>
       { toggleCreate &&
           <AddTransactionForm setToggleCreate={setToggleCreate} />
