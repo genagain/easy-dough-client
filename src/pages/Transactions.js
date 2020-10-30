@@ -69,20 +69,24 @@ function Transactions() {
 
   // Consider creating a separate search form component
   return (
-    <>
-    <h1>Transactions</h1>
-    <label htmlFor="startdate-input">Start Date:</label>
-    <DatePicker id="startdate-input" selected={startDate} maxDate={today} onChange={date => setStartDate(date)} />
-    <label htmlFor="enddate-input">End Date:</label>
-    <DatePicker id="enddate-input" selected={endDate} maxDate={today} onChange={date => setEndDate(date)} />
-    <input placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
-    <button onClick={ searchHandler }>Search</button>
-    <button onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
-    { toggleCreate &&
-        <AddTransactionForm setToggleCreate={setToggleCreate} />
-    }
+    <div className="flex flex-col">
+    <h1 className="text-4xl m-auto">Transactions</h1>
+    <div className="flex flex-row">
+      <div className="m-auto">
+        <label htmlFor="startdate-input">Start Date:</label>
+        <DatePicker id="startdate-input" selected={startDate} maxDate={today} onChange={date => setStartDate(date)} />
+        <label htmlFor="enddate-input">End Date:</label>
+        <DatePicker id="enddate-input" selected={endDate} maxDate={today} onChange={date => setEndDate(date)} />
+        <input placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
+        <button onClick={ searchHandler }>Search</button>
+        <button onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
+      </div>
+    </div>
+        { toggleCreate &&
+            <AddTransactionForm setToggleCreate={setToggleCreate} />
+        }
     <TransactionsTableList allTransactions={allTransactions} />
-    </>
+    </div>
   )
 }
 
