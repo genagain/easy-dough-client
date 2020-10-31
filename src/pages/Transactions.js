@@ -87,8 +87,8 @@ function Transactions() {
           <DatePicker id="startdate-input" className="w-64 m-2 text-5xl" selected={startDate} maxDate={today} onChange={date => setStartDate(date)} />
         </div>
         <div className="m-auto">
-          <label className="m-2 text-5xl" htmlFor="enddate-input">End Date:</label>
-          <DatePicker className="w-64 m-2 text-5xl" id="enddate-input" selected={endDate} maxDate={today} onChange={date => setEndDate(date)} />
+          <label className="ml-2 mr-4 text-5xl" htmlFor="enddate-input">End Date:</label>
+          <DatePicker className="w-64 ml-4 mr-2 text-5xl" id="enddate-input" selected={endDate} maxDate={today} onChange={date => setEndDate(date)} />
         </div>
       { toggleCreate &&
           <AddTransactionForm setToggleCreate={setToggleCreate} />
