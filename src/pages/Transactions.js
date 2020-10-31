@@ -69,12 +69,6 @@ function Transactions() {
 
   // Consider creating a separate search form component
   // TODO address react date picker stuff
-  //<input className="text-5xl"placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
-      /*<div className="flex-row">*/
-        //<button className="text-5xl" onClick={ searchHandler }>Search</button>
-        //<button className="text-5xl" onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
-      //</div>
-
   return (
     <div className="flex flex-col">
       <h1 className="text-6xl m-auto lg:text-4xl">Transactions</h1>
