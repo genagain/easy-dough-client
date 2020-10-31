@@ -8,6 +8,7 @@ function TransactionsTableList({allTransactions}) {
     )
   }
 
+  // TODO add headers
   return (
     <div>
     { 
