@@ -71,18 +71,18 @@ function Transactions() {
   // TODO address react date picker stuff
   return (
     <div className="flex flex-col">
-      <h1 className="text-6xl m-auto lg:text-4xl">Transactions</h1>
+      <h1 className="text-6xl m-auto">Transactions</h1>
         <div className="m-auto my-2">
-          <label className="m-2 text-5xl" htmlFor="startdate-input">Start Date:</label>
-          <DatePicker id="startdate-input" className="w-64 m-2 p-0 text-5xl" selected={startDate} maxDate={today} onChange={date => setStartDate(date)} />
+          <label className="mr-1 text-5xl" htmlFor="startdate-input">Start Date:</label>
+          <DatePicker id="startdate-input" className="w-72 ml-1 p-4 border border-gray-400 rounded text-5xl" selected={startDate} maxDate={today} onChange={date => setStartDate(date)} />
         </div>
-        <div className="m-auto my-2 ">
-          <label className="ml-2 mr-4 text-5xl" htmlFor="enddate-input">End Date:</label>
-          <DatePicker className="w-64 ml-4 mr-2 p-0 text-5xl" id="enddate-input" selected={endDate} maxDate={today} onChange={date => setEndDate(date)} />
+        <div className="m-auto my-2">
+          <label className="mr-1 text-5xl" htmlFor="enddate-input">End Date:</label>
+          <DatePicker className="w-72 ml-1 p-4 border border-gray-400 rounded text-5xl" id="enddate-input" selected={endDate} maxDate={today} onChange={date => setEndDate(date)} />
         </div>
-        <input className="m-auto my-2 p-6 w-1/2 border border-gray-400 rounded text-4xl"placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
-        <button className="m-auto my-2 p-6 w-1/2 border border-gray-400 rounded-lg text-4xl" onClick={ searchHandler }>Search</button>
-        <button className="m-auto my-2 p-6 w-1/2 border border-gray-400 rounded-lg text-4xl" onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
+        <input className="m-auto my-2 p-6 w-1/2 border border-gray-400 rounded text-5xl"placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
+        <button className="m-auto my-2 p-6 w-1/2 border border-gray-400 rounded-lg text-5xl" onClick={ searchHandler }>Search</button>
+        <button className="m-auto my-2 p-6 w-1/2 border border-gray-400 rounded-lg text-5xl" onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
       { toggleCreate &&
           <AddTransactionForm setToggleCreate={setToggleCreate} />
       }
