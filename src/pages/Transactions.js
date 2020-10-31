@@ -68,27 +68,24 @@ function Transactions() {
   }
 
   // Consider creating a separate search form component
-  // TODO address react date picker stuff
   return (
     <div className="flex flex-col">
-      <h1 className="text-6xl m-auto">Transactions</h1>
-        <div className="m-auto my-2">
-          <label className="mr-1 text-5xl" htmlFor="startdate-input">Start Date:</label>
-          <DatePicker id="startdate-input" className="w-72 ml-1 p-4 border border-gray-400 rounded text-5xl" selected={startDate} maxDate={today} onChange={date => setStartDate(date)} />
-        </div>
-        <div className="m-auto my-2">
-          <label className="mr-1 text-5xl" htmlFor="enddate-input">End Date:</label>
-          <DatePicker className="w-72 ml-1 p-4 border border-gray-400 rounded text-5xl" id="enddate-input" selected={endDate} maxDate={today} onChange={date => setEndDate(date)} />
-        </div>
-        <input className="m-auto my-2 p-6 w-1/2 border border-gray-400 rounded text-5xl"placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
-        <button className="m-auto my-2 p-6 w-1/2 border border-gray-400 rounded-lg text-5xl" onClick={ searchHandler }>Search</button>
-        <button className="m-auto my-2 p-6 w-1/2 border border-gray-400 rounded-lg text-5xl" onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
-      { toggleCreate &&
-          <AddTransactionForm setToggleCreate={setToggleCreate} />
-      }
-      <div className="m-auto flex flex-col">
-      <TransactionsTableList allTransactions={allTransactions} />
+      <div className="m-auto">
+        <h1 className="my-2 text-6xl">Transactions</h1>
+        <div className="flex flex-col">
+          <label htmlFor="startdate-input" className="my-2 text-5xl">Start Date:</label>
+        <DatePicker id="startdate-input" className="my-2 p-6 border border-gray-400 rounded text-5xl" selected={startDate} maxDate={today} onChange={date => setStartDate(date)} />
+        <label htmlFor="enddate-input" className="my-2 text-5xl">End Date:</label>
+        <DatePicker id="enddate-input" className="my-2 p-6 border border-gray-400 rounded text-5xl" selected={endDate} maxDate={today} onChange={date => setEndDate(date)} />
+        <input className="my-2 p-6 border border-gray-400 rounded text-5xl"placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
+        <button className="my-2 p-6 border border-gray-400 rounded-lg text-5xl" onClick={ searchHandler }>Search</button>
+        <button className="my-2 p-6 border border-gray-400 rounded-lg text-5xl" onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
       </div>
+    </div>
+    { toggleCreate &&
+        <AddTransactionForm setToggleCreate={setToggleCreate} />
+    }
+    <TransactionsTableList allTransactions={allTransactions} />
     </div>
   )
 }
