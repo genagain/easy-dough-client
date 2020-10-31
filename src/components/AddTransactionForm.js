@@ -45,20 +45,20 @@ function AddTransactionForm({setToggleCreate}) {
   }
 
   return (
-    <>
-      { flashMessage &&
-          <FlashMessage duration={5000}>
-            <strong>{flashMessage}</strong>
-          </FlashMessage>
-      }
-      <label htmlFor="date-input">Date:</label>
-      <DatePicker id="date-input" selected={date} maxDate={today} onChange={ date => { setDate(date)}} />
-      <label htmlFor="description-input">Description:</label>
-      <input id="description-input" placeholder="Coffee" onChange={ e => { setDescription(e.target.value)}}/>
-      <label htmlFor="amount-input">Amount:</label>
-      <input id="amount-input" placeholder="15.00" type="text" onChange={ e => { setAmount(e.target.value)}}/>
-      <button onClick={handleAddTransaction}>Create Transaction</button>
-    </>
+    <div className="flex flex-col m-auto">
+        { flashMessage &&
+            <FlashMessage duration={5000}>
+              <strong>{flashMessage}</strong>
+            </FlashMessage>
+        }
+        <label htmlFor="date-input" className="my-2 text-5xl">Date:</label>
+        <DatePicker id="date-input" className="my-2 p-6 border border-gray-400 rounded text-5xl" selected={date} maxDate={today} onChange={ date => { setDate(date)}} />
+        <label htmlFor="description-input" className="my-2 text-5xl">Description:</label>
+        <input id="description-input" className="my-2 p-6 border border-gray-400 rounded text-5xl" placeholder="Coffee" onChange={ e => { setDescription(e.target.value)}}/>
+        <label htmlFor="amount-input" className="my-2 text-5xl">Amount:</label>
+        <input id="amount-input" className="my-2 p-6 border border-gray-400 rounded text-5xl" placeholder="15.00" type="text" onChange={ e => { setAmount(e.target.value)}}/>
+        <button className="my-2 p-6 border border-gray-400 rounded-lg text-5xl" onClick={handleAddTransaction}>Create Transaction</button>
+    </div>
   )
 }
 
