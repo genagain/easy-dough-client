@@ -17,7 +17,9 @@ function TransactionsTableList({allTransactions}) {
         return (
           <div key={month} role="list" title={month}>
             <h1>{month}</h1>
-            <TransactionsTable transactions={transactions} />
+            <div key={`transactions-table-${month}`} className="m-auto w-10/12">
+              <TransactionsTable transactions={transactions} />
+            </div>
           </div>
         )
       })

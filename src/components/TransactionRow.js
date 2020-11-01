@@ -35,13 +35,15 @@ function TransactionRow({transaction}) {
       toggleForm ? (
         <EditTransactionForm transaction={transaction} setToggleForm={setToggleForm}/>
       ) : (
-        <>
-          <div key={`${id}-${date}`}>{formattedDate}</div>
-          <div key={`${id}-${description}`}>{description}</div>
-          <div key={`${id}-${amount}`}>{amount}</div>
-          <button data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
-          <button data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
-        </>
+        <div>
+          <div key={`${id}-${date}`} className="m-2 inline-block text-5xl">{formattedDate}</div>
+          <div key={`${id}-${description}`} className="m-2 inline-block text-5xl">{description}</div>
+          <div key={`${id}-${amount}`} className="m-2 float-right text-5xl">{amount}</div>
+          <div>
+            <button className="m-2 text-4xl" data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
+            <button className="m-2 text-4xl" data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
+          </div>
+        </div>
       )
     }
       <Modal isOpen={toggleModal}>
