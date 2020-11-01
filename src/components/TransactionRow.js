@@ -38,11 +38,11 @@ function TransactionRow({transaction}) {
         <div>
           <div key={`${id}-${date}`} className="m-2 inline-block text-3xl">{formattedDate}</div>
           <div>
-            <div key={`${id}-${description}`} className="m-2 inline-block text-5xl">{description}</div>
+            <div key={`${id}-${description}`} className="m-2 w-1/2 inline-block text-5xl">{description}</div>
             <div className="float-right">
               <div key={`${id}-${amount}`} className="m-2 inline-block text-5xl">{amount}</div>
-              <button className="m-2 text-4xl" data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
-              <button className="m-2 text-4xl" data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
+              <button className="m-2 p-4 border border-gray-400 rounded-lg text-4xl" data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
+              <button className="m-2 p-4 border border-gray-400 rounded-lg text-4xl" data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
             </div>
           </div>
         </div>
