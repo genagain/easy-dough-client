@@ -39,19 +39,19 @@ function EditTransactionForm({transaction, setToggleForm}) {
   }
 
   return (
-    <>
+    <div className="flex flex-col m-auto w-2/3">
       { flashMessage &&
         <FlashMessage duration={5000}>
           <strong>{flashMessage}</strong>
         </FlashMessage>
       }
-      <label htmlFor="date-input">Date:</label>
-      <DatePicker id="date-input" selected={date} onChange={date => setDate(date)}/>
-      <input placeholder="Description" type="text" defaultValue={initialDescription} onChange={e => setDescription(e.target.value)}/>
-      <input placeholder="Amount" type="text" defaultValue={initialAmount} onChange={e => setAmount(e.target.value)}/>
-      <button onClick={handleUpdate}>Update</button>
-      <button onClick={() => setToggleForm(false)}>Cancel</button>
-    </>
+      <label htmlFor="date-input" className="my-2 text-5xl">Date:</label>
+      <DatePicker id="date-input" className="my-2 p-6 text-5xl" selected={date} onChange={date => setDate(date)}/>
+      <input className="my-2 p-6 text-5xl" placeholder="Description" type="text" defaultValue={initialDescription} onChange={e => setDescription(e.target.value)}/>
+      <input className="my-2 p-6 text-5xl" placeholder="Amount" type="text" defaultValue={initialAmount} onChange={e => setAmount(e.target.value)}/>
+      <button className="my-2 p-6 border border-gray-400 rounded-lg text-5xl" onClick={handleUpdate}>Update</button>
+      <button className="my-2 p-6 border border-gray-400 rounded-lg text-5xl" onClick={() => setToggleForm(false)}>Cancel</button>
+    </div>
   )
 }
 
