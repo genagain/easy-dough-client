@@ -72,14 +72,14 @@ function Transactions() {
     <div className="flex flex-col">
       <div className="m-auto">
         <h1 className="my-2 text-6xl">Transactions</h1>
-        <div className="flex flex-col">
-          <label htmlFor="startdate-input" className="my-2 text-5xl">Start Date:</label>
-        <DatePicker id="startdate-input" className="my-2 p-6 border border-gray-400 rounded text-5xl" selected={startDate} maxDate={today} onChange={date => setStartDate(date)} />
-        <label htmlFor="enddate-input" className="my-2 text-5xl">End Date:</label>
-        <DatePicker id="enddate-input" className="my-2 p-6 border border-gray-400 rounded text-5xl" selected={endDate} maxDate={today} onChange={date => setEndDate(date)} />
-        <input className="my-2 p-6 border border-gray-400 rounded text-5xl"placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
-        <button className="my-2 p-6 border border-gray-400 rounded-lg text-5xl" onClick={ searchHandler }>Search</button>
-        <button className="my-2 p-6 border border-gray-400 rounded-lg text-5xl" onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
+        <div className="flex flex-col lg:flex-row">
+          <label htmlFor="startdate-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Start Date:</label>
+          <DatePicker id="startdate-input" className="my-2 p-6 border border-gray-400 rounded text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" selected={startDate} maxDate={today} onChange={date => setStartDate(date)} />
+          <label htmlFor="enddate-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">End Date:</label>
+          <DatePicker id="enddate-input" className="my-2 p-6 border border-gray-400 rounded text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" selected={endDate} maxDate={today} onChange={date => setEndDate(date)} />
+          <input className="my-2 p-6 border border-gray-400 rounded text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg"placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
+          <button className="my-2 p-6 border border-gray-400 rounded-lg text-5xl lg:my-2 lg:p-2 lg:text-lg" onClick={ searchHandler }>Search</button>
+          <button className="my-2 p-6 border border-gray-400 rounded-lg text-5xl lg:my-2 lg:p-2 lg:text-lg" onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
       </div>
     </div>
     { toggleCreate &&
