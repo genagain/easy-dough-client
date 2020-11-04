@@ -37,10 +37,10 @@ function TransactionRow({transaction}) {
       ) : (
         <div className="flex flex-row lg:items-baseline">
           <div className="flex-grow lg:flex lg:flex-row lg:flex-grow-0">
-          <div key={`${id}-${date}`} className="m-2 text-3xl lg:w-72 lg:text-lg">{formattedDate}</div>
-          <div key={`${id}-${description}`} className="m-2 text-5xl lg:w-72 lg:text-lg">{description}</div>
+          <div key={`${id}-${date}`} className="m-2 text-3xl lg:w-40 lg:text-lg">{formattedDate}</div>
+          <div key={`${id}-${description}`} className="m-2 text-5xl lg:w-144 lg:text-lg">{description}</div>
           </div>
-           <div key={`${id}-${amount}`} className="mx-2 my-4 text-5xl lg:w-72 lg:text-lg">{amount}</div>
+           <div key={`${id}-${amount}`} className="mx-2 my-4 text-5xl lg:w-64 lg:text-lg">{amount}</div>
            <button className="mx-2 my-4 px-4 py-2 h-20 border border-gray-400 rounded-lg text-4xl lg:text-lg lg:px-2 lg:h-auto" data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
            <button className="mx-2 my-4 px-4 py-2 h-20 border border-gray-400 rounded-lg text-4xl lg:text-lg lg:px-2 lg:h-auto" data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
         </div>

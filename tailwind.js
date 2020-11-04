@@ -151,7 +151,12 @@ module.exports = {
       '64': '16rem',
       '72': '18rem',
       '84': '20rem',
-      '96': '22rem'
+      '96': '22rem',
+      '108': '24rem',
+      '120': '26rem',
+      '132': '28rem',
+      '144': '30rem',
+      '156': '32rem'
     },
     backgroundColor: theme => theme('colors'),
     backgroundImage: {
