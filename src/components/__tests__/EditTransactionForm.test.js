@@ -20,12 +20,12 @@ describe('The EditTransactionForm component', () => {
     })
 
     test('the prepopulated description input field', () => {
-      const descriptionField = screen.getByPlaceholderText('Description')
+      const descriptionField = screen.getByLabelText('Description:')
       expect(descriptionField.value).toEqual('Grocery Store')
     })
 
     test('the prepopulated amount input field', () => {
-      const amountField = screen.getByPlaceholderText('Amount')
+      const amountField = screen.getByLabelText('Amount:')
       expect(amountField.value).toEqual('70.00')
     })
 

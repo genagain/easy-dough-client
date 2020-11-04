@@ -47,8 +47,10 @@ function EditTransactionForm({transaction, setToggleForm}) {
       }
       <label htmlFor="date-input" className="my-2 text-5xl">Date:</label>
       <DatePicker id="date-input" className="my-2 p-6 w-full border border-gray-400 rounded text-5xl" selected={date} onChange={date => setDate(date)}/>
-      <input className="my-2 p-6 border border-gray-400 rounded text-5xl" placeholder="Description" type="text" defaultValue={initialDescription} onChange={e => setDescription(e.target.value)}/>
-      <input className="my-2 p-6 border border-gray-400 rounded text-5xl" placeholder="Amount" type="text" defaultValue={initialAmount} onChange={e => setAmount(e.target.value)}/>
+      <label htmlFor="description-input" className="my-2 text-5xl">Description:</label>
+      <input id="description-input" className="my-2 p-6 border border-gray-400 rounded text-5xl" placeholder="Coffee" type="text" defaultValue={initialDescription} onChange={e => setDescription(e.target.value)}/>
+      <label htmlFor="amount-input" className="my-2 text-5xl">Amount:</label>
+      <input id="amount-input" className="my-2 p-6 border border-gray-400 rounded text-5xl" placeholder="5.00" type="text" defaultValue={initialAmount} onChange={e => setAmount(e.target.value)}/>
       <button className="my-2 p-6 border border-gray-400 rounded-lg text-5xl" onClick={handleUpdate}>Update</button>
       <button className="my-2 p-6 border border-gray-400 rounded-lg text-5xl" onClick={() => setToggleForm(false)}>Cancel</button>
     </div>
