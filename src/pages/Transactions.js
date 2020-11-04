@@ -70,8 +70,8 @@ function Transactions() {
   // Consider creating a separate search form component
   return (
     <div className="flex flex-col">
-      <div className="m-auto">
-        <h1 className="my-2 text-6xl">Transactions</h1>
+      <div className="m-auto lg:w-3/4">
+        <h1 className="my-2 text-6xl lg:text-4xl">Transactions</h1>
         <div className="flex flex-col lg:flex-row">
           <label htmlFor="startdate-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Start Date:</label>
           <DatePicker id="startdate-input" className="my-2 p-6 border border-gray-400 rounded text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" selected={startDate} maxDate={today} onChange={date => setStartDate(date)} />
