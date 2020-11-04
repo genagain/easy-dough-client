@@ -30,7 +30,7 @@ function TransactionRow({transaction}) {
   const formattedDate = formatPrettyDate(date)
 
   return (
-    <div id={`transaction-${id}`} className="px-1 py-6">
+    <div id={`transaction-${id}`} className="px-1 py-6 border-b-2 border-gray-600">
     { 
       toggleForm ? (
         <EditTransactionForm transaction={transaction} setToggleForm={setToggleForm}/>

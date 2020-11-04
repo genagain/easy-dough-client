@@ -6,7 +6,7 @@ function TransactionsTable({transactions}) {
         <div>
             {
               transactions.map( transaction => (
-                <div key={transaction.id} className="odd:bg-gray-200">
+                <div key={transaction.id}>
                   <TransactionRow transaction={transaction}/>
                 </div>
                 )
