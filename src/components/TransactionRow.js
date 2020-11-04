@@ -35,16 +35,14 @@ function TransactionRow({transaction}) {
       toggleForm ? (
         <EditTransactionForm transaction={transaction} setToggleForm={setToggleForm}/>
       ) : (
-        <div>
-          <div key={`${id}-${date}`} className="mx-2 inline-block text-3xl">{formattedDate}</div>
-          <div>
-            <div key={`${id}-${description}`} className="mx-2 w-5/12 inline-block text-5xl">{description}</div>
-            <div className="float-right">
-              <div key={`${id}-${amount}`} className="mx-2 inline-block text-5xl">{amount}</div>
-              <button className="mx-2 px-4 py-2 border border-gray-400 rounded-lg text-4xl" data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
-              <button className="mx-2 px-4 py-2 border border-gray-400 rounded-lg text-4xl" data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
-            </div>
+        <div className="flex flex-row lg:items-baseline">
+          <div className="flex-grow lg:flex lg:flex-row">
+          <div key={`${id}-${date}`} className="m-2 text-3xl lg:text-lg">{formattedDate}</div>
+          <div key={`${id}-${description}`} className="m-2 text-5xl lg:text-lg">{description}</div>
           </div>
+           <div key={`${id}-${amount}`} className="mx-2 my-4 text-5xl lg:text-lg">{amount}</div>
+           <button className="mx-2 my-4 px-4 py-2 h-20 border border-gray-400 rounded-lg text-4xl lg:text-lg" data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
+           <button className="mx-2 my-4 px-4 py-2 h-20 border border-gray-400 rounded-lg text-4xl lg:text-lg" data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
         </div>
       )
     }
