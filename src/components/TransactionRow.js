@@ -49,9 +49,9 @@ function TransactionRow({transaction}) {
       )
     }
       <Modal isOpen={toggleModal}>
-        <h1>Are you sure you want to delete this transaction?</h1>
-        <button onClick={handleDelete}>Yes</button>
-        <button onClick={() => setToggleModal(false)}>No</button>
+        <h1 className="m-auto p-6 text-5xl">Are you sure you want to delete this transaction?</h1>
+        <button className="mx-2 px-4 py-2 border border-gray-400 rounded-lg text-4xl" onClick={handleDelete}>Yes</button>
+        <button className="mx-2 px-4 py-2 border border-gray-400 rounded-lg text-4xl" onClick={() => setToggleModal(false)}>No</button>
       </Modal>
     </div>
 
