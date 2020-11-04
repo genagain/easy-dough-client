@@ -30,19 +30,19 @@ function TransactionRow({transaction}) {
   const formattedDate = formatPrettyDate(date)
 
   return (
-    <div id={`transaction-${id}`} className="px-1 py-6 border-b-2 border-gray-600">
+    <div id={`transaction-${id}`} className="px-1 py-6 border-b-2 border-gray-600 lg:p-0">
     { 
       toggleForm ? (
         <EditTransactionForm transaction={transaction} setToggleForm={setToggleForm}/>
       ) : (
         <div className="flex flex-row lg:items-baseline">
-          <div className="flex-grow lg:flex lg:flex-row">
-          <div key={`${id}-${date}`} className="m-2 text-3xl lg:text-lg">{formattedDate}</div>
-          <div key={`${id}-${description}`} className="m-2 text-5xl lg:text-lg">{description}</div>
+          <div className="flex-grow lg:flex lg:flex-row lg:flex-grow-0">
+          <div key={`${id}-${date}`} className="m-2 text-3xl lg:w-72 lg:text-lg">{formattedDate}</div>
+          <div key={`${id}-${description}`} className="m-2 text-5xl lg:w-72 lg:text-lg">{description}</div>
           </div>
-           <div key={`${id}-${amount}`} className="mx-2 my-4 text-5xl lg:text-lg">{amount}</div>
-           <button className="mx-2 my-4 px-4 py-2 h-20 border border-gray-400 rounded-lg text-4xl lg:text-lg" data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
-           <button className="mx-2 my-4 px-4 py-2 h-20 border border-gray-400 rounded-lg text-4xl lg:text-lg" data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
+           <div key={`${id}-${amount}`} className="mx-2 my-4 text-5xl lg:w-72 lg:text-lg">{amount}</div>
+           <button className="mx-2 my-4 px-4 py-2 h-20 border border-gray-400 rounded-lg text-4xl lg:text-lg lg:px-2 lg:h-auto" data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
+           <button className="mx-2 my-4 px-4 py-2 h-20 border border-gray-400 rounded-lg text-4xl lg:text-lg lg:px-2 lg:h-auto" data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
         </div>
       )
     }

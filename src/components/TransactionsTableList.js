@@ -15,7 +15,7 @@ function TransactionsTableList({allTransactions}) {
       allTransactions.map( monthsTransactions => {
         const { month, transactions } = monthsTransactions
         return (
-          <div key={month} role="list" title={month} className="m-auto w-10/12">
+          <div key={month} role="list" title={month} className="m-auto w-10/12 lg:w-3/4">
             <h1 className="px-1 py-6 border-b-2 border-gray-600 text-6xl lg:text-4xl">{month}</h1>
             <div key={`transactions-table-${month}`}>
               <TransactionsTable transactions={transactions} />
