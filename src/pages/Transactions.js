@@ -81,10 +81,10 @@ function Transactions() {
           <button className="lg:h-12 m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={ searchHandler }>Search</button>
           <button className="lg:h-12 m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
       </div>
-    </div>
     { toggleCreate &&
         <AddTransactionForm setToggleCreate={setToggleCreate} />
     }
+    </div>
     <TransactionsTableList allTransactions={allTransactions} />
     </div>
   )
