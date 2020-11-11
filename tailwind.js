@@ -149,6 +149,14 @@ module.exports = {
       '48': '12rem',
       '56': '14rem',
       '64': '16rem',
+      '72': '18rem',
+      '84': '20rem',
+      '96': '22rem',
+      '108': '24rem',
+      '120': '26rem',
+      '132': '28rem',
+      '144': '30rem',
+      '156': '32rem'
     },
     backgroundColor: theme => theme('colors'),
     backgroundImage: {
@@ -671,7 +679,7 @@ module.exports = {
     appearance: ['responsive'],
     backgroundAttachment: ['responsive'],
     backgroundClip: ['responsive'],
-    backgroundColor: ['responsive', 'hover', 'focus'],
+    backgroundColor: ['responsive', 'odd', 'even', 'hover', 'focus'],
     backgroundImage: ['responsive'],
     gradientColorStops: ['responsive', 'hover', 'focus'],
     backgroundOpacity: ['responsive', 'hover', 'focus'],

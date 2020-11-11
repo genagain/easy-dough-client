@@ -30,24 +30,32 @@ function TransactionRow({transaction}) {
   const formattedDate = formatPrettyDate(date)
 
   return (
-    <div id={`transaction-${id}`}>
+    <div id={`transaction-${id}`} className="px-1 py-6 border-b-2 border-gray-600 lg:p-0 lg:border-b">
     { 
       toggleForm ? (
         <EditTransactionForm transaction={transaction} setToggleForm={setToggleForm}/>
       ) : (
-        <>
-          <div key={`${id}-${date}`}>{formattedDate}</div>
-          <div key={`${id}-${description}`}>{description}</div>
-          <div key={`${id}-${amount}`}>{amount}</div>
-          <button data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
-          <button data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
-        </>
+        <div className="flex flex-row lg:items-baseline">
+          <div className="flex-grow lg:flex lg:flex-row lg:flex-grow-0">
+          <div key={`${id}-${date}`} className="m-2 text-3xl lg:w-40 lg:text-lg">{formattedDate}</div>
+          <div key={`${id}-${description}`} className="m-2 text-5xl lg:w-144 lg:text-lg">{description}</div>
+          </div>
+           <div key={`${id}-${amount}`} className="mx-2 my-4 text-5xl lg:w-96 lg:text-lg">{amount}</div>
+           <button className="mx-2 my-4 px-4 py-2 h-20 border border-gray-400 rounded-lg text-4xl lg:text-lg lg:px-2 lg:h-auto" data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
+           <button className="mx-2 my-4 px-4 py-2 h-20 border border-gray-400 rounded-lg text-4xl lg:text-lg lg:px-2 lg:h-auto" data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
+        </div>
       )
     }
-      <Modal isOpen={toggleModal}>
-        <h1>Are you sure you want to delete this transaction?</h1>
-        <button onClick={handleDelete}>Yes</button>
-        <button onClick={() => setToggleModal(false)}>No</button>
+      <Modal className="m-10 p-10 bg-white h-auto border border-gray-400 rounded lg:m-20" isOpen={toggleModal}>
+        <div className="m-auto w-3/4 lg:w-1/2">
+        <h1 className="p-6 text-5xl lg:text-2xl">Are you sure you want to delete this transaction?</h1>
+          <div className="m-auto w-1/2">
+          <div className="flex space-x-20">
+            <button className="m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:px-4 lg:py-2 text-5xl lg:text-lg" onClick={handleDelete}>Yes</button>
+            <button className="m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:px-4 lg:py-2 text-5xl lg:text-lg" onClick={() => setToggleModal(false)}>No</button>
+          </div>
+          </div>
+        </div>
       </Modal>
     </div>
 

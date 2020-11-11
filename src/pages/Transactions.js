@@ -69,20 +69,24 @@ function Transactions() {
 
   // Consider creating a separate search form component
   return (
-    <>
-    <h1>Transactions</h1>
-    <label htmlFor="startdate-input">Start Date:</label>
-    <DatePicker id="startdate-input" selected={startDate} maxDate={today} onChange={date => setStartDate(date)} />
-    <label htmlFor="enddate-input">End Date:</label>
-    <DatePicker id="enddate-input" selected={endDate} maxDate={today} onChange={date => setEndDate(date)} />
-    <input placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
-    <button onClick={ searchHandler }>Search</button>
-    <button onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
+    <div className="flex flex-col">
+      <div className="m-auto lg:w-10/12">
+        <h1 className="my-2 text-6xl lg:text-4xl">Transactions</h1>
+        <div className="flex flex-col lg:flex-row lg:items-center">
+          <label htmlFor="startdate-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Start Date:</label>
+          <DatePicker id="startdate-input" className="m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" selected={startDate} maxDate={today} onChange={date => setStartDate(date)} />
+          <label htmlFor="enddate-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">End Date:</label>
+          <DatePicker id="enddate-input" className="m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" selected={endDate} maxDate={today} onChange={date => setEndDate(date)} />
+          <input className="m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg"placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
+          <button className="lg:h-12 m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={ searchHandler }>Search</button>
+          <button className="lg:h-12 m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
+      </div>
     { toggleCreate &&
         <AddTransactionForm setToggleCreate={setToggleCreate} />
     }
+    </div>
     <TransactionsTableList allTransactions={allTransactions} />
-    </>
+    </div>
   )
 }
 

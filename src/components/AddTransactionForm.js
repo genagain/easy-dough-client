@@ -45,20 +45,20 @@ function AddTransactionForm({setToggleCreate}) {
   }
 
   return (
-    <>
-      { flashMessage &&
-          <FlashMessage duration={5000}>
-            <strong>{flashMessage}</strong>
-          </FlashMessage>
-      }
-      <label htmlFor="date-input">Date:</label>
-      <DatePicker id="date-input" selected={date} maxDate={today} onChange={ date => { setDate(date)}} />
-      <label htmlFor="description-input">Description:</label>
-      <input id="description-input" placeholder="Coffee" onChange={ e => { setDescription(e.target.value)}}/>
-      <label htmlFor="amount-input">Amount:</label>
-      <input id="amount-input" placeholder="15.00" type="text" onChange={ e => { setAmount(e.target.value)}}/>
-      <button onClick={handleAddTransaction}>Create Transaction</button>
-    </>
+    <div className="flex flex-col lg:flex-row lg:items-center">
+        { flashMessage &&
+            <FlashMessage duration={5000}>
+              <strong>{flashMessage}</strong>
+            </FlashMessage>
+        }
+        <label htmlFor="date-input"className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Date:</label>
+        <DatePicker id="date-input" className="m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" selected={date} maxDate={today} onChange={ date => { setDate(date)}} />
+        <label htmlFor="description-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Description:</label>
+        <input id="description-input" className="m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" placeholder="Coffee" onChange={ e => { setDescription(e.target.value)}}/>
+        <label htmlFor="amount-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Amount:</label>
+        <input id="amount-input" className="m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" placeholder="15.00" type="text" onChange={ e => { setAmount(e.target.value)}}/>
+        <button className="lg:h-12 m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={handleAddTransaction}>Create Transaction</button>
+    </div>
   )
 }
 
