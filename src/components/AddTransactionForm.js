@@ -45,13 +45,13 @@ function AddTransactionForm({setToggleCreate}) {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row">
+    <div className="flex flex-col lg:flex-row lg:items-center">
         { flashMessage &&
             <FlashMessage duration={5000}>
               <strong>{flashMessage}</strong>
             </FlashMessage>
         }
-        <label htmlFor="datut"className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Date:</label>
+        <label htmlFor="date-input"className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Date:</label>
         <DatePicker id="date-input" className="m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" selected={date} maxDate={today} onChange={ date => { setDate(date)}} />
         <label htmlFor="description-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Description:</label>
         <input id="description-input" className="m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" placeholder="Coffee" onChange={ e => { setDescription(e.target.value)}}/>
