@@ -16,7 +16,7 @@ function TransactionsTableList({allTransactions}) {
         const { month, transactions } = monthsTransactions
         return (
           <div key={month} role="list" title={month} className="m-auto w-10/12">
-            <h1 className="px-1 py-6 text-6xl lg:text-3xl">{month}</h1>
+            <h1 className="px-1 pt-6 pb-3 text-6xl lg:text-3xl">{month}</h1>
             <div key={`transactions-table-${month}`}>
               <TransactionsTable transactions={transactions} />
             </div>
