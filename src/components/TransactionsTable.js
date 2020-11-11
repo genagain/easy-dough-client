@@ -5,9 +5,11 @@ function TransactionsTable({transactions}) {
   return (
         <div>
           <div className="border-b-2 border-gray-600 lg:border-b">
-          <div>Date</div>
-          <div>Description</div>
-          <div>Amount</div>
+            <div className="flex flex-row invisible lg:visible">
+              <div className="m-2 lg:text-xl lg:w-40">Date</div>
+              <div className="m-2 lg:text-xl lg:w-144">Description</div>
+              <div className="m-2 lg:text-xl lg:w-96">Amount</div>
+            </div>
           </div>
             {
               transactions.map( transaction => (
