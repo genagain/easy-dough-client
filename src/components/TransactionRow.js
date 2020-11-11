@@ -51,8 +51,8 @@ function TransactionRow({transaction}) {
         <h1 className="p-6 text-5xl lg:text-2xl">Are you sure you want to delete this transaction?</h1>
           <div className="m-auto w-1/2">
           <div className="flex space-x-20">
-            <button className="m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={handleDelete}>Yes</button>
-            <button className="m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={() => setToggleModal(false)}>No</button>
+            <button className="m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:px-4 lg:py-2 text-5xl lg:text-lg" onClick={handleDelete}>Yes</button>
+            <button className="m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:px-4 lg:py-2 text-5xl lg:text-lg" onClick={() => setToggleModal(false)}>No</button>
           </div>
           </div>
         </div>
