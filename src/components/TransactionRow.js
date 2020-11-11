@@ -46,10 +46,10 @@ function TransactionRow({transaction}) {
         </div>
       )
     }
-      <Modal className="m-10 p-10 bg-white h-auto border border-gray-400 rounded-lg" isOpen={toggleModal}>
-        <h1 className="m-auto p-6 text-5xl">Are you sure you want to delete this transaction?</h1>
-        <button className="ml-56 px-6 py-4 border border-gray-400 rounded-lg text-5xl" onClick={handleDelete}>Yes</button>
-        <button className="float-right mr-56 px-6 py-4 border border-gray-400 rounded-lg text-5xl" onClick={() => setToggleModal(false)}>No</button>
+      <Modal className="m-10 p-10 bg-white h-auto border border-gray-400 rounded lg:m-20" isOpen={toggleModal}>
+        <h1 className="m-auto p-6 text-5xl lg:text-2xl">Are you sure you want to delete this transaction?</h1>
+        <button className="ml-56 m-2 p-6 border border-gray-400 rounded-lg lg:ml-72 lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={handleDelete}>Yes</button>
+        <button className="float-right mr-56 m-2 p-6 border border-gray-400 rounded-lg lg:mr-72 lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={() => setToggleModal(false)}>No</button>
       </Modal>
     </div>
 
