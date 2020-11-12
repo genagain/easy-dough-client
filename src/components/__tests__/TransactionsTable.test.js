@@ -15,6 +15,19 @@ describe('The TransactionsTable component', () => {
     })
 
     // TODO test table headers
+    test('each column header', () => {
+      const expectedColumnHeaders = [
+        'Date',
+        'Description',
+        'Amount'
+      ]
+
+      expectedColumnHeaders.forEach(columnHeader => {
+        const columnHeaderText = screen.getByText(columnHeader)
+        expect(columnHeaderText).not.toBeNull()
+      })
+    })
+
     test('each transaction', () => {
       const expectedTransactions = [
         { 'id': 1, 'date': 'Jul 10, 2020', 'description': 'Grocery Store', 'amount': '70.00' },
