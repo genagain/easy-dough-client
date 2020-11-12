@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
-import DatePicker from 'react-datepicker'
+import { enUS } from 'date-fns/locale'
+import { DatePicker } from 'react-nice-dates'
 import FlashMessage from 'react-flash-message'
 import UserContext from '../UserContext'
 import { convertDateToIso, validateAmount, formatAmount } from '../utils'
@@ -52,7 +53,15 @@ function AddTransactionForm({setToggleCreate}) {
             </FlashMessage>
         }
         <label htmlFor="date-input"className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Date:</label>
-        <DatePicker id="date-input" className="m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" selected={date} maxDate={today} onChange={ date => { setDate(date)}} />
+        <DatePicker date={date} onDateChange={setDate} locale={enUS}>
+          {({ inputProps, focused }) => (
+            <input
+              id="date-input"
+              className={`${'input' + (focused ? ' -focused' : '')} m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg`}
+              {...inputProps}
+            />
+          )}
+        </DatePicker>
         <label htmlFor="description-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Description:</label>
         <input id="description-input" className="m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" placeholder="Coffee" onChange={ e => { setDescription(e.target.value)}}/>
         <label htmlFor="amount-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Amount:</label>

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "date-fns": "^2.16.1",
     "js-cookie": "^2.2.1",
     "mockdate": "^3.0.2",
     "msw": "^0.21.2",
@@ -11,8 +12,9 @@
     "react-dom": "^16.13.1",
     "react-flash-message": "^1.0.4",
     "react-modal": "^3.11.2",
+    "react-nice-dates": "^3.0.7",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "^4.0.0"
   },
   "scripts": {
     "start": "npm run watch:css && react-scripts start",

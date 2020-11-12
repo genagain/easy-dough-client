@@ -7,7 +7,7 @@ function TransactionsTable({transactions}) {
           <div className="border-b-2 border-gray-600 lg:border-b">
             <div className="flex flex-row invisible lg:visible">
               <div className="m-2 lg:text-xl lg:w-40">Date</div>
-              <div className="m-2 lg:text-xl lg:w-144">Description</div>
+              <div className="m-2 lg:text-xl lg:w-84">Description</div>
               <div className="m-2 lg:text-xl lg:w-96">Amount</div>
             </div>
           </div>
