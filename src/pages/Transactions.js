@@ -14,8 +14,6 @@ function Transactions() {
 
   const [toggleCreate, setToggleCreate] = useState(false)
 
-  // TODO put today in utils
-  const today = new Date(Date.now())
   const initialEndDate = convertIsoToDate(queryParams.end_date)
   const initialStartDate = convertIsoToDate(queryParams.start_date)
   const [endDate, setEndDate] = useState(initialEndDate)
