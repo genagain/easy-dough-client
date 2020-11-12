@@ -51,7 +51,7 @@ function EditTransactionForm({transaction, setToggleForm}) {
         {({ inputProps, focused }) => (
           <input
             id="date-input"
-            className={`${'input' + (focused ? ' -focused' : '')} m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg`}
+            className={`${'input' + (focused ? ' -focused' : '')} max-w-full m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg`}
             {...inputProps}
           />
         )}
