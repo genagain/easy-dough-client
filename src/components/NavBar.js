@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import UserContext from '../UserContext';
 
 function NavBar() {
@@ -32,9 +32,9 @@ function NavBar() {
           accessToken ? 
            (
             <>
-              <Link to='/transactions' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
+              <NavLink to='/transactions' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`} activeClassName="font-bold" >
                Transactions
-             </Link>
+             </NavLink>
              <div className="lg:flex-grow"></div>
               <Link to='/' onClick={logout} className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
                Logout
@@ -44,12 +44,12 @@ function NavBar() {
            (
              <>
                <div className="lg:flex-grow"></div>
-               <Link to='/signup' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
+               <NavLink to='/signup' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`} activeClassName="font-bold">
                  Sign Up
-               </Link>
-               <Link to='/login' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
+               </NavLink>
+               <NavLink to='/login' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`} activeClassName="font-bold">
                  Login
-               </Link>
+               </NavLink>
              </>
            )
           }
