@@ -69,7 +69,7 @@ function Transactions() {
   return (
     <div className="flex flex-col">
       <div className="m-auto lg:w-10/12">
-        <h1 className="my-2 text-6xl lg:text-4xl">Transactions</h1>
+        <h1 className="my-2 text-6xl lg:text-4xl">Transaction History</h1>
         <div className="flex flex-col lg:flex-row lg:items-center">
           <label htmlFor="startdate-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Start Date:</label>
           <DatePicker date={startDate} onDateChange={setStartDate} locale={enUS}>
