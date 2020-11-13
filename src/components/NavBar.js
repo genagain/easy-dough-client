@@ -32,7 +32,7 @@ function NavBar() {
           accessToken ? 
            (
             <>
-              <NavLink to='/transactions' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4 hover:text-blue-600`} activeClassName="font-bold hover:text-blue-800" >
+              <NavLink to='/transactions' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:mx-2 lg:px-4 hover:text-blue-600`} activeClassName="font-bold hover:text-blue-800" >
                Transactions
              </NavLink>
              <div className="lg:flex-grow"></div>
