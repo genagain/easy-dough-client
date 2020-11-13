@@ -15,8 +15,8 @@ beforeEach(() => {
 })
 
 test('render Transactions page', () => {
-  const title = screen.getByRole("heading", { name: /transactions/i}).textContent;
-  expect(title).toMatchInlineSnapshot(`"Transactions"`)
+  const title = screen.getByRole("heading", { name: /transaction history/i}).textContent;
+  expect(title).toMatchInlineSnapshot(`"Transaction History"`)
 })
 
 test('renders date pickers', () => {
