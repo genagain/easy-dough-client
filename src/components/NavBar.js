@@ -13,11 +13,11 @@ function NavBar() {
 
     // TODO figure out why the md breakpoints aren't working as expected using the lg ones seem a bit too large
     return (
-      <div className="border-b-2 border-gray-400 shadow-md mb-24 lg:mb-12 lg:border-b lg:shadow ">
+      <div className="border-b-2 border-gray-400 shadow-md mb-24 lg:mb-12 lg:border-b lg:shadow">
       <div className="container mx-auto px-6 py-8 lg:px-3 lg:py-3">
         <div className="flex flex-col lg:flex-row lg:items-center">
         <div className="flex justify-between">
-          <Link to='/' className="text-6xl lg:text-4xl">
+          <Link to='/' className="text-blue-800 text-6xl lg:text-4xl">
             <h1>Easy Dough</h1>
           </Link>
         <div className="pt-3 lg:hidden">
@@ -32,11 +32,11 @@ function NavBar() {
           accessToken ? 
            (
             <>
-              <Link to='/transactions' className={`${showLinks ? null : 'hidden'} my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
+              <Link to='/transactions' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
                Transactions
              </Link>
              <div className="lg:flex-grow"></div>
-              <Link to='/' onClick={logout} className={`${showLinks ? null : 'hidden'} my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
+              <Link to='/' onClick={logout} className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
                Logout
              </Link>
             </>
@@ -44,10 +44,10 @@ function NavBar() {
            (
              <>
                <div className="lg:flex-grow"></div>
-               <Link to='/signup' className={`${showLinks ? null : 'hidden'} my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
+               <Link to='/signup' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
                  Sign Up
                </Link>
-               <Link to='/login' className={`${showLinks ? null : 'hidden'} my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
+               <Link to='/login' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
                  Login
                </Link>
              </>
