@@ -14,7 +14,7 @@ function NavBar() {
     // TODO figure out why the md breakpoints aren't working as expected using the lg ones seem a bit too large
     return (
       <div className="border-b-2 border-gray-400 shadow-md mb-24 lg:mb-12 lg:border-b lg:shadow">
-      <div className="container mx-auto px-6 py-8 lg:w-7/12 lg:px-3 lg:py-3">
+      <div className="container mx-auto px-6 py-8 lg:w-7/12 lg:px-0 lg:py-3">
         <div className="flex flex-col lg:flex-row lg:items-center">
         <div className="flex justify-between">
           <Link to='/' className="text-blue-800 text-6xl lg:text-4xl hover:text-blue-600">
