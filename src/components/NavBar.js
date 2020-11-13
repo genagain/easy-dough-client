@@ -5,10 +5,10 @@ import UserContext from '../UserContext';
 function NavBar() {
     const { accessToken, logout } = useContext(UserContext)
 
-    const [showAuth, setShowAuth] = useState(false)
+    const [showLinks, setShowLinks] = useState(false)
 
     function toggleShowAuth() {
-      setShowAuth(!showAuth)
+      setShowLinks(!showLinks)
     }
 
     // TODO figure out why the md breakpoints aren't working as expected using the lg ones seem a bit too large
@@ -20,7 +20,7 @@ function NavBar() {
             <h1>Easy Dough</h1>
           </Link>
         <div className="pt-3 lg:hidden">
-        <button type="button" onClick={toggleShowAuth} className={ showAuth ? "focus:text-gray-500" : "focus:outline-none"} aria-label="toggle menu">
+        <button type="button" onClick={toggleShowAuth} className={ showLinks ? "focus:text-gray-500" : "focus:outline-none"} aria-label="toggle menu">
                   <svg viewBox="0 0 24 24" className="h-16 w-16 fill-current">
                     <path d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
                   </svg>
@@ -31,11 +31,11 @@ function NavBar() {
           accessToken ? 
            (
             <>
-              <Link to='/transactions' className={`${showAuth ? null : 'invisible'} my-2 py-2 text-4xl lg:visible lg:text-2xl lg:px-4`}>
+              <Link to='/transactions' className={`${showLinks ? null : 'hidden'} my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
                Transactions
              </Link>
              <div className="lg:flex-grow"></div>
-              <Link to='/' onClick={logout} className={`${showAuth ? null : 'invisible'} my-2 py-2 text-4xl lg:visible lg:text-2xl lg:px-4`}>
+              <Link to='/' onClick={logout} className={`${showLinks ? null : 'hidden'} my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
                Logout
              </Link>
             </>
@@ -43,10 +43,10 @@ function NavBar() {
            (
              <>
                <div className="lg:flex-grow"></div>
-               <Link to='/signup' className={`${showAuth ? null : 'invisible'} my-2 py-2 text-4xl lg:visible lg:text-2xl lg:px-4`}>
+               <Link to='/signup' className={`${showLinks ? null : 'hidden'} my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
                  Sign Up
                </Link>
-               <Link to='/login' className={`${showAuth ? null : 'invisible'} my-2 py-2 text-4xl lg:visible lg:text-2xl lg:px-4`}>
+               <Link to='/login' className={`${showLinks ? null : 'hidden'} my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
                  Login
                </Link>
              </>
