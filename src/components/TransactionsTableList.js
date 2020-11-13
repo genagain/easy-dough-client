@@ -4,7 +4,7 @@ import TransactionsTable from './TransactionsTable';
 function TransactionsTableList({allTransactions}) {
   if (allTransactions.length === 0) {
     return (
-      <p className="m-auto w-10/12 p-6 text-5xl">No transactions were found that matched the provided date range or search term</p>
+      <p className="m-auto w-10/12 p-6 text-5xl lg:w-7/12 lg:text-lg">No transactions were found that matched the provided date range or search term</p>
     )
   }
 
