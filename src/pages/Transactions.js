@@ -6,8 +6,6 @@ import AddTransactionForm from '../components/AddTransactionForm'
 import UserContext from '../UserContext'
 import { convertDateToIso, convertIsoToDate } from '../utils'
 
-import "react-datepicker/dist/react-datepicker.css";
-
 function Transactions() {
 
   const { accessToken, logout, queryParams, setQueryParams } = useContext(UserContext)

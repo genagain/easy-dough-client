@@ -8,7 +8,6 @@
     "mockdate": "^3.0.2",
     "msw": "^0.21.2",
     "react": "^16.13.1",
-    "react-datepicker": "^3.2.2",
     "react-dom": "^16.13.1",
     "react-flash-message": "^1.0.4",
     "react-modal": "^3.11.2",
