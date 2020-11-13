@@ -17,7 +17,7 @@ function NavBar() {
       <div className="container mx-auto px-6 py-8 lg:px-3 lg:py-3">
         <div className="flex flex-col lg:flex-row lg:items-center">
         <div className="flex justify-between">
-          <Link to='/' className="text-blue-800 text-6xl lg:text-4xl">
+          <Link to='/' className="text-blue-800 text-6xl lg:text-4xl hover:text-blue-600">
             <h1>Easy Dough</h1>
           </Link>
         <div className="pt-3 lg:hidden">
@@ -32,11 +32,11 @@ function NavBar() {
           accessToken ? 
            (
             <>
-              <NavLink to='/transactions' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`} activeClassName="font-bold" >
+              <NavLink to='/transactions' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4 hover:text-blue-600`} activeClassName="font-bold" >
                Transactions
              </NavLink>
              <div className="lg:flex-grow"></div>
-              <Link to='/' onClick={logout} className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`}>
+              <Link to='/' onClick={logout} className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4 hover:text-blue-600`}>
                Logout
              </Link>
             </>
@@ -44,10 +44,10 @@ function NavBar() {
            (
              <>
                <div className="lg:flex-grow"></div>
-               <NavLink to='/signup' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`} activeClassName="font-bold">
+               <NavLink to='/signup' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4 hover:text-blue-600`} activeClassName="font-bold">
                  Sign Up
                </NavLink>
-               <NavLink to='/login' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4`} activeClassName="font-bold">
+               <NavLink to='/login' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4 hover:text-blue-600`} activeClassName="font-bold">
                  Login
                </NavLink>
              </>
