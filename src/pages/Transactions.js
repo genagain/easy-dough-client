@@ -67,7 +67,7 @@ function Transactions() {
   }
 
   return (
-    <div className="mt-56 lg:mt-32 flex flex-col">
+    <div className="flex flex-col">
       <div className="m-auto lg:w-7/12">
         <h1 className="mb-2 text-6xl lg:text-4xl">Transaction History</h1>
         <div className="flex flex-col lg:flex-row lg:items-center">
