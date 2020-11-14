@@ -64,10 +64,9 @@ function Transactions() {
     setQueryParams(params)
   }
 
-  // TODO set max width on search form
   return (
     <div className="flex flex-col">
-      <div className="m-auto w-10/12">
+      <div className="m-auto w-10/12 lg:max-w-6xl">
         <h1 className="mb-2 text-6xl lg:text-4xl">Transaction History</h1>
         <div className="flex flex-col lg:flex-row lg:items-center">
           <label htmlFor="startdate-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Start Date:</label>
