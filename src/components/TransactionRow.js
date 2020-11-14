@@ -41,8 +41,8 @@ function TransactionRow({transaction}) {
           <div key={`${id}-${description}`} className="m-2 text-5xl lg:w-84 lg:text-lg">{description}</div>
           </div>
            <div key={`${id}-${amount}`} className="mx-2 my-4 text-5xl lg:w-144 lg:text-lg">{amount}</div>
-           <button className="mx-2 my-4 px-4 py-2 h-20 border border-gray-400 rounded-lg text-4xl lg:text-lg lg:px-2 lg:h-auto" data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
-           <button className="mx-2 my-4 px-4 py-2 h-20 border border-gray-400 rounded-lg text-4xl lg:text-lg lg:px-2 lg:h-auto" data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
+           <button className="mx-2 my-4 px-4 py-2 lg:w-16 h-20 bg-blue-800 text-white hover:bg-blue-700 rounded-lg text-4xl lg:text-lg lg:px-2 lg:h-auto" data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
+           <button className="mx-2 my-4 px-4 py-2 lg:w-20 h-20 border border-blue-800 text-blue-800 hover:border-blue-700 hover:text-blue-700 rounded-lg text-4xl lg:text-lg lg:px-2 lg:h-auto" data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
         </div>
       )
     }
@@ -51,8 +51,8 @@ function TransactionRow({transaction}) {
         <h1 className="p-6 text-5xl lg:text-2xl">Are you sure you want to delete this transaction?</h1>
           <div className="m-auto w-1/2">
           <div className="flex space-x-20">
-            <button className="m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:px-4 lg:py-2 text-5xl lg:text-lg" onClick={handleDelete}>Yes</button>
-            <button className="m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:px-4 lg:py-2 text-5xl lg:text-lg" onClick={() => setToggleModal(false)}>No</button>
+            <button className="m-2 p-6 bg-blue-800 text-white hover:bg-blue-700 rounded-lg lg:my-2 lg:px-4 lg:py-2 text-5xl lg:text-lg" onClick={handleDelete}>Yes</button>
+            <button className="m-2 p-6 border border-blue-800 text-blue-800 hover:border-blue-700 hover:text-blue-700 rounded-lg lg:my-2 lg:px-4 lg:py-2 text-5xl lg:text-lg" onClick={() => setToggleModal(false)}>No</button>
           </div>
           </div>
         </div>
