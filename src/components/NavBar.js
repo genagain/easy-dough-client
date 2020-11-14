@@ -12,7 +12,6 @@ function NavBar() {
     }
 
     // TODO figure out why the md breakpoints aren't working as expected using the lg ones seem a bit too large
-    // TODO set max width on nav bar
     return (
       <div className="fixed top-0 w-full bg-white border-b-2 border-gray-400 shadow-md mb-24 lg:mb-12 lg:border-b lg:shadow">
       <div className="container mx-auto px-6 py-8 w-10/12 lg:max-w-6xl lg:px-0 lg:py-3">
