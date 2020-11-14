@@ -66,15 +66,15 @@ function Transactions() {
 
   return (
     <div className="flex flex-col">
-      <div className="m-auto lg:w-7/12">
+      <div className="m-auto w-10/12 lg:max-w-6xl">
         <h1 className="mb-2 text-6xl lg:text-4xl">Transaction History</h1>
-        <div className="flex flex-col lg:flex-row lg:items-center">
+        <div className="flex flex-col m-auto w-3/4 lg:w-full lg:flex-row lg:items-center">
           <label htmlFor="startdate-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Start Date:</label>
           <DatePicker date={startDate} onDateChange={setStartDate} locale={enUS}>
           {({ inputProps, focused }) => (
                     <input
                       id="startdate-input" 
-                      className={`${'input' + (focused ? ' -focused' : '')} m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg`}
+                      className={`${'input' + (focused ? ' -focused' : '')} w-full lg:w-32 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg`}
                       {...inputProps}
                     />
                   )}
@@ -84,14 +84,14 @@ function Transactions() {
           {({ inputProps, focused }) => (
                     <input
                       id="enddate-input" 
-                      className={`${'input' + (focused ? ' -focused' : '')} m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg`}
+                      className={`${'input' + (focused ? ' -focused' : '')} w-full lg:w-32 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg`}
                       {...inputProps}
                     />
                   )}
           </DatePicker>
-          <input className="m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg"placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
-          <button className="lg:h-12 m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={ searchHandler }>Search</button>
-          <button className="lg:h-12 m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
+          <input className="w-full lg:w-84 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg"placeholder="Search Term (optional)" onChange={e => setSearchTerm(e.target.value)}/>
+          <button className="w-full lg:w-20 lg:h-12 m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={ searchHandler }>Search</button>
+          <button className="w-full lg:w-40 lg:h-12 m-2 p-6 border border-gray-400 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
       </div>
     { toggleCreate &&
         <AddTransactionForm setToggleCreate={setToggleCreate} />
