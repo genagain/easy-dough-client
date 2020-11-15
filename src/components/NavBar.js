@@ -14,8 +14,9 @@ function NavBar() {
     // TODO figure out why the md breakpoints aren't working as expected using the lg ones seem a bit too large
     return (
       <div className="fixed top-0 w-full bg-white border-b-2 border-gray-400 shadow-md mb-24 lg:mb-12 lg:border-b lg:shadow">
-      <div className="container mx-auto px-6 py-8 w-10/12 lg:max-w-6xl lg:p-0">
+      <div className="container mx-auto px-6 py-8 w-10/12 lg:max-w-6xl lg:py-1 lg:px-0">
         <div className="flex flex-col lg:flex-row lg:items-center">
+        <img src="logo.png" alt="Easy Dough Logo" className="lg:w-16 lg:h-16" />
         <div className="flex justify-between">
           <Link to='/' className="text-blue-800 text-6xl lg:text-xl hover:text-blue-700">
             <h1>Easy Dough</h1>
