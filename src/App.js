@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom'
 
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 import ProtectedRoute from './hocs/ProtectedRoute'
 
 import Index from './pages/Index'
@@ -22,6 +23,7 @@ function App() {
         <ProtectedRoute path="/transactions" component = {Transactions} />
       </Switch>
     </div>
+    <Footer />
     </>
   );
 }
