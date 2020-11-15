@@ -14,10 +14,10 @@ function NavBar() {
     // TODO figure out why the md breakpoints aren't working as expected using the lg ones seem a bit too large
     return (
       <div className="fixed top-0 w-full bg-white border-b-2 border-gray-400 shadow-md mb-24 lg:mb-12 lg:border-b lg:shadow">
-      <div className="container mx-auto px-6 py-8 w-10/12 lg:max-w-6xl lg:px-0 lg:py-3">
+      <div className="container mx-auto px-6 py-8 w-10/12 lg:max-w-6xl lg:p-0">
         <div className="flex flex-col lg:flex-row lg:items-center">
         <div className="flex justify-between">
-          <Link to='/' className="text-blue-800 text-6xl lg:text-4xl hover:text-blue-700">
+          <Link to='/' className="text-blue-800 text-6xl lg:text-xl hover:text-blue-700">
             <h1>Easy Dough</h1>
           </Link>
         <div className="pt-3 lg:hidden">
@@ -32,11 +32,11 @@ function NavBar() {
           accessToken ? 
            (
             <>
-              <NavLink to='/transactions' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:mx-4 lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800" >
+              <NavLink to='/transactions' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:mx-4 lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800" >
                Transactions
              </NavLink>
              <div className="lg:flex-grow"></div>
-              <Link to='/' onClick={logout} className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4 hover:text-blue-700`}>
+              <Link to='/' onClick={logout} className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:px-4 hover:text-blue-700`}>
                Logout
              </Link>
             </>
@@ -44,10 +44,10 @@ function NavBar() {
            (
              <>
                <div className="lg:flex-grow"></div>
-               <NavLink to='/signup' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4 hover:text-blue-700`} activeClassName="font-bold  hover:text-blue-800">
+               <NavLink to='/signup' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:px-4 hover:text-blue-700`} activeClassName="font-bold  hover:text-blue-800">
                  Sign Up
                </NavLink>
-               <NavLink to='/login' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-2xl lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800">
+               <NavLink to='/login' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800">
                  Login
                </NavLink>
              </>
