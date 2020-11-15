@@ -18,7 +18,7 @@ function NavBar() {
         <div className="flex flex-col lg:flex-row lg:items-center">
         <div className="flex justify-between">
           <div className="flex flex-row items-center">
-            <img src="logo.png" alt="Easy Dough Logo" className="w-20 h-20 lg:w-10 lg:h-10" />
+            <img src="logo.svg" alt="Easy Dough Logo" className="w-20 h-20 lg:w-10 lg:h-10" />
             <Link to='/' className="text-blue-800 text-4xl w-144 mx-4 lg:w-auto lg:text-xl hover:text-blue-700">
               <h1>Easy Dough</h1>
             </Link>
