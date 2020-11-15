@@ -14,6 +14,11 @@ describe('When the access token does not exist, the NavBar component', () => {
     renderNavBar()
   })
 
+  it('renders the Easy Dough logo', () => {
+    const logoLink = screen.getByAltText("Easy Dough Logo")
+    expect(logoLink.src).toContain("logo.svg")
+  })
+
   it('renders the Easy Dough link', () => {
     const indexLink = screen.getByRole("heading", { name: /easy dough/i}).textContent;
     expect(indexLink).toMatchInlineSnapshot(`"Easy Dough"`)
@@ -43,6 +48,11 @@ describe('When the access token does not exist, the NavBar component', () => {
 describe('When the access token exists, the NavBar component', () => {
   beforeEach(() => {
     renderNavBar({ accessToken: 'Fake Access Token'})
+  })
+
+  it('renders the Easy Dough logo', () => {
+    const logoLink = screen.getByAltText("Easy Dough Logo")
+    expect(logoLink.src).toContain("logo.svg")
   })
 
   it('renders the Easy Dough link', () => {

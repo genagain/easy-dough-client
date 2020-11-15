@@ -42,7 +42,7 @@ function Login() {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mb-144 lg:mb-48">
       <h4 className="text-6xl m-auto lg:text-4xl">Login</h4>
       {error ? <p>{error}</p> : null}
       <AuthForm onSubmit={handleLogin} fieldSetters={{ setEmail, setPassword }}/>
