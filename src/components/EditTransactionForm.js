@@ -62,8 +62,8 @@ function EditTransactionForm({transaction, setToggleForm}) {
       <div className="lg:flex-grow">
       <input id="amount-input" className="w-full lg:w-144 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:m-2 lg:p-2 lg:w-144 lg:text-lg" placeholder="5.00" type="text" defaultValue={initialAmount} onChange={e => setAmount(e.target.value)}/>
       </div>
-      <button className="w-full lg:w-20 lg:h-12 m-2 p-6 bg-blue-600 text-white hover:bg-blue-500 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={handleUpdate}>Update</button>
-      <button className="w-full lg:w-20 lg:h-12 m-2 p-6 border border-blue-600 text-blue-600 hover:border-blue-500 hover:text-blue-500 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={() => setToggleForm(false)}>Cancel</button>
+      <button className="w-full lg:w-20 lg:h-auto m-2 p-6 bg-blue-600 text-white hover:bg-blue-500 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={handleUpdate}>Update</button>
+      <button className="w-full lg:w-20 lg:h-auto m-2 p-6 border border-blue-600 text-blue-600 hover:border-blue-500 hover:text-blue-500 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={() => setToggleForm(false)}>Cancel</button>
     </div>
   )
 }
