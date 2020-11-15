@@ -14,7 +14,7 @@ function App() {
   return (
     <>
     <NavBar />
-    <div className="mt-56 lg:mt-32">
+    <div className="mt-56 lg:mt-24">
       <Switch>
         <Route path="/" exact component = {Index} />
         <Route path="/signup" component = {Signup} />
