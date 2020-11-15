@@ -16,11 +16,12 @@ function NavBar() {
       <div className="fixed top-0 w-full bg-white border-b-2 border-gray-400 shadow-md mb-24 lg:mb-12 lg:border-b lg:shadow">
       <div className="container mx-auto px-6 py-8 w-10/12 lg:max-w-6xl lg:py-1 lg:px-0">
         <div className="flex flex-col lg:flex-row lg:items-center">
-        <img src="logo.png" alt="Easy Dough Logo" className="lg:w-16 lg:h-16" />
         <div className="flex justify-between">
-          <Link to='/' className="text-blue-800 text-6xl lg:text-xl hover:text-blue-700">
-            <h1>Easy Dough</h1>
-          </Link>
+          <div className="flex flex-row items-center">
+            <img src="logo.png" alt="Easy Dough Logo" className="w-20 h-20 lg:w-12 lg:h-12" />
+            <Link to='/' className="text-blue-800 text-4xl w-144 mx-4 lg:w-auto lg:text-xl hover:text-blue-700">
+              <h1>Easy Dough</h1>
+            </Link>
         <div className="pt-3 lg:hidden">
         <button type="button" onClick={toggleShowAuth} className={ showLinks ? "text-gray-500" : "outline-none"} aria-label="toggle menu">
                   <svg viewBox="0 0 24 24" className="h-16 w-16 fill-current">
@@ -28,6 +29,7 @@ function NavBar() {
                   </svg>
                 </button>
         </div>
+          </div>
         </div>
           {
           accessToken ? 
