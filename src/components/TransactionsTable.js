@@ -13,7 +13,7 @@ function TransactionsTable({transactions}) {
           </div>
             {
               transactions.map( transaction => (
-                <div key={transaction.id} className="divide-y divide-gray-400">
+                <div key={transaction.id} className="border-b-2 border-gray-600 lg:border-none">
                   <TransactionRow transaction={transaction}/>
                 </div>
                 )
