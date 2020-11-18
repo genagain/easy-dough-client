@@ -13553,6 +13553,18 @@ a {
   min-height: 100%;
 }
 
+.min-h-screen-1\/4 {
+  min-height: 25vh;
+}
+
+.min-h-screen-1\/2 {
+  min-height: 50vh;
+}
+
+.min-h-screen-3\/4 {
+  min-height: 75vh;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -34465,6 +34477,18 @@ a {
     min-height: 100%;
   }
 
+  .sm\:min-h-screen-1\/4 {
+    min-height: 25vh;
+  }
+
+  .sm\:min-h-screen-1\/2 {
+    min-height: 50vh;
+  }
+
+  .sm\:min-h-screen-3\/4 {
+    min-height: 75vh;
+  }
+
   .sm\:min-h-screen {
     min-height: 100vh;
   }
@@ -55345,6 +55369,18 @@ a {
 
   .md\:min-h-full {
     min-height: 100%;
+  }
+
+  .md\:min-h-screen-1\/4 {
+    min-height: 25vh;
+  }
+
+  .md\:min-h-screen-1\/2 {
+    min-height: 50vh;
+  }
+
+  .md\:min-h-screen-3\/4 {
+    min-height: 75vh;
   }
 
   .md\:min-h-screen {
@@ -76229,6 +76265,18 @@ a {
     min-height: 100%;
   }
 
+  .lg\:min-h-screen-1\/4 {
+    min-height: 25vh;
+  }
+
+  .lg\:min-h-screen-1\/2 {
+    min-height: 50vh;
+  }
+
+  .lg\:min-h-screen-3\/4 {
+    min-height: 75vh;
+  }
+
   .lg\:min-h-screen {
     min-height: 100vh;
   }
@@ -97109,6 +97157,18 @@ a {
 
   .xl\:min-h-full {
     min-height: 100%;
+  }
+
+  .xl\:min-h-screen-1\/4 {
+    min-height: 25vh;
+  }
+
+  .xl\:min-h-screen-1\/2 {
+    min-height: 50vh;
+  }
+
+  .xl\:min-h-screen-3\/4 {
+    min-height: 75vh;
   }
 
   .xl\:min-h-screen {
