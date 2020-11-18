@@ -15,12 +15,12 @@ function App() {
   return (
     <>
     <NavBar />
-    <div className="mt-56 lg:mt-24">
+    <div className="mt-56 lg:mt-24 min-h-screen-1/2">
       <Switch>
-        <Route path="/" exact component = {Index} />
-        <Route path="/signup" component = {Signup} />
-        <Route path="/login" component = {Login} />
-        <ProtectedRoute path="/transactions" component = {Transactions} />
+        <Route path="/" exact component={Index} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/login" component={Login} />
+        <ProtectedRoute path="/transactions" component={Transactions} />
       </Switch>
     </div>
     <Footer />

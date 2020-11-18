@@ -41,8 +41,8 @@ function TransactionRow({transaction}) {
           <div key={`${id}-${description}`} className="m-2 lg:m-2 text-5xl lg:w-84 lg:text-base">{description}</div>
           </div>
            <div key={`${id}-${amount}`} className="mx-2 my-4 lg:m-2 l text-5xl lg:w-144 lg:text-base">{amount}</div>
-           <button className="mx-2 my-4 px-4 py-2 lg:m-2 lg:w-16 h-20 bg-blue-800 text-white hover:bg-blue-700 rounded-lg text-4xl lg:text-base lg:px-2 lg:h-auto" data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
-           <button className="mx-2 my-4 px-4 py-2 lg:m-2 lg:w-20 h-20 border border-blue-800 text-blue-800 hover:border-blue-700 hover:text-blue-700 rounded-lg text-4xl lg:text-base lg:px-2 lg:h-auto" data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
+           <button className="mx-2 my-4 px-4 py-2 lg:m-2 lg:w-16 h-20 text-blue-800 hover:text-blue-700 text-4xl lg:text-base lg:px-2 lg:h-auto" data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
+           <button className="mx-2 my-4 px-4 py-2 lg:m-2 lg:w-20 h-20 text-red-800 hover:text-red-700 text-4xl lg:text-base lg:px-2 lg:h-auto" data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
         </div>
       )
     }
