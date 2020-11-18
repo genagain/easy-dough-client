@@ -17,9 +17,9 @@ describe('The TransactionsTable component', () => {
     // TODO test table headers
     test('each column header', () => {
       const expectedColumnHeaders = [
-        'Date',
-        'Description',
-        'Amount'
+        'DATE',
+        'DESCRIPTION',
+        'AMOUNT'
       ]
 
       expectedColumnHeaders.forEach(columnHeader => {

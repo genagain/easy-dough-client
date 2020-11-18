@@ -6,9 +6,9 @@ function TransactionsTable({transactions}) {
         <div className="lg:border-gray-600 lg:border lg:rounded lg:shadow">
           <div className="border-b-2 border-gray-600 lg:border-none">
             <div className="flex flex-row invisible lg:visible lg:bg-blue-800">
-              <div className="m-2 lg:text-base lg:w-40 lg:text-white">Date</div>
-              <div className="m-2 lg:text-base lg:w-84 lg:text-white">Description</div>
-              <div className="m-2 lg:text-base lg:w-96 lg:text-white">Amount</div>
+              <div className="m-2 lg:text-sm lg:w-40 lg:text-white">DATE</div>
+              <div className="m-2 lg:text-sm lg:w-84 lg:text-white">DESCRIPTION</div>
+              <div className="m-2 lg:text-sm lg:w-96 lg:text-white">AMOUNT</div>
             </div>
           </div>
             {
