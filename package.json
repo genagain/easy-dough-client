@@ -16,6 +16,7 @@
     "react-flash-message": "^1.0.4",
     "react-modal": "^3.11.2",
     "react-nice-dates": "^3.0.7",
+    "react-plaid-link": "^3.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.0"
   },
