@@ -5,9 +5,19 @@ import UserContext from '../UserContext'
 function Settings() {
   const { accessToken } = useContext(UserContext)
 
-  const onSuccess = useCallback((publicToken, metadata) => {
+  const onSuccess = useCallback(async (publicToken, metadata) => {
     console.log('success!')
     console.log('publicToken', publicToken)
+    const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
+    const response = await fetch(`${apiUrl}/auth/exchange_public_token`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          },
+          body: JSON.stringify({ public_token: publicToken })
+        }).then(res => res.json())
   }, []);
 
   // TODO ideally make this less hacky
