@@ -9,9 +9,12 @@ function AccountsTable({accounts}){
       </div>
       {
         accounts.map(account => {
-          const {id, name} = account
+          const {id, name, type} = account
           return (
-            <div key={`${id}-name`}>{name}</div>
+            <div key={id}>
+              <div key={`${id}-name`}>{name}</div>
+              <div key={`${id}-type`}>{type}</div>
+            </div>
           )
         })
       }

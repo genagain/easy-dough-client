@@ -9,14 +9,13 @@ describe('The AccountsTable component', () => {
         {
           'id': '1',
           'name':'Expenses',
-          'type': 'checking'
+          'type': 'Checking'
         },
         {
           'id': '2',
-          'name':'Savings',
-          'type': 'savings'
-        }
-      ]
+          'name':'Savings Account',
+          'type': 'Savings'
+        } ]
 
       render(<AccountsTable accounts={accounts} />)
     })
@@ -35,11 +34,22 @@ describe('The AccountsTable component', () => {
     test('the account names', () => {
       const expectedNames = [
         'Expenses',
-        'Savings'
+        'Savings Account'
       ]
       expectedNames.forEach(name => {
         const nameText = screen.getByText(name)
         expect(nameText).not.toBeNull()
+      })
+    })
+
+    test('the account types', () => {
+      const expectedTypes = [
+        'Checking',
+        'Savings'
+      ]
+      expectedTypes.forEach(type => {
+        const typeText = screen.getByText(type)
+        expect(typeText).not.toBeNull()
       })
     })
   })
