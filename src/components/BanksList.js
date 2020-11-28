@@ -5,9 +5,12 @@ function BanksList({allBanks}) {
     <div>
     {
       allBanks.map(bank => {
-        const {name} = bank
+        const { name, logo } = bank
         return (
-          <h1 key={`name-${name}`}>{name}</h1>
+          <div key={name}>
+            <h1 key={`${name}-name`}>{name}</h1>
+            <img key={`${name}-logo`} src={`data:image/png;base64,${logo}`} alt={`${name}'s logo`} />
+          </div>
         )
       })
     }

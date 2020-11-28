@@ -18,11 +18,18 @@ describe('When there are accounts to render, the BanksList component', () => {
       render(<BanksList allBanks={allBanks}/>)
     })
 
-    test('the name and logo for each bank in alphabetical order', () => {
+    test('the name for each bank in alphabetical order', () => {
       const names = screen.getAllByRole('heading', { name: /(ally)|(navy federal credit union)/i})
       expect(names).toHaveLength(2)
       expect(names[0]).toHaveTextContent('Ally')
       expect(names[1]).toHaveTextContent('Navy Federal Credit Union')
+    })
+
+    test('the logo for each bank in alphabetical order', () => {
+      const logos = screen.getAllByAltText(/logo/i)
+      expect(logos).toHaveLength(2)
+      expect(logos[0].alt).toEqual("Ally's logo")
+      expect(logos[1].alt).toEqual("Navy Federal Credit Union's logo")
     })
   })
 })
