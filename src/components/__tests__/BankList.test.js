@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import BanksList from '../BanksList'
 
-describe('When there are accounts to render, the BanksList component', () => {
+describe('When there are banks to render, the BanksList component', () => {
   describe('renders', () => {
     beforeEach(() => {
       const allBanks = [
