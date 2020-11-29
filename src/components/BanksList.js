@@ -2,6 +2,7 @@ import React from 'react'
 import AccountsTable from './AccountsTable'
 
 function BanksList({allBanks}) {
+  // TODO account for banks not being there
   return (
     <div>
     {
