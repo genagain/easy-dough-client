@@ -82,12 +82,14 @@ function Settings() {
   // TODO add flash message when an error occurs
 
   return (
-    <>
-      { error && <p>Uh oh! Something went wrong</p> }
-      <h1>Settings</h1>
-      <button onClick={() => open()} disabled={!ready}>Add Bank</button>
-      <BanksList allBanks={allBanks} />
-    </>
+    <div className="flex flex-col">
+      <div className="m-auto w-10/12 lg:max-w-6xl">
+        { error && <p>Uh oh! Something went wrong</p> }
+        <h1 className="mb-2 text-6xl lg:text-3xl">Settings</h1>
+        <BanksList allBanks={[]} />
+        <button className="w-full lg:w-24 p-6 bg-blue-800 hover:bg-blue-700 text-white rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-base" onClick={() => open()} disabled={!ready}>Add Bank</button>
+      </div>
+    </div>
   )
 }
 
