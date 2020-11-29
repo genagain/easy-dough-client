@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect, useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
 import { usePlaidLink } from 'react-plaid-link';
 import UserContext from '../UserContext'
 
@@ -7,12 +6,14 @@ import BanksList from '../components/BanksList'
 
 function Settings() {
   const { accessToken } = useContext(UserContext)
-  const history = useHistory()
+
+  const [allBanks, setAllBanks] = useState([])
+  const [refetch, setRefetch] = useState(false)
 
   const onSuccess = useCallback(async (publicToken, metadata) => {
     const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
     // TODO add flash message when bank is linked successfully
-    const response = await fetch(`${apiUrl}/auth/exchange_public_token`,
+    await fetch(`${apiUrl}/auth/exchange_public_token`,
         {
           method: 'POST',
           headers: {
@@ -21,14 +22,10 @@ function Settings() {
           },
           body: JSON.stringify({ public_token: publicToken })
         }).then(res => res.json())
-    if (response.ok){
-      history.push('/settings')
-    }
-  }, [accessToken]);
+    setRefetch(!refetch)
+  }, [accessToken, refetch]);
 
   const [plaidLinkConfig, setPlaidLinkConfig] = useState({ token: 'link-sandbox', onSuccess })
-  const [allBanks, setAllBanks] = useState([])
-
   // TODO logout if I get a 404
   useEffect(() => {
     const fetchPlaidLinkToken = async () => {
@@ -77,7 +74,7 @@ function Settings() {
       })
     }
     fetchBankAccounts()
-  }, [accessToken])
+  }, [accessToken, refetch])
 
   const { open, ready, error } = usePlaidLink(plaidLinkConfig);
   // TODO add flash message when an error occurs
