@@ -55,7 +55,6 @@ function Settings() {
     fetchPlaidLinkToken()
   }, [accessToken, onSuccess, logout])
 
-  // TODO logout if I get a 404
   useEffect(() => {
     const fetchBankAccounts = async () => {
       const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
