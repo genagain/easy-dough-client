@@ -5,7 +5,7 @@ import UserContext from '../UserContext'
 import BanksList from '../components/BanksList'
 
 function Settings() {
-  const { accessToken } = useContext(UserContext)
+  const { accessToken, logout } = useContext(UserContext)
 
   const [allBanks, setAllBanks] = useState([])
   const [refetch, setRefetch] = useState(false)
@@ -26,11 +26,11 @@ function Settings() {
   }, [accessToken, refetch]);
 
   const [plaidLinkConfig, setPlaidLinkConfig] = useState({ token: 'link-sandbox', onSuccess })
-  // TODO logout if I get a 404
+
   useEffect(() => {
     const fetchPlaidLinkToken = async () => {
       const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
-      await fetch(`${apiUrl}/auth/create_link_token`,
+      const response = await fetch(`${apiUrl}/auth/create_link_token`,
         {
           method: 'GET',
           headers: {
@@ -38,24 +38,28 @@ function Settings() {
             'Authorization': `Bearer ${accessToken}`
           }
         }
-      ).then(res => res.json())
-      .then(json => {
+      )
+
+      if (response.ok) {
+        const json = await response.json()
         const config = {
           token: json['link_token'],
           onSuccess
         }
         setPlaidLinkConfig(config)
-      })
+      } else {
+        logout()
+      }
     }
 
     fetchPlaidLinkToken()
-  }, [accessToken, onSuccess])
+  }, [accessToken, onSuccess, logout])
 
   // TODO logout if I get a 404
   useEffect(() => {
     const fetchBankAccounts = async () => {
       const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
-      await fetch(`${apiUrl}/bank_accounts`,
+      const response = await fetch(`${apiUrl}/bank_accounts`,
         {
           method: 'GET',
           headers: {
@@ -63,18 +67,23 @@ function Settings() {
             'Authorization': `Bearer ${accessToken}`
           }
         }
-      ).then(res => res.json())
-      .then(json => {
-        if(json['message']) {
-          setAllBanks([])
-        } else {
-          const bankAccounts = json['banks']
-          setAllBanks(bankAccounts)
-        }
-      })
+      )
+
+      if (!response.ok) {
+        logout()
+      }
+
+      const json = await response.json()
+      if (json['message']) {
+        setAllBanks([])
+      } else {
+        const bankAccounts = json['banks']
+        setAllBanks(bankAccounts)
+      }
+
     }
     fetchBankAccounts()
-  }, [accessToken, refetch])
+  }, [accessToken, refetch, logout])
 
   const { open, ready, error } = usePlaidLink(plaidLinkConfig);
   // TODO add flash message when an error occurs
