@@ -2,7 +2,12 @@ import React from 'react'
 import AccountsTable from './AccountsTable'
 
 function BanksList({allBanks}) {
-  // TODO account for banks not being there
+  if (allBanks.length === 0) {
+    return (
+      <p className="m-auto w-10/12 p-6 text-5xl lg:text-lg lg:max-w-6xl">Looks like you haven't added any banks yet. Please add a bank.</p>
+    )
+  }
+
   return (
     <div>
     {

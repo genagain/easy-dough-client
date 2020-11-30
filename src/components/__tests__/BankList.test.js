@@ -2,6 +2,18 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import BanksList from '../BanksList'
 
+describe('When there are no banks to render, the BanksList component', () => {
+  describe('renders', () => {
+    beforeEach(() => {
+      render(<BanksList allBanks={[]}/>)
+    })
+
+    test('a prompt for the user to add a bank', () => {
+      const prompt = screen.getByText(/looks like you haven't added any banks yet\. please add a bank\./i)
+      expect(prompt).not.toBeNull()
+    })
+  })
+})
 describe('When there are banks to render, the BanksList component', () => {
   describe('renders', () => {
     beforeEach(() => {
