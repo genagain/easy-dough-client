@@ -2,14 +2,12 @@ import React from 'react';
 import TransactionsTable from './TransactionsTable';
 
 function TransactionsTableList({allTransactions}) {
-  // TODO set max width on message and table
   if (allTransactions.length === 0) {
     return (
       <p className="m-auto w-10/12 p-6 text-5xl lg:text-lg lg:max-w-6xl">No transactions were found that matched the provided date range or search term</p>
     )
   }
 
-  // TODO add headers for larger screens
   return (
     <div>
     { 
