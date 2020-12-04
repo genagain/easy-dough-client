@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Modal from 'react-modal';
 import AccountsTable from './AccountsTable'
 
 function BanksList({allBanks}) {
@@ -8,8 +9,12 @@ function BanksList({allBanks}) {
     )
   }
 
+  const [toggleModal, setToggleModal] = useState(false)
+
+  Modal.setAppElement(document.getElementById('bank-list'))
+
   return (
-    <div>
+    <div id='bank-list'>
     {
       allBanks.map(bank => {
         const { name, logo, accounts } = bank
@@ -19,8 +24,14 @@ function BanksList({allBanks}) {
               <div className="flex flex-row items-center space-x-6 lg:space-x-3">
                 <img key={`${name}-logo`} className="h-20 w-20 lg:h-8 lg:w-8" src={`data:image/png;base64,${logo}`} alt={`${name}'s logo`} />
                 <h1 key={`${name}-name`} className="text-5xl lg:text-2xl">{name}</h1>
+                <button onClick={() => setToggleModal(true)}>Delete</button>
               </div>
             </div>
+            <Modal isOpen={toggleModal}>
+              <h1>Are you sure you want to delete this bank?</h1>
+              <button>Yes</button>
+              <button onClick={() => setToggleModal(false)}>No</button>
+            </Modal>
             <AccountsTable accounts={accounts} />
           </div>
         )
