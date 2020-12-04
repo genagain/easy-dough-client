@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import UserContext from '../UserContext'
 import AccountsTable from './AccountsTable'
 
-function BanksList({allBanks}) {
+function BanksList({allBanks, refetch, setRefetch}) {
   const { accessToken } = useContext(UserContext)
   const [toggleModal, setToggleModal] = useState(false)
 
@@ -22,6 +22,7 @@ function BanksList({allBanks}) {
 
     if(response.ok) {
       setToggleModal(false)
+      setRefetch(!refetch)
     }
   }
 
