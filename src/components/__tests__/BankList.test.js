@@ -1,11 +1,12 @@
 import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import BanksList from '../BanksList'
+import UserContext from '../../UserContext'
 
 describe('When there are no banks to render, the BanksList component', () => {
   describe('renders', () => {
     beforeEach(() => {
-      render(<BanksList allBanks={[]}/>)
+      render(<UserContext.Provider value={{}}><BanksList allBanks={[]}/></UserContext.Provider>)
     })
 
     test('a prompt for the user to add a bank', () => {
@@ -47,7 +48,7 @@ describe('When there are banks to render, the BanksList component', () => {
            ]
         }
       ]
-      render(<BanksList allBanks={allBanks}/>)
+      render(<UserContext.Provider value={{}}><BanksList allBanks={allBanks}/></UserContext.Provider>)
     })
 
     test('the name for each bank in alphabetical order', () => {
@@ -92,7 +93,7 @@ describe("When there are banks to render, clicking the BanksList component's", (
            ]
       }
     ]
-      render(<BanksList allBanks={allBanks}/>)
+      render(<UserContext.Provider value={{}}><BanksList allBanks={allBanks}/></UserContext.Provider>)
      const deleteButton = screen.getByRole('button', /delete/i)
      fireEvent.click(deleteButton)
   })
