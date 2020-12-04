@@ -3,15 +3,15 @@ import Modal from 'react-modal';
 import AccountsTable from './AccountsTable'
 
 function BanksList({allBanks}) {
+  const [toggleModal, setToggleModal] = useState(false)
+
+  Modal.setAppElement(document.getElementById('bank-list'))
+
   if (allBanks.length === 0) {
     return (
       <p className="py-6 text-5xl lg:text-lg lg:max-w-6xl">Looks like you haven't added any banks yet. Please add a bank.</p>
     )
   }
-
-  const [toggleModal, setToggleModal] = useState(false)
-
-  Modal.setAppElement(document.getElementById('bank-list'))
 
   return (
     <div id='bank-list'>
