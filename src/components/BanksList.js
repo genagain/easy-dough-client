@@ -43,7 +43,7 @@ function BanksList({allBanks, refetch, setRefetch}) {
               <div className="flex flex-row items-center space-x-6 lg:space-x-3">
                 <img key={`${name}-logo`} className="h-20 w-20 lg:h-8 lg:w-8" src={`data:image/png;base64,${logo}`} alt={`${name}'s logo`} />
                 <h1 key={`${name}-name`} className="text-5xl lg:text-2xl">{name}</h1>
-                <button onClick={() => setToggleModal(true)}>Delete</button>
+                <button className="p-6 lg:p-2 lg:m-2 rounded-lg text-white bg-red-800 hover:bg-red-700 text-4xl lg:text-sm" onClick={() => setToggleModal(true)}>Delete</button>
               </div>
             </div>
             <Modal isOpen={toggleModal}>
