@@ -46,10 +46,14 @@ function BanksList({allBanks, refetch, setRefetch}) {
                 <button className="p-6 lg:p-2 lg:m-2 rounded-lg text-white bg-red-800 hover:bg-red-700 text-4xl lg:text-sm" onClick={() => setToggleModal(true)}>Delete</button>
               </div>
             </div>
-            <Modal isOpen={toggleModal}>
-              <h1>Are you sure you want to delete this bank?</h1>
-              <button onClick={() => deleteBankAccounts(id)}>Yes</button>
-              <button onClick={() => setToggleModal(false)}>No</button>
+            <Modal className="m-10 p-10 bg-white h-auto border border-gray-400 rounded lg:m-20" isOpen={toggleModal}>
+              <div className="m-auto w-3/4 lg:w-1/2 flex flex-col items-center">
+                <h1 className="p-6 text-5xl lg:text-2xl">Are you sure you want to delete this bank?</h1>
+                <div className="flex flex-row space-x-10">
+                  <button className="m-2 p-6 h-28 w-56 lg:w-24 bg-blue-800 text-white hover:bg-blue-700 rounded-lg lg:my-2 lg:px-4 lg:py-2 text-5xl lg:text-base" onClick={() => deleteBankAccounts(id)}>Yes</button>
+                  <button className="m-2 p-6 h-28 w-56 lg:w-24 border border-blue-800 text-blue-800 hover:border-blue-700 hover:text-blue-700 rounded-lg lg:my-2 lg:px-4 lg:py-2 text-5xl lg:text-base" onClick={() => setToggleModal(false)}>No</button>
+                </div>
+              </div>
             </Modal>
             <AccountsTable accounts={accounts} />
           </div>
