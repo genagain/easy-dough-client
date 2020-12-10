@@ -1,18 +1,18 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import SpendingPlan from '../SpendingPlan'
+import SpendingPlanCategories from '../SpendingPlanCategories'
 
-describe('When there is only one part to render, the SpendingPlan', () => {
+describe('When there is only one part to render, the SpendingPlanCategories', () => {
   describe('renders', () => {
     beforeEach(() => {
-      const spendingPlan = {
+      const spendingPlanCategories = {
           discretionarySpending: {
             label: 'Spending Money',
             searchTerm: '*',
             expectedAmount: 0
           }
         }
-      render(<SpendingPlan spendingPlan={spendingPlan} />)
+      render(<SpendingPlanCategories spendingPlanCategories={spendingPlanCategories} />)
     })
 
     test('the fixed costs header', () => {

@@ -1,7 +1,7 @@
 import React from 'react'
 
-function SpendingPlan({ spendingPlan }) {
-  const { fixedCosts, savings, investments, discretionarySpending} = spendingPlan
+function SpendingPlanCategories({ spendingPlanCategories }) {
+  const { fixedCosts, savings, investments, discretionarySpending} = spendingPlanCategories
   return (
     <div>
       <h1>Fixed Costs</h1>
@@ -32,4 +32,4 @@ function SpendingPlan({ spendingPlan }) {
   )
 }
 
-export default SpendingPlan;
+export default SpendingPlanCategories;
