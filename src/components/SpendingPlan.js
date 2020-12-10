@@ -6,15 +6,15 @@ function SpendingPlan({ spendingPlan }) {
     <div>
       <h1>Fixed Costs</h1>
       { 
-        fixedCosts ? null : <p>Looks like you haven't accounted for your fixed costs. Be sure to add them as parts of your spending plan</p>
+        fixedCosts ? null : <p>Looks like you haven't accounted for your fixed costs. Be sure to add them as parts of your spending plan.</p>
       }
       <h1>Savings</h1>
       {
-        savings ? null : <p>Looks like you aren't planning to save any money. Be sure to add savings as part of your spending plan</p>
+        savings ? null : <p>Looks like you aren't planning to save any money. Be sure to add savings as part of your spending plan.</p>
       }
       <h1>Investments</h1>
       {
-        investments ? null : <p>Looks like you aren't planning to invest any money. Be sure to add investments as part of your spending plan</p>
+        investments ? null : <p>Looks like you aren't planning to invest any money. Be sure to add investments as part of your spending plan.</p>
       }
       <h1>Discretionary Spending</h1>
       <div>

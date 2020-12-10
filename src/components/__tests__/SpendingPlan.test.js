@@ -21,7 +21,7 @@ describe('When there is only one part to render, the SpendingPlan', () => {
     })
 
     test('the message about not accounting for your fixed costs', () => {
-      const message = screen.getByText(/looks like you haven't accounted for your fixed costs\. be sure to add them as parts of your spending plan/i)
+      const message = screen.getByText(/looks like you haven't accounted for your fixed costs\. be sure to add them as parts of your spending plan\./i)
       expect(message).not.toBeNull()
     })
 
@@ -31,7 +31,7 @@ describe('When there is only one part to render, the SpendingPlan', () => {
     })
 
     test('the message about not saving', () => {
-      const message = screen.getByText(/looks like you aren't planning to save any money\. be sure to add savings as part of your spending plan/i)
+      const message = screen.getByText(/looks like you aren't planning to save any money\. be sure to add savings as part of your spending plan\./i)
       expect(message).not.toBeNull()
     })
 
@@ -41,7 +41,7 @@ describe('When there is only one part to render, the SpendingPlan', () => {
     })
 
     test('the message about not investing', () => {
-      const message = screen.getByText(/looks like you aren't planning to invest any money\. be sure to add investments as part of your spending plan/i)
+      const message = screen.getByText(/looks like you aren't planning to invest any money\. be sure to add investments as part of your spending plan\./i)
       expect(message).not.toBeNull()
     })
 
