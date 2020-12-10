@@ -87,7 +87,6 @@ function Settings() {
   const { open, ready, error } = usePlaidLink(plaidLinkConfig);
   // TODO add flash message when an error occurs
 
-
   return (
     <div className="flex flex-col">
       <div className="m-auto w-10/12 lg:max-w-6xl">
