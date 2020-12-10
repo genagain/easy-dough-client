@@ -3,6 +3,7 @@ import { usePlaidLink } from 'react-plaid-link';
 import UserContext from '../UserContext'
 
 import BanksList from '../components/BanksList'
+import SpendingPlan from '../components/SpendingPlan'
 
 function Settings() {
   const { accessToken, logout } = useContext(UserContext)
@@ -87,6 +88,13 @@ function Settings() {
   const { open, ready, error } = usePlaidLink(plaidLinkConfig);
   // TODO add flash message when an error occurs
 
+  const spendingPlan = {
+    discretionarySpending: {
+      label: 'Spending Money',
+      searchTerm: '*',
+      expectedAmount: 0
+    }
+  }
   return (
     <div className="flex flex-col">
       <div className="m-auto w-10/12 lg:max-w-6xl">
@@ -97,6 +105,7 @@ function Settings() {
           <button className="w-full lg:w-24 p-6 bg-blue-800 hover:bg-blue-700 text-white rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-base" onClick={() => open()} disabled={!ready}>Add Bank</button>
         </div>
         <h1 className="mb-2 text-6xl lg:text-3xl">Spending Plan</h1>
+        <SpendingPlan spendingPlan={spendingPlan} />
       </div>
     </div>
   )
