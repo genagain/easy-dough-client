@@ -14,5 +14,10 @@ describe('The Settings component', () => {
       const title = screen.getByRole("heading", { name: /bank accounts/i})
       expect(title).toHaveTextContent('Bank Accounts')
     })
+
+    test('the Spending Plan header', () => {
+      const title = screen.getByRole("heading", { name: /spending plan/i})
+      expect(title).toHaveTextContent('Spending Plan')
+    })
   })
 })
