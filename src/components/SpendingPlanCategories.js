@@ -6,7 +6,24 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
     <div>
       <h1>Fixed Costs</h1>
       { 
-        fixedCosts ? null : <p>Looks like you haven't accounted for your fixed costs. Be sure to add them as parts of your spending plan.</p>
+        fixedCosts ? (
+        <div>
+          <div>LABEL</div>
+          <div>SEARCH TERM</div>
+          <div>EXPECTED MONTHLY AMOUNT</div>
+          {
+            fixedCosts.map(fixedCost => {
+              const { id, label, searchTerm } = fixedCost
+              return (
+                <div key={id}>
+                  <div key={label}>{label}</div>
+                  <div key={searchTerm}>{searchTerm}</div>
+                </div>
+              )
+            })
+          }
+        </div>
+        ) : <p>Looks like you haven't accounted for your fixed costs. Be sure to add them as parts of your spending plan.</p>
       }
       <h1>Savings</h1>
       {
