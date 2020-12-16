@@ -55,6 +55,18 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
             <div>LABEL</div>
             <div>SEARCH TERM</div>
             <div>EXPECTED MONTHLY AMOUNT</div>
+            {
+              investments.map(investment => {
+                const { id, label, searchTerm, expectedAmount } = investment
+                return (
+                  <div key={id}>
+                    <div key={label}>{label}</div>
+                    <div key={searchTerm}>{searchTerm}</div>
+                    <div key={expectedAmount}>${expectedAmount}</div>
+                  </div>
+                )
+              })
+            }
           </div>
         ): <p>Looks like you aren't planning to invest any money. Be sure to add investments as part of your spending plan.</p>
       }
