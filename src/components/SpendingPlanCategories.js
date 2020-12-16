@@ -13,11 +13,12 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
           <div>EXPECTED MONTHLY AMOUNT</div>
           {
             fixedCosts.map(fixedCost => {
-              const { id, label, searchTerm } = fixedCost
+              const { id, label, searchTerm, expectedAmount } = fixedCost
               return (
                 <div key={id}>
                   <div key={label}>{label}</div>
                   <div key={searchTerm}>{searchTerm}</div>
+                  <div key={expectedAmount}>${expectedAmount}</div>
                 </div>
               )
             })
@@ -27,7 +28,13 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
       }
       <h1>Savings</h1>
       {
-        savings ? null : <p>Looks like you aren't planning to save any money. Be sure to add savings as part of your spending plan.</p>
+        savings ? (
+          <div>
+            <div>LABEL</div>
+            <div>SEARCH TERM</div>
+            <div>EXPECTED MONTHLY AMOUNT</div>
+          </div>
+        ) : <p>Looks like you aren't planning to save any money. Be sure to add savings as part of your spending plan.</p>
       }
       <h1>Investments</h1>
       {
