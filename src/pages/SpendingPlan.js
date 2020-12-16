@@ -35,6 +35,22 @@ function SpendingPlan() {
         expectedAmount: 300
       }
     ],
+    savings: [
+      {
+        id: 6,
+        label: 'Emergency Fund',
+        searchTerm: 'Employer',
+        expectedAmount: 1000
+      }
+    ],
+    investments: [
+      {
+        id: 7,
+        label: 'Index Fund',
+        searchTerm: 'Brokerage Firm',
+        expectedAmount: 1000
+      }
+    ],
     discretionarySpending: {
       label: 'Spending Money',
       searchTerm: '*',
