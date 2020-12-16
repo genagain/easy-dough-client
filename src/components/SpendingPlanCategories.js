@@ -33,12 +33,30 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
             <div>LABEL</div>
             <div>SEARCH TERM</div>
             <div>EXPECTED MONTHLY AMOUNT</div>
+            {
+              savings.map(savingsGoal => {
+                const { id, label, searchTerm, expectedAmount } = savingsGoal
+                return (
+                  <div key={id}>
+                    <div key={label}>{label}</div>
+                    <div key={searchTerm}>{searchTerm}</div>
+                    <div key={expectedAmount}>${expectedAmount}</div>
+                  </div>
+                )
+              })
+            }
           </div>
         ) : <p>Looks like you aren't planning to save any money. Be sure to add savings as part of your spending plan.</p>
       }
       <h1>Investments</h1>
       {
-        investments ? null : <p>Looks like you aren't planning to invest any money. Be sure to add investments as part of your spending plan.</p>
+        investments ? (
+          <div>
+            <div>LABEL</div>
+            <div>SEARCH TERM</div>
+            <div>EXPECTED MONTHLY AMOUNT</div>
+          </div>
+        ): <p>Looks like you aren't planning to invest any money. Be sure to add investments as part of your spending plan.</p>
       }
       <h1>Discretionary Spending</h1>
       <div>

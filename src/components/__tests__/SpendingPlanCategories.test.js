@@ -283,7 +283,7 @@ describe('When there are three parts to render, the SpendingPlanCategories', () 
             id: 6,
             label: 'Emergency Fund',
             searchTerm: 'Employer',
-            expectedAmount: 1000
+            expectedAmount: 8000
           }
         ],
         discretionarySpending: {
@@ -362,6 +362,39 @@ describe('When there are three parts to render, the SpendingPlanCategories', () 
     test('the savings header', () => {
       const header = screen.getByRole('heading', { name: /savings/i})
       expect(header).not.toBeNull()
+    })
+
+    test('each label for each savings goal', () => {
+      const expectedLabels = [
+        'Emergency Fund'
+      ]
+
+      expectedLabels.forEach(expectedLabel => {
+        const label = screen.getByText(expectedLabel)
+        expect(label).not.toBeNull()
+      })
+    })
+
+    test('each expected monthly amount for each savings goal', () => {
+      const expectedMonthlyAmounts = [
+        '$8000'
+      ]
+
+      expectedMonthlyAmounts.forEach(expectedMonthlyAmount => {
+        const monthlyAmount = screen.getByText(expectedMonthlyAmount)
+        expect(monthlyAmount).not.toBeNull()
+      })
+    })
+
+    test('each expected amount for each savings goal', () => {
+      const expectedSearchTerms = [
+        'Employer'
+      ]
+
+      expectedSearchTerms.forEach(expectedSearchTerm => {
+        const searchTerm = screen.getByText(expectedSearchTerm)
+        expect(searchTerm).not.toBeNull()
+      })
     })
 
     test('the discretionary spending header', () => {
