@@ -59,10 +59,12 @@ function SpendingPlan() {
   }
 
   return (
-    <>
-    <h1>Your Spending Plan</h1>
-    <SpendingPlanCategories spendingPlanCategories={spendingPlanCategories} />
-    </>
+    <div className="flex flex-col">
+      <div className="m-auto w-10/12 lg:max-w-6xl">
+        <h1 className="mb-2 text-6xl lg:text-3xl">Your Spending Plan</h1>
+        <SpendingPlanCategories spendingPlanCategories={spendingPlanCategories} />
+      </div>
+    </div>
   )
 }
 
