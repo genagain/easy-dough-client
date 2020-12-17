@@ -7,10 +7,12 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
       <h1 className="text-5xl lg:text-2xl">Fixed Costs</h1>
       { 
         fixedCosts ? (
-        <div>
-          <div>LABEL</div>
-          <div>SEARCH TERM</div>
-          <div>EXPECTED MONTHLY AMOUNT</div>
+        <div className="border-gray-600 border rounded-lg lg:rounded lg:shadow">
+          <div className="flex flex-row bg-blue-800">
+            <div className="m-2 text-3xl w-1/3 lg:text-sm text-white">LABEL</div>
+            <div className="m-2 text-3xl w-1/3 lg:text-sm text-white">SEARCH TERM</div>
+            <div className="m-2 text-3xl w-1/3 lg:text-sm text-white">EXPECTED MONTHLY AMOUNT</div>
+          </div>
           {
             fixedCosts.map(fixedCost => {
               const { id, label, searchTerm, expectedAmount } = fixedCost
@@ -29,10 +31,12 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
       <h1 className="text-5xl lg:text-2xl">Savings</h1>
       {
         savings ? (
-          <div>
-            <div>LABEL</div>
-            <div>SEARCH TERM</div>
-            <div>EXPECTED MONTHLY AMOUNT</div>
+          <div className="border-gray-600 border rounded-lg lg:rounded lg:shadow">
+            <div className="flex flex-row bg-blue-800">
+              <div className="m-2 text-3xl w-1/3 lg:text-sm text-white">LABEL</div>
+              <div className="m-2 text-3xl w-1/3 lg:text-sm text-white">SEARCH TERM</div>
+              <div className="m-2 text-3xl w-1/3 lg:text-sm text-white">EXPECTED MONTHLY AMOUNT</div>
+            </div>
             {
               savings.map(savingsGoal => {
                 const { id, label, searchTerm, expectedAmount } = savingsGoal
@@ -51,10 +55,12 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
       <h1 className="text-5xl lg:text-2xl">Investments</h1>
       {
         investments ? (
-          <div>
-            <div>LABEL</div>
-            <div>SEARCH TERM</div>
-            <div>EXPECTED MONTHLY AMOUNT</div>
+          <div className="border-gray-600 border rounded-lg lg:rounded lg:shadow">
+            <div className="flex flex-row bg-blue-800">
+              <div className="m-2 text-3xl w-1/3 lg:text-sm text-white">LABEL</div>
+              <div className="m-2 text-3xl w-1/3 lg:text-sm text-white">SEARCH TERM</div>
+              <div className="m-2 text-3xl w-1/3 lg:text-sm text-white">EXPECTED MONTHLY AMOUNT</div>
+            </div>
             {
               investments.map(investment => {
                 const { id, label, searchTerm, expectedAmount } = investment
@@ -71,12 +77,13 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
         ): <p>Looks like you aren't planning to invest any money. Be sure to add investments as part of your spending plan.</p>
       }
       <h1 className="text-5xl lg:text-2xl">Discretionary Spending</h1>
-      <div>
-        <div>LABEL</div>
-        <div>SEARCH TERM</div>
-        <div>EXPECTED MONTHLY AMOUNT</div>
-      </div>
-      <div>
+      <div className="border-gray-600 border rounded-lg lg:rounded lg:shadow">
+        <div className="flex flex-row bg-blue-800">
+          <div className="m-2 text-3xl w-1/3 lg:text-sm text-white">LABEL</div>
+          <div className="m-2 text-3xl w-1/3 lg:text-sm text-white">SEARCH TERM</div>
+          <div className="m-2 text-3xl w-1/3 lg:text-sm text-white">EXPECTED MONTHLY AMOUNT</div>
+       </div>
+
         <div>{discretionarySpending.label}</div>
         <div>{discretionarySpending.searchTerm}</div>
         <div>${discretionarySpending.expectedAmount}</div>
