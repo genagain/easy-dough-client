@@ -4,7 +4,7 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
   const { fixedCosts, savings, investments, discretionarySpending} = spendingPlanCategories
   return (
     <div>
-      <h1 className="text-5xl lg:text-2xl">Fixed Costs</h1>
+      <h1 className="my-2 text-5xl lg:text-2xl">Fixed Costs</h1>
       { 
         fixedCosts ? (
         <div className="border-gray-600 border rounded-lg lg:rounded lg:shadow">
@@ -28,7 +28,7 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
         </div>
         ) : <p>Looks like you haven't accounted for your fixed costs. Be sure to add them as parts of your spending plan.</p>
       }
-      <h1 className="text-5xl lg:text-2xl">Savings</h1>
+      <h1 className="my-2 text-5xl lg:text-2xl">Savings</h1>
       {
         savings ? (
           <div className="border-gray-600 border rounded-lg lg:rounded lg:shadow">
@@ -52,7 +52,7 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
           </div>
         ) : <p>Looks like you aren't planning to save any money. Be sure to add savings as part of your spending plan.</p>
       }
-      <h1 className="text-5xl lg:text-2xl">Investments</h1>
+      <h1 className="my-2 text-5xl lg:text-2xl">Investments</h1>
       {
         investments ? (
           <div className="border-gray-600 border rounded-lg lg:rounded lg:shadow">
@@ -76,7 +76,7 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
           </div>
         ): <p>Looks like you aren't planning to invest any money. Be sure to add investments as part of your spending plan.</p>
       }
-      <h1 className="text-5xl lg:text-2xl">Discretionary Spending</h1>
+      <h1 className="my-2 text-5xl lg:text-2xl">Discretionary Spending</h1>
       <div className="border-gray-600 border rounded-lg lg:rounded lg:shadow">
         <div className="flex flex-row bg-blue-800">
           <div className="m-2 text-3xl w-3/12 lg:text-sm text-white">LABEL</div>
