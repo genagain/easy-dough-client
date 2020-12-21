@@ -2,6 +2,7 @@ import React from 'react'
 
 function SpendingPlanCategories({ spendingPlanCategories }) {
   const { fixedCosts, savings, investments, discretionarySpending} = spendingPlanCategories
+  // TODO create a SpendingPlanCategory Component that can take in an array or an object
   return (
     <div>
       <h1 className="my-2 text-5xl lg:text-2xl">Fixed Costs</h1>

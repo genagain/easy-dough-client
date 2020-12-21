@@ -1,62 +1,42 @@
-import React from 'react'
+import React, { useContext, useState, useEffect } from 'react'
+import UserContext from '../UserContext'
 import SpendingPlanCategories from '../components/SpendingPlanCategories'
 
 function SpendingPlan() {
-  const spendingPlanCategories = {
-    fixedCosts: [
-      {
-        id: 1,
-        label: 'Rent',
-        searchTerm: 'Property Management Company',
-        expectedAmount: 1000
-      },
-      {
-        id: 2,
-        label: 'Electricity',
-        searchTerm: 'Electic Company',
-        expectedAmount: 40
-      },
-      {
-        id: 3,
-        label: 'Gas',
-        searchTerm: 'Gas Company',
-        expectedAmount: 20
-      },
-      {
-        id: 4,
-        label: 'Internet',
-        searchTerm: 'Internet Provider',
-        expectedAmount: 60
-      },
-      {
-        id: 5,
-        label: 'Groceries',
-        searchTerm: 'Grocery Store',
-        expectedAmount: 300
-      }
-    ],
-    savings: [
-      {
-        id: 6,
-        label: 'Emergency Fund',
-        searchTerm: 'Employer',
-        expectedAmount: 1000
-      }
-    ],
-    investments: [
-      {
-        id: 7,
-        label: 'Index Fund',
-        searchTerm: 'Brokerage Firm',
-        expectedAmount: 1000
-      }
-    ],
+  const { accessToken, logout } = useContext(UserContext)
+
+  const [spendingPlanCategories, setSpendingPlanCategories] = useState({
     discretionarySpending: {
       label: 'Spending Money',
       searchTerm: '*',
       expectedAmount: 0
     }
-  }
+  })
+
+  useEffect(() => {
+    const fetchSpendingPlanCategories = async () => {
+      const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
+      const response = await fetch(`${apiUrl}/spending_plan_parts`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          }
+        }
+      )
+
+      const json = await response.json()
+
+      if (!response.ok) {
+        logout()
+      }
+
+      setSpendingPlanCategories(json['spending_plan_parts'])
+    }
+
+    fetchSpendingPlanCategories()
+  }, [accessToken, logout])
 
   return (
     <div className="flex flex-col">
