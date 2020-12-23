@@ -35,6 +35,11 @@ describe('When there is only one part to render, the SpendingPlanCategories', ()
       expect(header).not.toBeNull()
     })
 
+    test('the add savings target button', () => {
+      const button = screen.getByRole('button', { name: /add savings target/i})
+      expect(button).not.toBeNull()
+    })
+
     test('the message about not saving', () => {
       const message = screen.getByText(/looks like you aren't planning to save any money\. be sure to add savings as part of your spending plan\./i)
       expect(message).not.toBeNull()
@@ -230,6 +235,11 @@ describe('When there are two parts to render, the SpendingPlanCategories', () =>
       expect(header).not.toBeNull()
     })
 
+    test('the add savings target button', () => {
+      const button = screen.getByRole('button', { name: /add savings target/i})
+      expect(button).not.toBeNull()
+    })
+
     test('the message about not saving', () => {
       const message = screen.getByText(/looks like you aren't planning to save any money\. be sure to add savings as part of your spending plan\./i)
       expect(message).not.toBeNull()
@@ -318,6 +328,11 @@ describe('When there are three parts to render, the SpendingPlanCategories', () 
       expect(header).not.toBeNull()
     })
 
+    test('the add fixed cost button', () => {
+      const button = screen.getByRole('button', { name: /add fixed cost/i})
+      expect(button).not.toBeNull()
+    })
+
     test('each label for each fixed cost', () => {
       const expectedLabels = [
         'Rent',
@@ -363,10 +378,14 @@ describe('When there are three parts to render, the SpendingPlanCategories', () 
       })
     })
 
-
     test('the savings header', () => {
       const header = screen.getByRole('heading', { name: /savings/i})
       expect(header).not.toBeNull()
+    })
+
+    test('the add savings target button', () => {
+      const button = screen.getByRole('button', { name: /add savings target/i})
+      expect(button).not.toBeNull()
     })
 
     test('each label for each savings goal', () => {
@@ -513,6 +532,11 @@ describe('When there are four parts to render, the SpendingPlanCategories', () =
       expect(header).not.toBeNull()
     })
 
+    test('the add fixed cost button', () => {
+      const button = screen.getByRole('button', { name: /add fixed cost/i})
+      expect(button).not.toBeNull()
+    })
+
     test('each label for each fixed cost', () => {
       const expectedLabels = [
         'Rent',
@@ -562,6 +586,11 @@ describe('When there are four parts to render, the SpendingPlanCategories', () =
     test('the savings header', () => {
       const header = screen.getByRole('heading', { name: /savings/i})
       expect(header).not.toBeNull()
+    })
+
+    test('the add savings target button', () => {
+      const button = screen.getByRole('button', { name: /add savings target/i})
+      expect(button).not.toBeNull()
     })
 
     test('each label for each savings goal', () => {

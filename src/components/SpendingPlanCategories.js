@@ -54,6 +54,7 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
           </div>
         ) : <p>Looks like you aren't planning to save any money. Be sure to add savings as part of your spending plan.</p>
       }
+      <button>Add Savings Target</button>
       <h1 className="my-2 text-5xl lg:text-2xl">Investments</h1>
       {
         investments ? (
