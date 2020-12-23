@@ -54,11 +54,11 @@ describe('When there is only one part to render, the SpendingPlanCategories', ()
       const expectedColumnHeaders = [
         'LABEL',
         'SEARCH TERM',
-        'EXPECTED MONTHLY AMOUNT'
+        'EXPECTED AMOUNT'
       ]
 
       expectedColumnHeaders.forEach(columnHeader => {
-        const columnHeaderText = screen.getByText(columnHeader)
+        const columnHeaderText = screen.getAllByText(columnHeader)
         expect(columnHeaderText).not.toBeNull()
       })
     })
@@ -129,7 +129,7 @@ describe('When there are two parts to render, the SpendingPlanCategories', () =>
       const expectedColumnHeaders = [
         'LABEL',
         'SEARCH TERM',
-        'EXPECTED MONTHLY AMOUNT'
+        'EXPECTED AMOUNT'
       ]
 
       expectedColumnHeaders.forEach(columnHeader => {
@@ -299,7 +299,7 @@ describe('When there are three parts to render, the SpendingPlanCategories', () 
       const expectedColumnHeaders = [
         'LABEL',
         'SEARCH TERM',
-        'EXPECTED MONTHLY AMOUNT'
+        'EXPECTED AMOUNT'
       ]
 
       expectedColumnHeaders.forEach(columnHeader => {
@@ -494,7 +494,7 @@ describe('When there are four parts to render, the SpendingPlanCategories', () =
       const expectedColumnHeaders = [
         'LABEL',
         'SEARCH TERM',
-        'EXPECTED MONTHLY AMOUNT'
+        'EXPECTED AMOUNT'
       ]
 
       expectedColumnHeaders.forEach(columnHeader => {
