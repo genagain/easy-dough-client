@@ -5,7 +5,7 @@ import SpendingPlanCategory from '../SpendingPlanCategory'
 import UserContext from '../../UserContext'
 
 describe('The SpendingPlanCategory component', () => {
-  describe('render', () => {
+  describe('renders', () => {
     beforeEach(() => {
       const fixedCosts = [
         {
@@ -106,3 +106,7 @@ describe('The SpendingPlanCategory component', () => {
     })
   })
 })
+
+
+//TODO account for no spending parts for fixed costs, savings and investments
+//TODO account for add savings fund button for savings
