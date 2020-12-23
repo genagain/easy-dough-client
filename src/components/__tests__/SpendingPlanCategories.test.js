@@ -172,33 +172,6 @@ describe('When there are two parts to render, the SpendingPlanCategories', () =>
         expect(label).not.toBeNull()
       })
     })
-/*[*/
-          //{
-            //label: 'Rent',
-            //searchTerm: 'Property Management Company',
-            //expectedAmount: 1000
-          //},
-          //{
-            //label: 'Electricity',
-            //searchTerm: 'Electic Company',
-            //expectedAmount: 40
-          //},
-          //{
-            //label: 'Gas',
-            //searchTerm: 'Gas Company',
-            //expectedAmount: 40
-          //},
-          //{
-            //label: 'Internet',
-            //searchTerm: 'Internet Provider',
-            //expectedAmount: 60
-          //},
-          //{
-            //label: 'Groceries',
-            //searchTerm: 'Grocery Store',
-            //expectedAmount: 300
-          //}
-        /*]*/
 
     test('each search term for each fixed cost', () => {
       const expectedSearchTerms = [
