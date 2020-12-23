@@ -9,7 +9,7 @@ function AddSpendingPlanPartForm({ category }) {
       <input id="label-search-term" />
       <label htmlFor="label-expected-amount">Expected Amount:</label>
       <input id="label-expected-amount" />
-      <button>{`Create ${category}`}</button>
+      <button>{ category === 'Savings' ? `Create Savings Fund`  : `Create ${category.slice(0,-1)}`}</button>
     </div>
   )
 }
