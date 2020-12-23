@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import AddSpendingPlanPartForm from './AddSpendingPlanPartForm'
 
 function SpendingPlanCategories({ spendingPlanCategories }) {
   const { fixedCosts, savings, investments, discretionarySpending} = spendingPlanCategories
+
+  const [visibleSpendingPlanCategoryForm, setVisibleSpendingPlanCategoryForm] = useState()
+
   // TODO create a SpendingPlanCategory Component that can take in an array or an object
   return (
     <div>
@@ -29,7 +34,14 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
         </div>
         ) : <p>Looks like you haven't accounted for your fixed costs. Be sure to add them as parts of your spending plan.</p>
       }
-      <button>Add Fixed Cost</button>
+      <button onClick={ () => visibleSpendingPlanCategoryForm === "Fixed Costs" ? setVisibleSpendingPlanCategoryForm(null) :  setVisibleSpendingPlanCategoryForm("Fixed Costs") }>
+      { 
+        visibleSpendingPlanCategoryForm === "Fixed Costs" ? "Hide Fixed Cost" : "Add Fixed Cost"
+      }
+      </button>
+      {
+        visibleSpendingPlanCategoryForm === "Fixed Costs" && <AddSpendingPlanPartForm category="Fixed Costs" />
+      }
       <h1 className="my-2 text-5xl lg:text-2xl">Savings</h1>
       {
         savings ? (
