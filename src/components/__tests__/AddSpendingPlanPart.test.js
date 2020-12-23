@@ -58,3 +58,33 @@ describe('the AddSpendingPlanPartForm component for savings', () => {
     })
   })
 })
+
+describe('the AddSpendingPlanPartForm component for investments', () => {
+  describe('renders', () => {
+    beforeEach(() => {
+      render(<UserContext.Provider value={{}}><AddSpendingPlanPartForm category="Investments" /></UserContext.Provider>)
+    })
+
+    test('the label field', () => {
+      const label = screen.getByLabelText('Label:')
+      expect(label).not.toBeNull()
+    })
+
+    test('the search term field', () => {
+      const searchTerm = screen.getByLabelText('Search Term:')
+      expect(searchTerm).not.toBeNull()
+    })
+
+    test('the expected amount field', () => {
+      const expectedAmount = screen.getByLabelText('Expected Amount:')
+      expect(expectedAmount).not.toBeNull()
+    })
+
+    test('the create investment button', () => {
+      const button = screen.getByRole('button', { name: "Create Investment" })
+      expect(button).not.toBeNull()
+    })
+  })
+})
+
+
