@@ -29,6 +29,7 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
         </div>
         ) : <p>Looks like you haven't accounted for your fixed costs. Be sure to add them as parts of your spending plan.</p>
       }
+      <button>Add Fixed Cost</button>
       <h1 className="my-2 text-5xl lg:text-2xl">Savings</h1>
       {
         savings ? (

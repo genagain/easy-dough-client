@@ -20,6 +20,11 @@ describe('When there is only one part to render, the SpendingPlanCategories', ()
       expect(header).not.toBeNull()
     })
 
+    test('the add fixed cost button', () => {
+      const button = screen.getByRole('button', { name: /add fixed cost/i})
+      expect(button).not.toBeNull()
+    })
+
     test('the message about not accounting for your fixed costs', () => {
       const message = screen.getByText(/looks like you haven't accounted for your fixed costs\. be sure to add them as parts of your spending plan\./i)
       expect(message).not.toBeNull()
