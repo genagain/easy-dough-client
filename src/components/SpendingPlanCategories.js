@@ -79,6 +79,7 @@ function SpendingPlanCategories({ spendingPlanCategories }) {
           </div>
         ): <p>Looks like you aren't planning to invest any money. Be sure to add investments as part of your spending plan.</p>
       }
+      <button>Add Investment</button>
       <h1 className="my-2 text-5xl lg:text-2xl">Discretionary Spending</h1>
       <div className="border-gray-600 border rounded-lg lg:rounded lg:shadow">
         <div className="flex flex-row bg-blue-800">

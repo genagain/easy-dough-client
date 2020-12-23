@@ -50,6 +50,11 @@ describe('When there is only one part to render, the SpendingPlanCategories', ()
       expect(header).not.toBeNull()
     })
 
+    test('the add investment button', () => {
+      const button = screen.getByRole('button', { name: /add investment/i})
+      expect(button).not.toBeNull()
+    })
+
     test('the message about not investing', () => {
       const message = screen.getByText(/looks like you aren't planning to invest any money\. be sure to add investments as part of your spending plan\./i)
       expect(message).not.toBeNull()
@@ -250,6 +255,11 @@ describe('When there are two parts to render, the SpendingPlanCategories', () =>
       expect(header).not.toBeNull()
     })
 
+    test('the add investment button', () => {
+      const button = screen.getByRole('button', { name: /add investment/i})
+      expect(button).not.toBeNull()
+    })
+
     test('the message about not investing', () => {
       const message = screen.getByText(/looks like you aren't planning to invest any money\. be sure to add investments as part of your spending plan\./i)
       expect(message).not.toBeNull()
@@ -446,6 +456,11 @@ describe('When there are three parts to render, the SpendingPlanCategories', () 
       expect(header).not.toBeNull()
     })
 
+    test('the add investment button', () => {
+      const button = screen.getByRole('button', { name: /add investment/i})
+      expect(button).not.toBeNull()
+    })
+
     test('the message about not investing', () => {
       const message = screen.getByText(/looks like you aren't planning to invest any money\. be sure to add investments as part of your spending plan\./i)
       expect(message).not.toBeNull()
@@ -629,6 +644,11 @@ describe('When there are four parts to render, the SpendingPlanCategories', () =
     test('the investments header', () => {
       const header = screen.getByRole('heading', { name: /investments/i})
       expect(header).not.toBeNull()
+    })
+
+    test('the add investment button', () => {
+      const button = screen.getByRole('button', { name: /add investment/i})
+      expect(button).not.toBeNull()
     })
 
     test('each label for each investment', () => {
