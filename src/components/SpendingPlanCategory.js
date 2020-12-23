@@ -1,11 +1,4 @@
 import React, { useState } from 'react'
-/*  return (*/
-              //<div key={id} className="flex flex-row lg:items-baseline border-gray-600 border-t-2 lg:border-t">
-                //<div key={label} className="m-2 text-3xl w-3/12 lg:w-1/3 lg:m-2 lg:text-base">{label}</div>
-                //<div key={searchTerm} className="m-2 text-3xl w-4/12 lg:w-1/3 lg:m-2 lg:text-base">{searchTerm}</div>
-                //<div key={expectedAmount} className="m-2 text-3xl w-5/12 lg:w-1/3 lg:m-2 lg:text-base">${expectedAmount}</div>
-              //</div>
-            //)
 
 function SpendingPlanCategory({ spendingPlanParts, category }) {
   return (
