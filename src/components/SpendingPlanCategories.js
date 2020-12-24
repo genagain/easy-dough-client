@@ -2,13 +2,11 @@ import React, { useState } from 'react'
 
 import SpendingPlanCategory from './SpendingPlanCategory'
 
-        //) : <p>Looks like you haven't accounted for your fixed costs. Be sure to add them as parts of your spending plan.</p>
 function SpendingPlanCategories({ spendingPlanCategories }) {
   const { fixedCosts, savings, investments, discretionarySpending} = spendingPlanCategories
 
   const [visibleSpendingPlanCategoryForm, setVisibleSpendingPlanCategoryForm] = useState()
 
-  // TODO create a SpendingPlanCategory Component that can take in an array or an object
   return (
     <div>
       <h1 className="my-2 text-5xl lg:text-2xl">Fixed Costs</h1>
