@@ -1,18 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import SpendingPlanCategory from './SpendingPlanCategory'
 
-function SpendingPlanCategories({ spendingPlanCategories }) {
+function SpendingPlanCategories({ spendingPlanCategories, refetch, setRefetch }) {
   const { fixedCosts, savings, investments, discretionarySpending} = spendingPlanCategories
 
+  // TODO consider moving the button and the form back out to here
   return (
     <div>
       <h1 className="my-2 text-5xl lg:text-2xl">Fixed Costs</h1>
-      <SpendingPlanCategory spendingPlanParts={fixedCosts} category="Fixed Costs" />
+      <SpendingPlanCategory spendingPlanParts={fixedCosts} category="Fixed Costs" refetch={refetch} setRefetch={setRefetch} />
       <h1 className="my-2 text-5xl lg:text-2xl">Savings</h1>
-      <SpendingPlanCategory spendingPlanParts={savings} category="Savings" />
+      <SpendingPlanCategory spendingPlanParts={savings} category="Savings" refetch={refetch} setRefetch={setRefetch} />
       <h1 className="my-2 text-5xl lg:text-2xl">Investments</h1>
-      <SpendingPlanCategory spendingPlanParts={investments} category="Investments" />
+      <SpendingPlanCategory spendingPlanParts={investments} category="Investments" refetch={refetch} setRefetch={setRefetch} />
       <h1 className="my-2 text-5xl lg:text-2xl">Discretionary Spending</h1>
       <div className="border-gray-600 border rounded-lg lg:rounded lg:shadow">
         <div className="flex flex-row bg-blue-800">

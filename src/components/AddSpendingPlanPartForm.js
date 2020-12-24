@@ -1,6 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import UserContext from '../UserContext'
 
-function AddSpendingPlanPartForm({ category }) {
+function AddSpendingPlanPartForm({ category, refetch, setRefetch, setShowAddSpendingPlanPartForm }) {
+
+  const { accessToken } = useContext(UserContext)
+
   const [label, setLabel] = useState()
   const [searchTerm, setSearchTerm] = useState()
   const [expectedAmount, setExpectedAmount] = useState()
@@ -12,7 +16,20 @@ function AddSpendingPlanPartForm({ category }) {
       'search_term': searchTerm,
       'expected_amount': expectedAmount
     }
-    console.log(body)
+
+    const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
+    const response = await fetch(`${apiUrl}/spending_plan_parts/create`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        },
+        body: JSON.stringify(body)
+      })
+    const jsonResponse = await response.json()
+    setRefetch(!refetch)
+    setShowAddSpendingPlanPartForm(false)
   }
 
   return (

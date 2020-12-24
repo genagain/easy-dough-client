@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import AddSpendingPlanPartForm from './AddSpendingPlanPartForm'
 
-function SpendingPlanCategory({ spendingPlanParts, category }) {
+function SpendingPlanCategory({ spendingPlanParts, category, refetch, setRefetch }) {
   const [showAddSpendingPlanPartForm, setShowAddSpendingPlanPartForm] = useState(false)
   const singularCategory = category === "Savings" ? "Savings Fund" : category.slice(0, -1)
 
@@ -22,6 +22,8 @@ function SpendingPlanCategory({ spendingPlanParts, category }) {
       message = (
         <p>Looks like you aren't planning to invest any money. Be sure to add investments as part of your spending plan.</p>
       )
+      break
+    default:
       break
   }
 
@@ -56,7 +58,7 @@ function SpendingPlanCategory({ spendingPlanParts, category }) {
     }
       <button onClick={() => setShowAddSpendingPlanPartForm(!showAddSpendingPlanPartForm)}>{ showAddSpendingPlanPartForm ? `Hide ${singularCategory}` : `Add ${singularCategory}`}</button>
       {
-        showAddSpendingPlanPartForm && <AddSpendingPlanPartForm singularCategory={singularCategory} category={category}/>
+        showAddSpendingPlanPartForm && <AddSpendingPlanPartForm singularCategory={singularCategory} category={category} refetch={refetch} setRefetch={setRefetch} setShowAddSpendingPlanPartForm={setShowAddSpendingPlanPartForm}/>
       }
     </div>
   )
