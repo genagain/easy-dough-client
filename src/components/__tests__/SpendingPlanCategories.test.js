@@ -35,8 +35,8 @@ describe('When there is only one part to render, the SpendingPlanCategories', ()
       expect(header).not.toBeNull()
     })
 
-    test('the add savings target button', () => {
-      const button = screen.getByRole('button', { name: /add savings target/i})
+    test('the add savings fund button', () => {
+      const button = screen.getByRole('button', { name: /add savings fund/i})
       expect(button).not.toBeNull()
     })
 
@@ -213,8 +213,8 @@ describe('When there are two parts to render, the SpendingPlanCategories', () =>
       expect(header).not.toBeNull()
     })
 
-    test('the add savings target button', () => {
-      const button = screen.getByRole('button', { name: /add savings target/i})
+    test('the add savings fund button', () => {
+      const button = screen.getByRole('button', { name: /add savings fund/i})
       expect(button).not.toBeNull()
     })
 
@@ -366,8 +366,8 @@ describe('When there are three parts to render, the SpendingPlanCategories', () 
       expect(header).not.toBeNull()
     })
 
-    test('the add savings target button', () => {
-      const button = screen.getByRole('button', { name: /add savings target/i})
+    test('the add savings fund button', () => {
+      const button = screen.getByRole('button', { name: /add savings fund/i})
       expect(button).not.toBeNull()
     })
 
@@ -576,8 +576,8 @@ describe('When there are four parts to render, the SpendingPlanCategories', () =
       expect(header).not.toBeNull()
     })
 
-    test('the add savings target button', () => {
-      const button = screen.getByRole('button', { name: /add savings target/i})
+    test('the add savings fund button', () => {
+      const button = screen.getByRole('button', { name: /add savings fund/i})
       expect(button).not.toBeNull()
     })
 
