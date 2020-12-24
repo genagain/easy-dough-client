@@ -4,7 +4,7 @@ import SpendingPlanCategory from '../SpendingPlanCategory'
 
 import UserContext from '../../UserContext'
 
-describe('The SpendingPlanCategory component with spending plan parts', () => {
+describe('The SpendingPlanCategory component with spending plan parts for fixed costs', () => {
   describe('renders', () => {
     beforeEach(() => {
       const fixedCosts = [
@@ -106,6 +106,59 @@ describe('The SpendingPlanCategory component with spending plan parts', () => {
     })
   })
 })
+
+describe('The SpendingPlanCategory component with spending plan parts for savings', () => {
+  describe('renders', () => {
+    beforeEach(() => {
+      const savings = [
+        {
+          id: 1,
+          label: 'Emergency Fund',
+          searchTerm: 'Employer',
+          expectedAmount: 800
+        }
+      ]
+      render(<SpendingPlanCategory category="Savings" spendingPlanParts={savings}/>)
+    })
+
+    test('the spending plan parts table headers', () => {
+      const expectedColumnHeaders = [
+        'LABEL',
+        'SEARCH TERM',
+        'EXPECTED AMOUNT'
+      ]
+
+      expectedColumnHeaders.forEach(columnHeader => {
+        const columnHeaderText = screen.getByText(columnHeader)
+        expect(columnHeader).not.toBeNull()
+      })
+    })
+
+    test('each label for each fixed cost', () => {
+      const expectedLabel = 'Emergency Fund'
+      const label = screen.getByText(expectedLabel)
+      expect(label).not.toBeNull()
+    })
+
+    test('each search term for each fixed cost', () => {
+      const expectedSearchTerm = "Employer"
+      const searchTerm = screen.getByText(expectedSearchTerm)
+      expect(searchTerm).not.toBeNull()
+    })
+
+    test('each expected monthly amount for each fixed cost', () => {
+      const expectedMonthlyAmount = "$800"
+      const monthlyAmount = screen.getByText(expectedMonthlyAmount)
+      expect(monthlyAmount).not.toBeNull()
+    })
+
+    test('the add savings fund button', () => {
+      const button = screen.getByRole('button', { name: /add savings fund/i})
+      expect(button).not.toBeNull()
+    })
+  })
+})
+
 
 describe('The SpendingPlanCategory component without spending plan parts', () => {
   describe('renders', () => {

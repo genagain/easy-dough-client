@@ -4,7 +4,7 @@ import AddSpendingPlanPartForm from './AddSpendingPlanPartForm'
 
 function SpendingPlanCategory({ spendingPlanParts, category }) {
   const [showAddSpendingPlanPartForm, setShowAddSpendingPlanPartForm] = useState(false)
-  const singularCategory = category.slice(0, -1)
+  const singularCategory = category === "Savings" ? "Savings Fund" : category.slice(0, -1)
 
   if (!spendingPlanParts) {
     switch(category) {
