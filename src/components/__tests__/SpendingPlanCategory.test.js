@@ -120,6 +120,12 @@ describe('The SpendingPlanCategory component without spending plan parts', () =>
       const message = screen.getByText(/looks like you aren\'t planning to save any money\. be sure to add savings as part of your spending plan\./i)
       expect(message).not.toBeNull()
     })
+
+    test('the appropriate message when the category is investments', () => {
+      render(<SpendingPlanCategory category="Investments" spendingPlanParts={undefined}/>)
+      const message = screen.getByText(/looks like you aren't planning to invest any money\. be sure to add investments as part of your spending plan\./i)
+      expect(message).not.toBeNull()
+    })
   })
 })
 

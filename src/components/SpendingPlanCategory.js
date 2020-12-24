@@ -16,6 +16,10 @@ function SpendingPlanCategory({ spendingPlanParts, category }) {
         return (
           <p>Looks like you aren't planning to save any money. Be sure to add savings as part of your spending plan.</p>
         )
+      case "Investments":
+        return (
+          <p>Looks like you aren't planning to invest any money. Be sure to add investments as part of your spending plan.</p>
+        )
     }
   }
 
