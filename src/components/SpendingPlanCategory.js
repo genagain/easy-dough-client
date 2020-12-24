@@ -27,6 +27,7 @@ function SpendingPlanCategory({ spendingPlanParts, category, refetch, setRefetch
       break
   }
 
+  // TODO style table like the Transaction table more
   return (
     <div>
     {
@@ -56,7 +57,7 @@ function SpendingPlanCategory({ spendingPlanParts, category, refetch, setRefetch
         message
       )
     }
-    <div className="m-auto w-3/4 lg:m-0 lg:w-full">
+    <div className="m-auto w-3/4 my-4 lg:m-0 lg:w-full">
       <button className="w-full lg:w-auto p-6 bg-blue-800 hover:bg-blue-700 text-white rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-base" onClick={() => setShowAddSpendingPlanPartForm(!showAddSpendingPlanPartForm)}>{ showAddSpendingPlanPartForm ? `Hide ${singularCategory}` : `Add ${singularCategory}`}</button>
     </div>
       {
