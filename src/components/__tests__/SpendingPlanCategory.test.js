@@ -4,7 +4,7 @@ import SpendingPlanCategory from '../SpendingPlanCategory'
 
 import UserContext from '../../UserContext'
 
-describe('The SpendingPlanCategory component', () => {
+describe('The SpendingPlanCategory component with spending plan parts', () => {
   describe('renders', () => {
     beforeEach(() => {
       const fixedCosts = [
@@ -106,6 +106,23 @@ describe('The SpendingPlanCategory component', () => {
     })
   })
 })
+
+describe('The SpendingPlanCategory component without spending plan parts', () => {
+  describe('renders', () => {
+    test('the appropriate message when the category is fixed costs', () => {
+      render(<SpendingPlanCategory category="Fixed Costs" spendingPlanParts={undefined}/>)
+      const message = screen.getByText(/looks like you haven't accounted for your fixed costs\. be sure to add them as parts of your spending plan\./i)
+      expect(message).not.toBeNull()
+    })
+
+    test('the appropriate message when the category is savings', () => {
+      render(<SpendingPlanCategory category="Savings" spendingPlanParts={undefined}/>)
+      const message = screen.getByText(/looks like you aren\'t planning to save any money\. be sure to add savings as part of your spending plan\./i)
+      expect(message).not.toBeNull()
+    })
+  })
+})
+
 
 
 //TODO account for no spending parts for fixed costs, savings and investments

@@ -1,6 +1,24 @@
 import React, { useState } from 'react'
 
+import AddSpendingPlanPartForm from './AddSpendingPlanPartForm'
+
 function SpendingPlanCategory({ spendingPlanParts, category }) {
+  const [showAddSpendingPlanPartForm, setShowAddSpendingPlanPartForm] = useState(false)
+  const singularCategory = category.slice(0, -1)
+
+  if (!spendingPlanParts) {
+    switch(category) {
+      case "Fixed Costs":
+        return (
+              <p>Looks like you haven't accounted for your fixed costs. Be sure to add them as parts of your spending plan.</p>
+            )
+      case "Savings":
+        return (
+          <p>Looks like you aren't planning to save any money. Be sure to add savings as part of your spending plan.</p>
+        )
+    }
+  }
+
   return (
     <div>
       <div className="border-gray-600 border rounded-lg lg:rounded lg:shadow">
@@ -22,7 +40,10 @@ function SpendingPlanCategory({ spendingPlanParts, category }) {
           })
         }
       </div>
-      <button>{`Add ${category.slice(0, -1)}`}</button>
+      <button onClick={() => setShowAddSpendingPlanPartForm(!showAddSpendingPlanPartForm)}>{ showAddSpendingPlanPartForm ? `Hide ${singularCategory}` : `Add ${singularCategory}`}</button>
+      {
+        showAddSpendingPlanPartForm && <AddSpendingPlanPartForm singularCategory={singularCategory} category={category}/>
+      }
     </div>
   )
 }
