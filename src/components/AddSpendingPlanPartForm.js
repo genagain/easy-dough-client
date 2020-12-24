@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import UserContext from '../UserContext'
 import { formatAmount } from '../utils'
 
+// TODO consider making refetch and setRefetch part of context
 function AddSpendingPlanPartForm({ category, refetch, setRefetch, setShowAddSpendingPlanPartForm }) {
 
   const { accessToken } = useContext(UserContext)
