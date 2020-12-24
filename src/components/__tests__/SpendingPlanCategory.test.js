@@ -168,16 +168,34 @@ describe('The SpendingPlanCategory component without spending plan parts', () =>
       expect(message).not.toBeNull()
     })
 
+    test('the add fixed cost button when the category is fixed costs', () => {
+      render(<SpendingPlanCategory category="Fixed Costs" spendingPlanParts={undefined}/>)
+      const button = screen.getByRole('button', { name: /add fixed cost/i})
+      expect(button).not.toBeNull()
+    })
+
     test('the appropriate message when the category is savings', () => {
       render(<SpendingPlanCategory category="Savings" spendingPlanParts={undefined}/>)
       const message = screen.getByText(/looks like you aren\'t planning to save any money\. be sure to add savings as part of your spending plan\./i)
       expect(message).not.toBeNull()
     })
 
+    test('the add savings fund button when the category is savings', () => {
+      render(<SpendingPlanCategory category="Savings" spendingPlanParts={undefined}/>)
+      const button = screen.getByRole('button', { name: /add savings fund/i})
+      expect(button).not.toBeNull()
+    })
+
     test('the appropriate message when the category is investments', () => {
       render(<SpendingPlanCategory category="Investments" spendingPlanParts={undefined}/>)
       const message = screen.getByText(/looks like you aren't planning to invest any money\. be sure to add investments as part of your spending plan\./i)
       expect(message).not.toBeNull()
+    })
+
+    test('the add investmtent button when the category is investments', () => {
+      render(<SpendingPlanCategory category="Investments" spendingPlanParts={undefined}/>)
+      const button = screen.getByRole('button', { name: /add investment/i})
+      expect(button).not.toBeNull()
     })
   })
 })
