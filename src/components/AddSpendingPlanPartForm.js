@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import UserContext from '../UserContext'
+import { formatAmount } from '../utils'
 
 function AddSpendingPlanPartForm({ category, refetch, setRefetch, setShowAddSpendingPlanPartForm }) {
 
@@ -14,7 +15,7 @@ function AddSpendingPlanPartForm({ category, refetch, setRefetch, setShowAddSpen
       category,
       label,
       'search_term': searchTerm,
-      'expected_amount': expectedAmount
+      'expected_amount': formatAmount(expectedAmount)
     }
 
     const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
