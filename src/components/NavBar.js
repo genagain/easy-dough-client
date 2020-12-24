@@ -38,6 +38,9 @@ function NavBar() {
               <NavLink to='/transactions' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:mx-4 lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800" >
                Transactions
              </NavLink>
+              <NavLink to='/spending_plan' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:mx-4 lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800" >
+               Spending Plan
+             </NavLink>
               <NavLink to='/settings' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:mx-4 lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800" >
                Settings
              </NavLink>

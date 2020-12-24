@@ -9,6 +9,7 @@ import Index from './pages/Index'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
 import Transactions from './pages/Transactions'
+import SpendingPlan from './pages/SpendingPlan'
 import Settings from './pages/Settings'
 
 // TODO: consider having a uniform width for each page and using margin auto
@@ -22,6 +23,7 @@ function App() {
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
         <ProtectedRoute path="/transactions" component={Transactions} />
+        <ProtectedRoute path="/spending_plan" component={SpendingPlan} />
         <ProtectedRoute path="/settings" component={Settings} />
       </Switch>
     </div>

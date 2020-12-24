@@ -1,6 +1,7 @@
 import React from 'react'
 
 function AccountsTable({accounts}){
+  // TODO style table like the Transaction table more
   return (
     <div className="border-gray-600 border rounded-lg lg:rounded lg:shadow">
       <div className="flex flex-row bg-blue-800">
