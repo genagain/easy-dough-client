@@ -5,8 +5,6 @@ import SpendingPlanCategory from './SpendingPlanCategory'
 function SpendingPlanCategories({ spendingPlanCategories }) {
   const { fixedCosts, savings, investments, discretionarySpending} = spendingPlanCategories
 
-  const [visibleSpendingPlanCategoryForm, setVisibleSpendingPlanCategoryForm] = useState()
-
   return (
     <div>
       <h1 className="my-2 text-5xl lg:text-2xl">Fixed Costs</h1>
