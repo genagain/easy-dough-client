@@ -1,6 +1,7 @@
 import React from 'react'
 
 import SpendingPlanCategory from './SpendingPlanCategory'
+import SpendingPlanPartRow from './SpendingPlanPartRow'
 
 function SpendingPlanCategories({ spendingPlanCategories, refetch, setRefetch }) {
   const { fixedCosts, savings, investments, discretionarySpending} = spendingPlanCategories
@@ -21,12 +22,7 @@ function SpendingPlanCategories({ spendingPlanCategories, refetch, setRefetch })
           <div className="m-2 text-3xl w-4/12 lg:w-1/3 lg:text-sm text-white">SEARCH TERM</div>
           <div className="m-2 text-3xl w-5/12 lg:w-1/3 lg:text-sm text-white">EXPECTED AMOUNT</div>
        </div>
-
-        <div className="flex flex-row lg:items-baseline border-gray-600 border-t-2 lg:border-t">
-          <div className="m-2 text-3xl w-3/12 lg:w-1/3 lg:m-2 lg:text-base">{discretionarySpending.label}</div>
-          <div className="m-2 text-3xl w-4/12 lg:w-1/3 lg:m-2 lg:text-base">{discretionarySpending.searchTerm}</div>
-          <div className="m-2 text-3xl w-5/12 lg:w-1/3 lg:m-2 lg:text-base">${discretionarySpending.expectedAmount}</div>
-        </div>
+       <SpendingPlanPartRow part={discretionarySpending} />
       </div>
       
     </div>

@@ -92,6 +92,16 @@ describe('When there is only one part to render, the SpendingPlanCategories', ()
       const expectedAmount = screen.getByText(/\$0/i)
       expect(expectedAmount).not.toBeNull()
     })
+
+    test('the edit button', () => {
+      const button = screen.getByRole('button', { name: /edit/i })
+      expect(button).not.toBeNull()
+    })
+
+    test('the delete button', () => {
+      const button = screen.getByRole('button', { name: /delete/i })
+      expect(button).not.toBeNull()
+    })
   })
 })
 

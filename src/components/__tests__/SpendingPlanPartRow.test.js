@@ -29,8 +29,8 @@ describe('the SpendingPlanPartRow component', () => {
       expect(expectedAmount).not.toBeNull()
     })
 
-    test('the update button', () => {
-      const button = screen.getByRole('button', { name: /update/i })
+    test('the edit button', () => {
+      const button = screen.getByRole('button', { name: /edit/i })
       expect(button).not.toBeNull()
     })
 
