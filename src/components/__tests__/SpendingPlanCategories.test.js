@@ -3,18 +3,18 @@ import { render, screen } from '@testing-library/react'
 import SpendingPlanCategories from '../SpendingPlanCategories'
 
 describe('When there is only one part to render, the SpendingPlanCategories', () => {
-  describe('renders', () => {
-    beforeEach(() => {
-      const spendingPlanCategories = {
-          discretionarySpending: {
-            label: 'Spending Money',
-            searchTerm: '*',
-            expectedAmount: 0
-          }
+  beforeEach(() => {
+    const spendingPlanCategories = {
+        discretionarySpending: {
+          label: 'Spending Money',
+          searchTerm: '*',
+          expectedAmount: 0
         }
-      render(<SpendingPlanCategories spendingPlanCategories={spendingPlanCategories} />)
-    })
+      }
+    render(<SpendingPlanCategories spendingPlanCategories={spendingPlanCategories} />)
+  })
 
+  describe('renders', () => {
     test('the fixed costs header', () => {
       const header = screen.getByRole('heading', { name: /fixed costs/i})
       expect(header).not.toBeNull()
@@ -91,16 +91,6 @@ describe('When there is only one part to render, the SpendingPlanCategories', ()
     test('the $0 expected amount', () => {
       const expectedAmount = screen.getByText(/\$0/i)
       expect(expectedAmount).not.toBeNull()
-    })
-
-    test('the edit button', () => {
-      const button = screen.getByRole('button', { name: /edit/i })
-      expect(button).not.toBeNull()
-    })
-
-    test('the delete button', () => {
-      const button = screen.getByRole('button', { name: /delete/i })
-      expect(button).not.toBeNull()
     })
   })
 })
