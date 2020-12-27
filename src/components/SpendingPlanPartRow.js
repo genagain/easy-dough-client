@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import EditSpendingPlanPartForm from './EditSpendingPlanPartForm'
 
-function SpendingPlanPartRow({ part }) {
+function SpendingPlanPartRow({ part, category }) {
   const { label, searchTerm, expectedAmount } = part
   const [toggleForm, setToggleForm] = useState(false)
 
@@ -16,8 +16,10 @@ function SpendingPlanPartRow({ part }) {
         <div className="m-2 text-3xl w-3/12 lg:w-1/3 lg:text-base">{label}</div>
         <div className="m-2 text-3xl w-4/12 lg:w-1/3 lg:text-base">{searchTerm}</div>
         <div className="m-2 text-3xl w-1/12 lg:w-2/12 lg:text-base">${expectedAmount}</div>
-        <button className="w-2/12 lg:w-1/12 text-blue-800 hover:text-blue-700 text-3xl lg:text-base" onClick={() => setToggleForm(true)}>Edit</button>
-        <button className="w-2/12 lg:w-1/12 text-red-800 hover:text-red-700 text-3xl lg:text-base">Delete</button>
+        <button className={`${ category !== "Discretionary Spending" ? 'w-2/12 lg:w-1/12' : 'w-4/12 lg:w-2/12' } text-blue-800 hover:text-blue-700 text-3xl lg:text-base`} onClick={() => setToggleForm(true)}>Edit</button>
+        {
+        category !== "Discretionary Spending" && <button className="w-2/12 lg:w-1/12 text-red-800 hover:text-red-700 text-3xl lg:text-base">Delete</button>
+        }
         </div>
       )
     }

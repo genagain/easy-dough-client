@@ -21,7 +21,7 @@ function SpendingPlanCategories({ spendingPlanCategories, refetch, setRefetch })
           <div className="m-2 text-white w-4/12 lg:w-1/3 text-3xl lg:text-sm">SEARCH TERM</div>
           <div className="m-2 text-white w-5/12 lg:w-1/3 text-3xl lg:text-sm">EXPECTED AMOUNT</div>
        </div>
-       <SpendingPlanPartRow part={discretionarySpending} />
+       <SpendingPlanPartRow part={discretionarySpending} category={'Discretionary Spending'}/>
       </div>
       
     </div>

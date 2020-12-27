@@ -2,18 +2,18 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import SpendingPlanPartRow from '../SpendingPlanPartRow'
 
-describe('the SpendingPlanPartRow component', () => {
-  describe('renders', () => {
-    beforeEach(() => {
-      const part = {
-        id: 1,
-        label: 'Spending Money',
-        searchTerm: '*',
-        expectedAmount: 0,
-      }
-      render(<SpendingPlanPartRow part={part} />)
-    })
+describe('the SpendingPlanPartRow component for discretionary spending', () => {
+  beforeEach(() => {
+    const part = {
+      id: 1,
+      label: 'Spending Money',
+      searchTerm: '*',
+      expectedAmount: 0,
+    }
+    render(<SpendingPlanPartRow part={part} category={'Discretionary Spending'}/>)
+  })
 
+  describe('renders', () => {
     test('the spending money label', () => {
       const label = screen.getByText(/spending money/i)
       expect(label).not.toBeNull()
@@ -33,10 +33,12 @@ describe('the SpendingPlanPartRow component', () => {
       const button = screen.getByRole('button', { name: /edit/i })
       expect(button).not.toBeNull()
     })
+  })
 
+  describe('does not render', () => {
     test('the delete button', () => {
-      const button = screen.getByRole('button', { name: /delete/i })
-      expect(button).not.toBeNull()
+      const button = screen.queryByRole('button', { name: /delete/i })
+      expect(button).toBeNull()
     })
   })
 })
