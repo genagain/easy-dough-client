@@ -13,6 +13,18 @@ function SpendingPlanPartRow({ part, category }) {
   Modal.setAppElement(document.getElementById(`spending-plan-part-${id}`))
 
   async function handleDelete(e) {
+    const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
+    await fetch(`${apiUrl}/spending_plan_parts/${id}`,
+      {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        }
+      }
+    )
+    setToggleModal(false)
+    setRefetch(!refetch)
   }
 
 
