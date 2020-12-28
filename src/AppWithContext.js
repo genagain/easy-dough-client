@@ -12,6 +12,7 @@ function AppWithContext() {
 
   const [initialStartDate, initialEndDate] = initialDates()
   const [queryParams, setQueryParams] = useState({ start_date: convertDateToIso(initialStartDate), end_date: convertDateToIso(initialEndDate)})
+  const [refetch, setRefetch] = useState(false)
 
   function initialDates() {
     const endDate = new Date(Date.now())
@@ -32,7 +33,7 @@ function AppWithContext() {
   }
 
   return (
-    <UserContext.Provider value={{ accessToken, login, logout, queryParams, setQueryParams }}>
+    <UserContext.Provider value={{ accessToken, login, logout, queryParams, setQueryParams, refetch, setRefetch }}>
       <App />
     </UserContext.Provider>
   )
