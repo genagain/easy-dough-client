@@ -12,6 +12,7 @@ function AddTransactionForm({setToggleCreate, spendingPlanPartLabels}) {
   const today = new Date(Date.now())
   const [date, setDate] = useState(today)
   const [description, setDescription] = useState()
+  const [label, setLabel] = useState()
   const [amount, setAmount] = useState()
   const [flashMessage, setFlashMessage] = useState()
 
@@ -23,6 +24,7 @@ function AddTransactionForm({setToggleCreate, spendingPlanPartLabels}) {
     const body = {
           date: convertDateToIso(date),
           description,
+          label,
           amount: formatAmount(amount)
         }
     const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
@@ -65,7 +67,7 @@ function AddTransactionForm({setToggleCreate, spendingPlanPartLabels}) {
         <label htmlFor="description-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Description:</label>
         <input id="description-input" className="w-full lg:w-84 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" placeholder="Coffee" onChange={ e => { setDescription(e.target.value)}}/>
         <label htmlFor="label-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Label:</label>
-        <select id="label-input">
+        <select id="label-input" onChange={ e => setLabel(e.target.value)}>
           {
             spendingPlanPartLabels.map(label => {
               return (
