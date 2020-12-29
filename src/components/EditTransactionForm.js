@@ -54,15 +54,15 @@ function EditTransactionForm({transaction, setToggleForm, spendingPlanPartLabels
         {({ inputProps, focused }) => (
           <input
             id="date-input"
-            className={`${'input' + (focused ? ' -focused' : '')} w-full lg:w-40 max-w-full m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:m-2 lg:p-2 lg:w-40 lg:text-base`}
+            className={`${'input' + (focused ? ' -focused' : '')} w-full max-w-full m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:m-2 lg:p-2 lg:w-40 lg:text-base`}
             {...inputProps}
           />
         )}
       </DatePicker>
       <label htmlFor="description-input" className="my-2 text-5xl lg:hidden">Description:</label>
-      <input id="description-input" className="w-full lg:w-40 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:m-2 lg:p-2 lg:w-84 lg:text-base" placeholder="Coffee" type="text" defaultValue={initialDescription} onChange={e => setDescription(e.target.value)}/>
+      <input id="description-input" className="w-full m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:m-2 lg:p-2 lg:w-72 lg:text-base" placeholder="Coffee" type="text" defaultValue={initialDescription} onChange={e => setDescription(e.target.value)}/>
 			<label htmlFor="label-input" className="my-2 text-5xl lg:hidden">Label:</label>
-			<select id="label-input" className="w-full lg:w-40 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" onChange={ e => setLabel(e.target.value)}>
+			<select id="label-input" className="w-full lg:w-72 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" onChange={ e => setLabel(e.target.value)}>
 				{
 					spendingPlanPartLabels.map(label => {
 						return (
@@ -72,9 +72,7 @@ function EditTransactionForm({transaction, setToggleForm, spendingPlanPartLabels
 				}
 			</select>
       <label htmlFor="amount-input" className="my-2 text-5xl lg:hidden">Amount:</label>
-      <div className="lg:flex-grow">
-      <input id="amount-input" className="w-full lg:w-40 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:m-2 lg:p-2 lg:w-144 lg:text-base" placeholder="5.00" type="text" defaultValue={initialAmount} onChange={e => setAmount(e.target.value)}/>
-      </div>
+      <input id="amount-input" className="w-full m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:m-2 lg:p-2 lg:w-40 lg:text-base" placeholder="5.00" type="text" defaultValue={initialAmount} onChange={e => setAmount(e.target.value)}/>
       <button className="w-full lg:w-20 lg:h-auto m-2 p-6 bg-blue-600 text-white hover:bg-blue-500 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-base" onClick={handleUpdate}>Update</button>
       <button className="w-full lg:w-20 lg:h-auto m-2 p-6 border border-blue-600 text-blue-600 hover:border-blue-500 hover:text-blue-500 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-base" onClick={() => setToggleForm(false)}>Cancel</button>
     </div>
