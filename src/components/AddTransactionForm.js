@@ -54,7 +54,7 @@ function AddTransactionForm({setToggleCreate, spendingPlanPartLabels}) {
               <strong>{flashMessage}</strong>
             </FlashMessage>
         }
-        <label htmlFor="date-input"className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Date:</label>
+        <label htmlFor="date-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Date:</label>
         <DatePicker date={date} onDateChange={setDate} locale={enUS}>
           {({ inputProps, focused }) => (
             <input
@@ -65,9 +65,9 @@ function AddTransactionForm({setToggleCreate, spendingPlanPartLabels}) {
           )}
         </DatePicker>
         <label htmlFor="description-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Description:</label>
-        <input id="description-input" className="w-full lg:w-84 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" placeholder="Coffee" onChange={ e => { setDescription(e.target.value)}}/>
+        <input id="description-input" className="w-full lg:w-40 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" placeholder="Coffee" onChange={ e => { setDescription(e.target.value)}}/>
         <label htmlFor="label-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Label:</label>
-        <select id="label-input" onChange={ e => setLabel(e.target.value)}>
+        <select id="label-input" className="w-full lg:w-40 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" onChange={ e => setLabel(e.target.value)}>
           {
             spendingPlanPartLabels.map(label => {
               return (
