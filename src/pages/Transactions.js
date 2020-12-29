@@ -52,6 +52,7 @@ function Transactions() {
   }, [accessToken, logout, queryParams])
 
   useEffect(() => {
+    // TODO ideally create a query param to only get the labels
     const fetchSpendingPlanCategories = async () => {
       const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
       const response = await fetch(`${apiUrl}/spending_plan_parts`,
@@ -70,6 +71,7 @@ function Transactions() {
         logout()
       }
 
+      // TODO ideally get rid of this logic
       const spendingPlanParts = json['spending_plan_parts']
       let labels = []
       for (const category in json['spending_plan_parts']) {
