@@ -8,14 +8,15 @@ import EditTransactionForm from '../EditTransactionForm'
 describe('The EditTransactionForm component', () => {
   describe('renders', () => {
     beforeEach(() => {
-      const transaction = { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': '70.00' }
+      const transaction = { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'label': 'Groceries', 'amount': '70.00' }
       const setToggleForm = jest.fn()
       const setQueryParams = jest.fn()
       const spendingPlanPartLabels = [
         'Rent',
-          'Emergency Fund',
-          'Stocks',
-          'Spending Money'
+        'Groceries',
+        'Emergency Fund',
+        'Stocks',
+        'Spending Money'
       ]
       render(<UserContext.Provider value={{}}><EditTransactionForm transaction={transaction} setToggleForm={setToggleForm} setQueryMarams={setQueryParams} spendingPlanPartLabels={spendingPlanPartLabels}/></UserContext.Provider>)
     })
@@ -33,9 +34,9 @@ describe('The EditTransactionForm component', () => {
     // TODO actually test that it's prepopulated once the labels are showing up on the transactions page
     test('the prepopulated label input field', () => {
       const labelDropdown = screen.getByRole('combobox')
-      expect(labelDropdown).not.toBeNull()
+      expect(labelDropdown.value).toEqual('Groceries')
       const options = screen.getAllByRole('option')
-      expect(options).toHaveLength(4)
+      expect(options).toHaveLength(5)
     })
 
     test('the prepopulated amount input field', () => {

@@ -6,12 +6,12 @@ import UserContext from '../UserContext'
 import { convertDateToIso, convertIsoToDate, validateAmount, formatAmount } from '../utils'
 
 function EditTransactionForm({transaction, setToggleForm, spendingPlanPartLabels}) {
-  const { id, date: initialIsoDate, description: initialDescription, amount: initialAmount } = transaction
+  const { id, date: initialIsoDate, description: initialDescription, label: initialLabel, amount: initialAmount } = transaction
   const { accessToken, queryParams, setQueryParams } = useContext(UserContext)
   const [date, setDate] = useState(convertIsoToDate(initialIsoDate))
   const [description, setDescription] = useState(initialDescription)
   // TODO initalize once labels are showing up with transactions
-  const [label, setLabel] = useState()
+  const [label, setLabel] = useState(initialLabel)
   const [amount, setAmount] = useState(initialAmount)
   const [flashMessage, setFlashMessage] = useState()
 
@@ -62,7 +62,7 @@ function EditTransactionForm({transaction, setToggleForm, spendingPlanPartLabels
       <label htmlFor="description-input" className="my-2 text-5xl lg:hidden">Description:</label>
       <input id="description-input" className="w-full m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:m-2 lg:p-2 lg:w-72 lg:text-base" placeholder="Coffee" type="text" defaultValue={initialDescription} onChange={e => setDescription(e.target.value)}/>
 			<label htmlFor="label-input" className="my-2 text-5xl lg:hidden">Label:</label>
-			<select id="label-input" className="w-full lg:w-72 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" onChange={ e => setLabel(e.target.value)}>
+			<select id="label-input" className="w-full lg:w-72 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" defaultValue={initialLabel} onChange={ e => setLabel(e.target.value)}>
 				{
 					spendingPlanPartLabels.map(label => {
 						return (
