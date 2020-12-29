@@ -5,7 +5,7 @@ import FlashMessage from 'react-flash-message'
 import UserContext from '../UserContext'
 import { convertDateToIso, validateAmount, formatAmount } from '../utils'
 
-function AddTransactionForm({setToggleCreate}) {
+function AddTransactionForm({setToggleCreate, spendingPlanPartLabels}) {
 
   const { accessToken, queryParams, setQueryParams } = useContext(UserContext)
 
@@ -64,6 +64,16 @@ function AddTransactionForm({setToggleCreate}) {
         </DatePicker>
         <label htmlFor="description-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Description:</label>
         <input id="description-input" className="w-full lg:w-84 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" placeholder="Coffee" onChange={ e => { setDescription(e.target.value)}}/>
+        <label htmlFor="label-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Label:</label>
+        <select id="label-input">
+          {
+            spendingPlanPartLabels.map(label => {
+              return (
+                <option key={label} value={label}>{label}</option>
+              )
+            })
+          }
+        </select>
         <label htmlFor="amount-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Amount:</label>
         <input id="amount-input" className="w-full lg:w-32 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" placeholder="15.00" type="text" onChange={ e => { setAmount(e.target.value)}}/>
         <button className="w-full lg:w-48 m-2 p-6 bg-blue-600 hover:bg-blue-500 text-white rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={handleAddTransaction}>Create Transaction</button>
