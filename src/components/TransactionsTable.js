@@ -8,6 +8,7 @@ function TransactionsTable({transactions}) {
             <div className="flex flex-row invisible lg:visible lg:bg-blue-800">
               <div className="m-2 lg:text-sm lg:w-40 lg:text-white">DATE</div>
               <div className="m-2 lg:text-sm lg:w-84 lg:text-white">DESCRIPTION</div>
+              <div className="m-2 lg:text-sm lg:w-84 lg:text-white">LABEL</div>
               <div className="m-2 lg:text-sm lg:w-96 lg:text-white">AMOUNT</div>
             </div>
           </div>
