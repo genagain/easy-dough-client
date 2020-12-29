@@ -5,11 +5,13 @@ import FlashMessage from 'react-flash-message'
 import UserContext from '../UserContext'
 import { convertDateToIso, convertIsoToDate, validateAmount, formatAmount } from '../utils'
 
-function EditTransactionForm({transaction, setToggleForm}) {
+function EditTransactionForm({transaction, setToggleForm, spendingPlanPartLabels}) {
   const { id, date: initialIsoDate, description: initialDescription, amount: initialAmount } = transaction
   const { accessToken, queryParams, setQueryParams } = useContext(UserContext)
   const [date, setDate] = useState(convertIsoToDate(initialIsoDate))
   const [description, setDescription] = useState(initialDescription)
+  // TODO initalize once labels are showing up with transactions
+  const [label, setLabel] = useState()
   const [amount, setAmount] = useState(initialAmount)
   const [flashMessage, setFlashMessage] = useState()
 
@@ -22,6 +24,7 @@ function EditTransactionForm({transaction, setToggleForm}) {
     const body = {
       'date': convertDateToIso(date),
       'description': description,
+      'label': label,
       'amount': formatAmount(amount)
     }
 
@@ -57,10 +60,20 @@ function EditTransactionForm({transaction, setToggleForm}) {
         )}
       </DatePicker>
       <label htmlFor="description-input" className="my-2 text-5xl lg:hidden">Description:</label>
-      <input id="description-input" className="w-full lg:w-84 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:m-2 lg:p-2 lg:w-84 lg:text-base" placeholder="Coffee" type="text" defaultValue={initialDescription} onChange={e => setDescription(e.target.value)}/>
+      <input id="description-input" className="w-full lg:w-40 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:m-2 lg:p-2 lg:w-84 lg:text-base" placeholder="Coffee" type="text" defaultValue={initialDescription} onChange={e => setDescription(e.target.value)}/>
+			<label htmlFor="label-input" className="my-2 text-5xl lg:hidden">Label:</label>
+			<select id="label-input" className="w-full lg:w-40 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" onChange={ e => setLabel(e.target.value)}>
+				{
+					spendingPlanPartLabels.map(label => {
+						return (
+							<option key={label} value={label}>{label}</option>
+						)
+					})
+				}
+			</select>
       <label htmlFor="amount-input" className="my-2 text-5xl lg:hidden">Amount:</label>
       <div className="lg:flex-grow">
-      <input id="amount-input" className="w-full lg:w-144 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:m-2 lg:p-2 lg:w-144 lg:text-base" placeholder="5.00" type="text" defaultValue={initialAmount} onChange={e => setAmount(e.target.value)}/>
+      <input id="amount-input" className="w-full lg:w-40 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:m-2 lg:p-2 lg:w-144 lg:text-base" placeholder="5.00" type="text" defaultValue={initialAmount} onChange={e => setAmount(e.target.value)}/>
       </div>
       <button className="w-full lg:w-20 lg:h-auto m-2 p-6 bg-blue-600 text-white hover:bg-blue-500 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-base" onClick={handleUpdate}>Update</button>
       <button className="w-full lg:w-20 lg:h-auto m-2 p-6 border border-blue-600 text-blue-600 hover:border-blue-500 hover:text-blue-500 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-base" onClick={() => setToggleForm(false)}>Cancel</button>
