@@ -7,7 +7,7 @@ import UserContext from '../../UserContext'
 describe('The TransactionRow component', () => {
   describe('renders', () => {
     beforeEach(() => {
-      const transaction = { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'amount': '70.00' }
+      const transaction = { 'id': 1, 'date': '2020-07-10', 'description': 'Grocery Store', 'label': 'Groceries',  'amount': '70.00' }
       render(<UserContext.Provider value={{}}><TransactionRow transaction={transaction} /></UserContext.Provider>)
     })
 
@@ -19,6 +19,11 @@ describe('The TransactionRow component', () => {
 
     test('the description', () => {
       const description = screen.getByText('Grocery Store')
+      expect(description).not.toBeNull()
+    })
+
+    test('the label', () => {
+      const description = screen.getByText('Groceries')
       expect(description).not.toBeNull()
     })
 

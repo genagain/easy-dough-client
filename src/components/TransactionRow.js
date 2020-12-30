@@ -1,16 +1,47 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import Modal from 'react-modal';
 import UserContext from '../UserContext'
 import EditTransactionForm from './EditTransactionForm'
 import { formatPrettyDate, convertIsoToDate } from '../utils'
 
 function TransactionRow({transaction}) {
-  const { id, date: isoDate, description, amount } = transaction
+  const { id, date: isoDate, description, label, amount } = transaction
+
+  const { accessToken, logout, queryParams, setQueryParams } = useContext(UserContext)
   const [toggleModal, setToggleModal] = useState(false)
   const [toggleForm, setToggleForm] = useState(false)
-  const { accessToken, queryParams, setQueryParams } = useContext(UserContext)
+	const [spendingPlanPartLabels, setSpendingPlanPartLabels] = useState([])
 
   Modal.setAppElement(document.getElementById(`transaction-${id}`))
+
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'test') {
+      return
+    }
+    const fetchSpendingPlanCategories = async () => {
+      const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
+      const response = await fetch(`${apiUrl}/spending_plan_parts?field=label`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          }
+        }
+      )
+
+      const json = await response.json()
+
+      if (!response.ok) {
+        logout()
+      }
+
+      const labels = json['spending_plan_part_labels']
+      setSpendingPlanPartLabels(labels)
+    }
+
+    fetchSpendingPlanCategories()
+  }, [accessToken, logout])
 
   async function handleDelete(e) {
     const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
@@ -33,14 +64,15 @@ function TransactionRow({transaction}) {
     <div id={`transaction-${id}`} className="px-1 py-6 lg:border-gray-600 lg:p-0 lg:border-t">
     { 
       toggleForm ? (
-        <EditTransactionForm transaction={transaction} setToggleForm={setToggleForm}/>
+        <EditTransactionForm transaction={transaction} setToggleForm={setToggleForm} spendingPlanPartLabels={spendingPlanPartLabels}/>
       ) : (
         <div className="flex flex-row lg:items-baseline">
           <div className="flex-grow lg:flex lg:flex-row lg:flex-grow-0">
           <div key={`${id}-${date}`} className="m-2 text-3xl lg:m-2 lg:w-40 lg:text-base">{formattedDate}</div>
-          <div key={`${id}-${description}`} className="m-2 lg:m-2 text-5xl lg:w-84 lg:text-base">{description}</div>
+          <div key={`${id}-${description}`} className="m-2 lg:m-2 text-5xl lg:w-72 lg:text-base">{description}</div>
+          <div key={`${id}-${label}`} className="m-2 lg:m-2 text-4xl lg:w-72 lg:text-base">{label}</div>
           </div>
-           <div key={`${id}-${amount}`} className="mx-2 my-4 lg:m-2 l text-5xl lg:w-144 lg:text-base">{amount}</div>
+           <div key={`${id}-${amount}`} className="mx-2 my-4 lg:m-2 l text-5xl lg:w-96 lg:text-base">{amount}</div>
            <button className="mx-2 my-4 px-4 py-2 lg:m-2 lg:w-16 h-20 text-blue-800 hover:text-blue-700 text-4xl lg:text-base lg:px-2 lg:h-auto" data-testid={`edit-${id}`} onClick={() => setToggleForm(true)}>Edit</button>
            <button className="mx-2 my-4 px-4 py-2 lg:m-2 lg:w-20 h-20 text-red-800 hover:text-red-700 text-4xl lg:text-base lg:px-2 lg:h-auto" data-testid={`delete-${id}`} onClick={() => setToggleModal(true)}>Delete</button>
         </div>

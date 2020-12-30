@@ -21,6 +21,7 @@ function Transactions() {
 
 
   const [allTransactions, setAllTransactions] = useState([])
+  const [spendingPlanPartLabels, setSpendingPlanPartLabels] = useState([])
 
   useEffect(() => {
     if (process.env.NODE_ENV === 'test') {
@@ -49,6 +50,32 @@ function Transactions() {
 
     fetchTransactions()
   }, [accessToken, logout, queryParams])
+
+  useEffect(() => {
+    const fetchSpendingPlanCategories = async () => {
+      const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
+      const response = await fetch(`${apiUrl}/spending_plan_parts?field=label`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          }
+        }
+      )
+
+      const json = await response.json()
+
+      if (!response.ok) {
+        logout()
+      }
+
+      const labels = json['spending_plan_part_labels']
+      setSpendingPlanPartLabels(labels)
+    }
+
+    fetchSpendingPlanCategories()
+  }, [accessToken, logout])
 
   function searchHandler() {
     const params = {
@@ -94,7 +121,7 @@ function Transactions() {
           <button className="w-full lg:w-40 m-2 p-6 border border-blue-800 text-blue-800 hover:border-blue-700 hover:text-blue-700 rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={ () => { setToggleCreate(!toggleCreate)} }>{ toggleCreate ? 'Hide Transaction' : 'Add Transaction' }</button>
       </div>
     { toggleCreate &&
-        <AddTransactionForm setToggleCreate={setToggleCreate} />
+        <AddTransactionForm setToggleCreate={setToggleCreate} spendingPlanPartLabels={spendingPlanPartLabels} />
     }
     </div>
     <TransactionsTableList allTransactions={allTransactions} />

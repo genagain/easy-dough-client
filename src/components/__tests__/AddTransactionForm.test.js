@@ -7,7 +7,13 @@ import AddTransactionForm from '../AddTransactionForm'
 // TODO Add more describe blocks
 beforeEach(() => {
   MockDate.set(new Date('10/04/2020'))
-  render(<UserContext.Provider value={{}}><AddTransactionForm /></UserContext.Provider>)
+  const spendingPlanPartLabels = [
+    'Rent',
+    'Emergency Fund',
+    'Stocks',
+    'Spending Money'
+  ]
+  render(<UserContext.Provider value={{}}><AddTransactionForm spendingPlanPartLabels={spendingPlanPartLabels}/></UserContext.Provider>)
 })
 
 test('renders a date input field with today selected', () => {
@@ -18,6 +24,13 @@ test('renders a date input field with today selected', () => {
 test('renders a description input field', () => {
   const description = screen.getByLabelText('Description:')
   expect(description).not.toBeNull()
+})
+
+test('renders a label input field', () => {
+  const labelDropdown = screen.getByRole('combobox')
+  expect(labelDropdown).not.toBeNull()
+  const options = screen.getAllByRole('option')
+  expect(options).toHaveLength(4)
 })
 
 test('renders a amount input field', () => {
