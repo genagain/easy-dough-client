@@ -14,15 +14,13 @@ function TransactionRow({transaction}) {
 
   Modal.setAppElement(document.getElementById(`transaction-${id}`))
 
-  // TODO consider putting this in the EditTransaction form
   useEffect(() => {
-    // TODO ideally create a query param to only get the labels
     if (process.env.NODE_ENV === 'test') {
       return
     }
     const fetchSpendingPlanCategories = async () => {
       const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
-      const response = await fetch(`${apiUrl}/spending_plan_parts`,
+      const response = await fetch(`${apiUrl}/spending_plan_parts?field=label`,
         {
           method: 'GET',
           headers: {
@@ -38,17 +36,7 @@ function TransactionRow({transaction}) {
         logout()
       }
 
-      // TODO ideally get rid of this logic
-      const spendingPlanParts = json['spending_plan_parts']
-      let labels = []
-      for (const category in json['spending_plan_parts']) {
-        if (Array.isArray(spendingPlanParts[category])) {
-          const partLabels = spendingPlanParts[category].map(part => part.label)
-          labels.push(...partLabels)
-        }
-      }
-      const discretionarySpendingLabel = spendingPlanParts.discretionarySpending.label
-      labels.push(discretionarySpendingLabel)
+      const labels = json['spending_plan_part_labels']
       setSpendingPlanPartLabels(labels)
     }
 
