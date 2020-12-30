@@ -10,7 +10,6 @@ function EditTransactionForm({transaction, setToggleForm, spendingPlanPartLabels
   const { accessToken, queryParams, setQueryParams } = useContext(UserContext)
   const [date, setDate] = useState(convertIsoToDate(initialIsoDate))
   const [description, setDescription] = useState(initialDescription)
-  // TODO initalize once labels are showing up with transactions
   const [label, setLabel] = useState(initialLabel)
   const [amount, setAmount] = useState(initialAmount)
   const [flashMessage, setFlashMessage] = useState()
