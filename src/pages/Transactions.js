@@ -52,10 +52,9 @@ function Transactions() {
   }, [accessToken, logout, queryParams])
 
   useEffect(() => {
-    // TODO ideally create a query param to only get the labels
     const fetchSpendingPlanCategories = async () => {
       const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
-      const response = await fetch(`${apiUrl}/spending_plan_parts`,
+      const response = await fetch(`${apiUrl}/spending_plan_parts?field=label`,
         {
           method: 'GET',
           headers: {
@@ -71,17 +70,7 @@ function Transactions() {
         logout()
       }
 
-      // TODO ideally get rid of this logic
-      const spendingPlanParts = json['spending_plan_parts']
-      let labels = []
-      for (const category in json['spending_plan_parts']) {
-        if (Array.isArray(spendingPlanParts[category])) {
-          const partLabels = spendingPlanParts[category].map(part => part.label)
-          labels.push(...partLabels)
-        }
-      }
-      const discretionarySpendingLabel = spendingPlanParts.discretionarySpending.label
-      labels.push(discretionarySpendingLabel)
+      const labels = json['spending_plan_part_labels']
       setSpendingPlanPartLabels(labels)
     }
 
