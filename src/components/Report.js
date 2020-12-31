@@ -1,17 +1,25 @@
 import React, {useEffect} from 'react';
-import Chart from 'chart.js';
 
-			//<rect height="50" width="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)"></rect>
 function Report(props) {
   return (
-		<svg width="700" height="200">
-			<rect height="100" width="600" style={{
-       fill: 'rgb(100,100,100)'
-       }}></rect>
-			<rect height="100" width="50" style={{
-       fill: 'rgb(255,0,255)'
-       }}></rect>
-    </svg>
+    <div>
+			<svg width="750" height="75">
+				<rect height="50" width="750" style={{
+				 fill: 'rgb(229, 231, 235)'
+				 }}></rect>
+				<rect height="50" width="300" style={{
+				 fill: 'rgb(5, 150, 105)'
+				 }}></rect>
+			</svg>
+      <svg width="750" height="75">
+				<rect height="50" width="750" style={{
+				 fill: 'rgb(229, 231, 235)'
+				 }}></rect>
+				<rect height="50" width="750" style={{
+				 fill: 'rgb(220, 38, 38)'
+				 }}></rect>
+			</svg>
+    </div>
   )
 }
 
