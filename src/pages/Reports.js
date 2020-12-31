@@ -1,7 +1,9 @@
 import React from 'react'
 
+import Report from '../components/Report'
+
 function Reports() {
-  return <h1>hi</h1>
+  return <Report />
 }
 
 export default Reports;
