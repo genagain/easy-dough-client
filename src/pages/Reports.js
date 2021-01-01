@@ -29,9 +29,15 @@ function Reports() {
       difference: 113.71
     }
   ]
+
+  const months = [
+    'January',
+    'February',
+    'March'
+  ]
   return (
     <div className="m-auto w-10/12 lg:max-w-6xl">
-      <Report historicalSpending={historicalSpending} />
+      <Report historicalSpending={historicalSpending} months={months}/>
     </div>
   )
 }
