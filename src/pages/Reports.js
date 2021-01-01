@@ -1,43 +1,99 @@
-import React from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 
+import UserContext from '../UserContext'
 import Report from '../components/Report'
 
 function Reports() {
-  const historicalSpending = [
-    {
-      label: 'Debt',
-      actualAmount: 910.8,
-      expectedAmount: 910.8,
-      difference: 0
-    },
-    {
-      label: 'Cellphone',
-      actualAmount: 40,
-      expectedAmount: 40,
-      difference: 0
-    },
-    {
-      label: 'Groceries',
-      actualAmount: 300,
-      expectedAmount: 400,
-      difference: 100
-    },
-    {
-      label: 'Spending Money',
-      actualAmount: 550,
-      expectedAmount: 436.29,
-      difference: 113.71
-    }
-  ]
+  const { accessToken, logout } = useContext(UserContext)
+  const [months, setMonths] = useState([])
+  const [historicalSpending, setHistoricalSpending] = useState([])
+  const [reportParam, setReportParam] = useState()
 
-  const months = [
-    'January',
-    'February',
-    'March'
-  ]
+  useEffect(() => {
+    const fetchMonths = async () => {
+      const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
+      const response = await fetch(`${apiUrl}/reports/months`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          }
+        }
+      )
+
+      const json = await response.json()
+
+      if (!response.ok) {
+        logout()
+      }
+
+      setMonths(['', ...json['months']])
+    }
+
+    fetchMonths()
+  }, [accessToken, logout])
+
+  useEffect(() => {
+    const fetchHistoricalSpending = async () => {
+      const apiUrl = process.env.REACT_APP_SERVER_BASE_URL
+      const response = await fetch(`${apiUrl}/reports/generate?month=${reportParam}`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          }
+        }
+      )
+
+      const json = await response.json()
+
+      if (!response.ok) {
+        logout()
+      }
+
+      setHistoricalSpending(json['historticalSpending'])
+    }
+
+    fetchHistoricalSpending()
+
+  }, [reportParam])
+
+  /*const historicalSpending = [*/
+    //{
+      //label: 'Debt',
+      //actualAmount: 910.8,
+      //expectedAmount: 910.8,
+      //difference: 0
+    //},
+    //{
+      //label: 'Cellphone',
+      //actualAmount: 40,
+      //expectedAmount: 40,
+      //difference: 0 //},
+    //{
+      //label: 'Groceries',
+      //actualAmount: 300,
+      //expectedAmount: 400,
+      //difference: 100
+    //},
+    //{
+      //label: 'Spending Money',
+      //actualAmount: 550,
+      //expectedAmount: 436.29,
+      //difference: 113.71
+    //}
+  //]
+
+  //const months = [
+    //'January',
+    //'February',
+    //'March'
+  /*]*/
   return (
     <div className="m-auto w-10/12 lg:max-w-6xl">
-      <Report historicalSpending={historicalSpending} months={months}/>
+      <Report historicalSpending={historicalSpending} months={months} setReportParam={setReportParam}/>
     </div>
   )
 }
