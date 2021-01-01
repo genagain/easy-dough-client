@@ -17,11 +17,11 @@ function ReportRow({ label, actualAmount, expectedAmount, difference}) {
     const actualWidth = actualAmount / expectedAmount * rowWidth
     spentVerb = 'left'
 			bar = (
-      <svg width={rowWidth} height={rowHeight}>
-				<rect height={rowHeight} width={rowWidth} style={{
+      <svg  width={rowWidth} height={rowHeight}>
+				<rect data-testid="gray-bar" height={rowHeight} width={rowWidth} style={{
 				fill: 'rgb(229, 231, 235)'
 				}}></rect>
-				<rect height={rowHeight} width={actualWidth} style={{
+				<rect data-testid="green-bar" height={rowHeight} width={actualWidth} style={{
 				fill: '#048c71'
 				}}></rect>
 			</svg>
@@ -30,10 +30,10 @@ function ReportRow({ label, actualAmount, expectedAmount, difference}) {
     spentVerb = 'over'
     bar = (
 			<svg width={rowWidth} height={rowHeight}>
-				<rect height={rowHeight} width={rowWidth} style={{
+				<rect data-testid="gray-bar" height={rowHeight} width={rowWidth} style={{
 				fill: 'rgb(229, 231, 235)'
 				}}></rect>
-				<rect height={rowHeight} width={rowWidth} style={{
+				<rect data-testid="red-bar" height={rowHeight} width={rowWidth} style={{
 				fill: '#d72229'
 				}}></rect>
 			</svg>
@@ -42,7 +42,7 @@ function ReportRow({ label, actualAmount, expectedAmount, difference}) {
 
   return ( 
     <div className="m-auto w-2/3 lg:w-3/4 p-2">
-      <div className="text-5xl lg:text-xl">{label}</div>
+      <h1 className="text-5xl lg:text-xl">{label}</h1>
 			<div className="text-3xl lg:text-base">Spent ${formattedActualAmount} of ${formattedExpectedAmount} </div>
 			<div className="flex flex-col lg:flex-row lg:items-center">
 				<div className="lg:flex-grow">
