@@ -53,6 +53,11 @@ describe('When the access token does not exist, the NavBar component', () => {
     const spendingPlan = screen.queryByRole("link", { name: /spending plan/i })
     expect(spendingPlan).toBeNull()
   })
+
+  it('does not render the report link', () => {
+    const report = screen.queryByRole("link", { name: /report/i })
+    expect(report).toBeNull()
+  })
 })
 
 describe('When the access token exists, the NavBar component', () => {
@@ -83,6 +88,11 @@ describe('When the access token exists, the NavBar component', () => {
   it('renders the spendingPlan link', () => {
     const spendingPlanLink = screen.getByRole("link", { name: /spending plan/i}).textContent;
     expect(spendingPlanLink).toMatchInlineSnapshot(`"Spending Plan"`)
+  })
+
+  it('renders the report link', () => {
+    const reportLink = screen.getByRole("link", { name: /report/i}).textContent;
+    expect(reportLink).toMatchInlineSnapshot(`"Reports"`)
   })
 
   it('renders the logout link', () => {

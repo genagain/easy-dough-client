@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import UserContext from '../../UserContext'
 import SpendingPlanPartRow from '../SpendingPlanPartRow'
 
 describe('the SpendingPlanPartRow component for discretionary spending', () => {
@@ -10,7 +11,7 @@ describe('the SpendingPlanPartRow component for discretionary spending', () => {
       searchTerm: '*',
       expectedAmount: 0,
     }
-    render(<SpendingPlanPartRow part={part} category={'Discretionary Spending'}/>)
+    render(<UserContext.Provider value={{}}><SpendingPlanPartRow part={part} category={'Discretionary Spending'}/></UserContext.Provider>)
   })
 
   describe('renders', () => {
@@ -51,7 +52,7 @@ describe('the SpendingPlanPartRow component for fixed costs', () => {
       searchTerm: 'Property Management',
       expectedAmount: 1000,
     }
-    render(<SpendingPlanPartRow part={part} category={'Fixed Costs'}/>)
+    render(<UserContext.Provider value={{}}><SpendingPlanPartRow part={part} category={'Fixed Costs'}/></UserContext.Provider>)
   })
 
   describe('renders', () => {
