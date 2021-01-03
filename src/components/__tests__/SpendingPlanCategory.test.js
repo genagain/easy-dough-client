@@ -39,7 +39,7 @@ describe('The SpendingPlanCategory component with spending plan parts for fixed 
           expectedAmount: 300
         }
       ]
-      render(<SpendingPlanCategory category="Fixed Costs" spendingPlanParts={fixedCosts}/>)
+      render(<UserContext.Provider value={{}}><SpendingPlanCategory category="Fixed Costs" spendingPlanParts={fixedCosts}/></UserContext.Provider>)
     })
 
     test('the spending plan parts table headers', () => {
@@ -118,7 +118,7 @@ describe('The SpendingPlanCategory component with spending plan parts for saving
           expectedAmount: 800
         }
       ]
-      render(<SpendingPlanCategory category="Savings" spendingPlanParts={savings}/>)
+      render(<UserContext.Provider value={{}}><SpendingPlanCategory category="Savings" spendingPlanParts={savings}/></UserContext.Provider>)
     })
 
     test('the spending plan parts table headers', () => {
