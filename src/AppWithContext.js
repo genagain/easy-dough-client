@@ -11,13 +11,14 @@ function AppWithContext() {
   const [accessToken, setAccessToken] = useState(storedAccessToken)
 
   const [initialStartDate, initialEndDate] = initialDates()
+
   const [queryParams, setQueryParams] = useState({ start_date: convertDateToIso(initialStartDate), end_date: convertDateToIso(initialEndDate)})
   const [refetch, setRefetch] = useState(false)
 
   function initialDates() {
     const endDate = new Date(Date.now())
     const startYear = endDate.getFullYear()
-    const startMonth = endDate.getMonth() - 1
+    const startMonth = endDate.getMonth() > 1 ? endDate.getMonth() - 1 : 1
     const startDate = new Date(`${startYear}-${startMonth}-01`)
     return [startDate, endDate]
   }
