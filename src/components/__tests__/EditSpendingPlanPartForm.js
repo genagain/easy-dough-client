@@ -13,7 +13,7 @@ describe('the EditSpendingPlanPartForm', () => {
         searchTerm: '*',
         expectedAmount: 0
       }
-      render(<EditSpendingPlanPartForm part={part} setToggleForm={setToggleForm}/>)
+      render(<UserContext.Provider value={{}}><EditSpendingPlanPartForm part={part} setToggleForm={setToggleForm}/></UserContext.Provider>)
     })
 
     test('the prepopulated label input field', () => {

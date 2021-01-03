@@ -92,7 +92,7 @@ describe('When the access token exists, the NavBar component', () => {
 
   it('renders the report link', () => {
     const reportLink = screen.getByRole("link", { name: /report/i}).textContent;
-    expect(reportLink).toMatchInlineSnapshot(`"Report"`)
+    expect(reportLink).toMatchInlineSnapshot(`"Reports"`)
   })
 
   it('renders the logout link', () => {
