@@ -1,6 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import SpendingPlanCategories from '../SpendingPlanCategories'
+import UserContext from '../../UserContext'
 
 describe('When there is only one part to render, the SpendingPlanCategories', () => {
   beforeEach(() => {
@@ -11,7 +12,7 @@ describe('When there is only one part to render, the SpendingPlanCategories', ()
           expectedAmount: 0
         }
       }
-    render(<SpendingPlanCategories spendingPlanCategories={spendingPlanCategories} />)
+    render(<UserContext.Provider value={{}}><SpendingPlanCategories spendingPlanCategories={spendingPlanCategories} /></UserContext.Provider>)
   })
 
   describe('renders', () => {
@@ -137,7 +138,7 @@ describe('When there are two parts to render, the SpendingPlanCategories', () =>
           expectedAmount: 0
         }
       }
-      render(<SpendingPlanCategories spendingPlanCategories={spendingPlanCategories} />)
+      render(<UserContext.Provider value={{}}><SpendingPlanCategories spendingPlanCategories={spendingPlanCategories} /></UserContext.Provider>)
     })
 
     test('the spending plan parts table headers', () => {
@@ -290,7 +291,7 @@ describe('When there are three parts to render, the SpendingPlanCategories', () 
           expectedAmount: 0
         }
       }
-      render(<SpendingPlanCategories spendingPlanCategories={spendingPlanCategories} />)
+      render(<UserContext.Provider value={{}}><SpendingPlanCategories spendingPlanCategories={spendingPlanCategories} /></UserContext.Provider>)
     })
 
     test('the spending plan parts table headers', () => {
@@ -499,7 +500,7 @@ describe('When there are four parts to render, the SpendingPlanCategories', () =
           expectedAmount: 0
         }
       }
-      render(<SpendingPlanCategories spendingPlanCategories={spendingPlanCategories} />)
+      render(<UserContext.Provider value={{}}><SpendingPlanCategories spendingPlanCategories={spendingPlanCategories} /></UserContext.Provider>)
     })
 
     test('the spending plan parts table headers', () => {
