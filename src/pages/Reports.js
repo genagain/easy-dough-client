@@ -5,7 +5,7 @@ import Report from '../components/Report'
 
 function Reports() {
   const { accessToken, logout } = useContext(UserContext)
-  const [months, setMonths] = useState([])
+  const [months, setMonths] = useState([''])
   const [historicalSpending, setHistoricalSpending] = useState([])
   const [reportParam, setReportParam] = useState()
 
