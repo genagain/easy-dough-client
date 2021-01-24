@@ -32,7 +32,7 @@ function Index({ history }) {
           <div className="flex flex-row items-center">
             <div className="w-1/2 flex flex-col flex-grow items-start space-y-6">
               <h1 className="text-3xl text-blue-800 font-semibold">Create a spending plan</h1>
-              <p className="text-xl text-blue-800">Plan your spending so you can save easily.</p>
+              <p className="text-xl text-blue-800">Plan your spending so you can save and invest easily.</p>
             </div>
             <div className="w-1/2">
               <img alt="Spending Plan" className="h-84 w-84" src="images/spending_plan.svg" />

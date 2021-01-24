@@ -36,7 +36,7 @@ describe('The Index component', () => {
     test('each feature explanation', () => {
       const expectedExplainations = [
         "Easily add all of your bank accounts and credit cards.",
-        "Plan your spending so you can save easily.",
+        "Plan your spending so you can save and invest easily.",
         "Automatically label transactions to easily track your spending.",
         "Visualize your spending easily to stick to your plan."
       ]
