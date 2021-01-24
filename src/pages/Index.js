@@ -46,7 +46,7 @@ function Index({ history }) {
             </div>
             <div className="w-1/2 flex flex-col flex-grow items-start space-y-6">
               <h1 className="text-3xl text-blue-800 font-semibold">Track your spending</h1>
-              <p className="text-xl text-blue-800">Automatically label transactions to easily track your spending</p>
+              <p className="text-xl text-blue-800">Automatically label transactions to easily track your spending.</p>
             </div>
           </div>
         </div>
