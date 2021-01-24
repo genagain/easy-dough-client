@@ -16,8 +16,8 @@ function Index({ history }) {
           </div>
         </div>
       </div>
-      <div className="flex flex-col py-16">
-        <div className="m-auto w-10/12 lg:max-w-6xl">
+      <div className="m-auto w-10/12 lg:max-w-6xl">
+        <div className="flex flex-col py-16">
           <div className="flex flex-row items-center">
             <div className="w-1/2">
               <img className="h-84 w-84" src="images/bank_accounts.svg" />
@@ -28,9 +28,7 @@ function Index({ history }) {
             </div>
           </div>
         </div>
-      </div>
-      <div className="flex flex-col py-16">
-        <div className="m-auto w-10/12 lg:max-w-6xl">
+        <div className="flex flex-col py-16">
           <div className="flex flex-row items-center">
             <div className="w-1/2 flex flex-col flex-grow items-start space-y-6">
               <h1 className="text-3xl text-blue-800 font-semibold">Create a spending plan</h1>
@@ -41,9 +39,7 @@ function Index({ history }) {
             </div>
           </div>
         </div>
-      </div>
-      <div className="flex flex-col py-16">
-        <div className="m-auto w-10/12 lg:max-w-6xl">
+        <div className="flex flex-col py-16">
           <div className="flex flex-row items-center">
             <div className="w-1/2">
               <img className="h-84 w-84" src="images/transactions.svg" />
@@ -54,9 +50,7 @@ function Index({ history }) {
             </div>
           </div>
         </div>
-      </div>
-      <div className="flex flex-col py-16">
-        <div className="m-auto w-10/12 lg:max-w-6xl">
+        <div className="flex flex-col py-16">
           <div className="flex flex-row items-center">
             <div className="w-1/2 flex flex-col flex-grow items-start space-y-6">
               <h1 className="text-3xl text-blue-800 font-semibold">Stay on track</h1>
