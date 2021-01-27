@@ -18,8 +18,8 @@ function NavBar() {
         <div className="flex flex-col lg:flex-row lg:items-center">
         <div className="flex justify-between">
           <div className="flex flex-row items-center">
-            <Link to='/'><img src="logo.svg" alt="Easy Dough Logo" className="w-20 h-20 lg:w-10 lg:h-10" /></Link>
-            <Link to='/' className="text-blue-800 text-4xl w-144 mx-4 lg:w-auto lg:text-xl hover:text-blue-700">
+            <Link to='/' onClick={() => setShowLinks(false)}><img src="logo.svg" alt="Easy Dough Logo" className="w-20 h-20 lg:w-10 lg:h-10" /></Link>
+            <Link to='/' onClick={() => setShowLinks(false)} className="text-blue-800 text-4xl w-144 mx-4 lg:w-auto lg:text-xl hover:text-blue-700">
               <h1>Easy Dough</h1>
             </Link>
         <div className="pt-3 lg:hidden">
@@ -35,21 +35,24 @@ function NavBar() {
           accessToken ? 
            (
             <>
-              <NavLink to='/transactions' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:mx-4 lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800" >
+              <NavLink to='/transactions' onClick={() => setShowLinks(false)} className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:mx-4 lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800">
                Transactions
              </NavLink>
-              <NavLink to='/spending_plan' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:mx-4 lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800" >
+              <NavLink to='/spending_plan'onClick={() => setShowLinks(false)} className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:mx-4 lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800" >
                Spending Plan
              </NavLink>
-              <NavLink to='/reports' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:mx-4 lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800" >
+              <NavLink to='/reports' onClick={() => setShowLinks(false)} className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:mx-4 lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800" >
                Reports
              </NavLink>
-              <NavLink to='/settings' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:mx-4 lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800" >
+              <NavLink to='/settings' onClick={() => setShowLinks(false)} className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:mx-4 lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800" >
                Settings
              </NavLink>
              <div className="lg:flex-grow"></div>
              <div className="lg:flex-grow"></div>
-              <Link to='/' onClick={logout} className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:px-4 hover:text-blue-700`}>
+              <Link to='/' onClick={() => {
+                setShowLinks(false)
+                logout()
+              }} className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:px-4 hover:text-blue-700`}>
                Logout
              </Link>
             </>
@@ -57,10 +60,10 @@ function NavBar() {
            (
              <>
                <div className="lg:flex-grow"></div>
-               <NavLink to='/signup' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:px-4 hover:text-blue-700`} activeClassName="font-bold  hover:text-blue-800">
+               <NavLink to='/signup' onClick={() => setShowLinks(false)} className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:px-4 hover:text-blue-700`} activeClassName="font-bold  hover:text-blue-800">
                  Sign Up
                </NavLink>
-               <NavLink to='/login' className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800">
+               <NavLink to='/login' onClick={() => setShowLinks(false)} className={`${showLinks ? null : 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800">
                  Login
                </NavLink>
              </>
