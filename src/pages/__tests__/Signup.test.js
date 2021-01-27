@@ -88,7 +88,7 @@ describe('The Signup component', () => {
 
     fireEvent.submit(screen.getByTestId("form"))
 
-    const errorMessage = screen.getByText("Please make ensure the passwords provided match")
+    const errorMessage = screen.getByText("Please ensure the passwords provided match")
     expect(errorMessage).not.toBeNull()
   })
 })
