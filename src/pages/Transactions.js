@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { getDay } from 'date-fns'
 import { enUS } from 'date-fns/locale'
 import { DatePicker } from 'react-nice-dates'
 import TransactionsTableList from '../components/TransactionsTableList'
@@ -30,10 +29,6 @@ function Transactions() {
 
   const endDateModifiers = {
       disabled: date => date > Date.now() || startDate > date
-  }
-
-  const modifiers = {
-      disabled: date => date > Date.now()
   }
 
   const modifiersClassNames = {
