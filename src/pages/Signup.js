@@ -17,16 +17,22 @@ function Signup() {
     event.preventDefault()
     setErrors([])
 
+    const allFields = [firstname, lastname, email, password, passwordConfirmation]
+
+    allFields.forEach(field => {
+      if (field === '') {
+        setErrors(['Please fill out all of the fields'])
+      }
+    })
+
     let validEmail = /^[A-Za-z0-9_.]+@\w+.\w+.\w+/
     if(!validEmail.test(email)) {
       setErrors(prevErrors => [...prevErrors, 'Please provide a valid email'])
+      return
     }
 
-    if (password !== passwordConfirmation) {
-      setErrors(prevErrors => [...prevErrors, 'Please make ensure the passwords provided match'])
-    }
-
-    if (errors.length === 0) {
+    if (password !== passwordConfirmation || password === '') {
+      setErrors(prevErrors => [...prevErrors, 'Please ensure the passwords provided match'])
       return
     }
 
