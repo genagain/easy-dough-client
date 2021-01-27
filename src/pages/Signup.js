@@ -11,19 +11,22 @@ function Signup() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
-  const [error, setError] = useState('')
+  const [errors, setErrors] = useState([])
 
   async function handleSubmit(event) {
     event.preventDefault()
+    setErrors([])
 
     let validEmail = /^[A-Za-z0-9_.]+@\w+.\w+.\w+/
     if(!validEmail.test(email)) {
-      setError('Please provide a valid email')
-      return
+      setErrors(prevErrors => [...prevErrors, 'Please provide a valid email'])
     }
 
     if (password !== passwordConfirmation) {
-      setError('Please make ensure the passwords provided match')
+      setErrors(prevErrors => [...prevErrors, 'Please make ensure the passwords provided match'])
+    }
+
+    if (errors.length === 0) {
       return
     }
 
@@ -34,18 +37,23 @@ function Signup() {
       body: JSON.stringify({ firstname, lastname, email, password})
     })
 
+    setErrors([])
     if (response.ok) {
       history.push('/login')
     } else {
       const json = await response.json()
-      setError(json['message'])
+      setErrors([json['message']])
     }
   }
 
   return (
     <div className="flex flex-col">
     <h4 className="m-auto text-6xl lg:text-4xl">Sign Up</h4>
-    {error ? <p>{error}</p> : null}
+    {
+      errors.map(error => (
+      <p key={error}>{error}</p> 
+      ))
+    }
     <AuthForm isSignup onSubmit={handleSubmit} fieldSetters={{setFirstname, setLastname, setEmail, setPassword, setPasswordConfirmation}}/>
     </div>
   )
