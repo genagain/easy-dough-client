@@ -1,1 +1,2 @@
 /* TODO Add site wide styles */
+.nice-dates-day:before { background-color: rgba(44, 82, 130, 1); }

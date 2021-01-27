@@ -24,8 +24,20 @@ function Transactions() {
   const [allTransactions, setAllTransactions] = useState([])
   const [spendingPlanPartLabels, setSpendingPlanPartLabels] = useState([])
 
+  const startDateModifiers = {
+      disabled: date => date > Date.now() || date > endDate
+  }
+
+  const endDateModifiers = {
+      disabled: date => date > Date.now() || startDate > date
+  }
+
   const modifiers = {
       disabled: date => date > Date.now()
+  }
+
+  const modifiersClassNames = {
+      selected: '-selected'
   }
 
   useEffect(() => {
@@ -102,7 +114,7 @@ function Transactions() {
         <h1 className="mb-2 text-6xl lg:text-3xl">Transaction History</h1>
         <div className="flex flex-col m-auto w-3/4 lg:w-full lg:flex-row lg:items-center">
           <label htmlFor="startdate-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Start Date:</label>
-          <DatePicker date={startDate} onDateChange={setStartDate} locale={enUS} modifiers={modifiers}>
+          <DatePicker date={startDate} onDateChange={setStartDate} locale={enUS} modifiers={startDateModifiers} modifiersClassNames={modifiersClassNames}>
           {({ inputProps, focused }) => (
                     <input
                       id="startdate-input" 
@@ -112,7 +124,7 @@ function Transactions() {
                   )}
           </DatePicker>
           <label htmlFor="enddate-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">End Date:</label>
-          <DatePicker date={endDate} onDateChange={setEndDate} locale={enUS} modifiers={modifiers}>
+          <DatePicker date={endDate} onDateChange={setEndDate} locale={enUS} modifiers={endDateModifiers} modifiersClassNames={modifiersClassNames}>
           {({ inputProps, focused }) => (
                     <input
                       id="enddate-input" 
