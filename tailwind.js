@@ -449,6 +449,7 @@ module.exports = {
     textOpacity: theme => theme('opacity'),
     width: theme => ({
       auto: 'auto',
+      'fit-content': 'fit-content',
       ...theme('spacing'),
       '1/2': '50%',
       '1/3': '33.333333%',

@@ -49,10 +49,10 @@ function Signup() {
   return (
     <div className="flex flex-col">
       <h4 className="m-auto text-6xl lg:text-4xl">Sign Up</h4>
-      <div className="w-1/2 lg:w-1/3 m-auto">
+      <div className="w-2/3 lg:w-1/3 m-auto">
       {
         errors.map(error => (
-        <p className="" key={error}>{error}</p>
+        <p className="w-fit-content m-auto text-5xl lg:text-lg text-red-600" key={error}>{error}</p>
         ))
       }
       <AuthForm isSignup onSubmit={handleSubmit} fieldSetters={{setFirstname, setLastname, setEmail, setPassword, setPasswordConfirmation}}/>
