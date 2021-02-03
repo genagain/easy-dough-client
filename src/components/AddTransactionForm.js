@@ -12,11 +12,12 @@ function AddTransactionForm({setToggleCreate, spendingPlanPartLabels}) {
   const today = new Date(Date.now())
   const [date, setDate] = useState(today)
   const [description, setDescription] = useState()
-  const [label, setLabel] = useState()
+  const [label, setLabel] = useState(spendingPlanPartLabels[0])
   const [amount, setAmount] = useState()
   const [flashMessage, setFlashMessage] = useState()
 
-  async function handleAddTransaction() {
+  async function handleAddTransaction(e) {
+    e.preventDefault()
     if (!validateAmount(amount, setFlashMessage)) {
       return
     }
@@ -48,7 +49,7 @@ function AddTransactionForm({setToggleCreate, spendingPlanPartLabels}) {
   }
 
   return (
-    <div className="flex flex-col m-auto w-3/4 lg:w-full lg:flex-row lg:items-center">
+    <form onSubmit={handleAddTransaction} className="flex flex-col m-auto w-3/4 lg:w-full lg:flex-row lg:items-center">
         { flashMessage &&
             <FlashMessage duration={5000}>
               <strong>{flashMessage}</strong>
@@ -78,8 +79,8 @@ function AddTransactionForm({setToggleCreate, spendingPlanPartLabels}) {
         </select>
         <label htmlFor="amount-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Amount:</label>
         <input id="amount-input" className="w-full lg:w-32 m-2 p-6 text-5xl border border-gray-400 rounded lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg" placeholder="15.00" type="text" onChange={ e => { setAmount(e.target.value)}}/>
-        <button className="w-full lg:w-48 m-2 p-6 bg-blue-600 hover:bg-blue-500 text-white rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" onClick={handleAddTransaction}>Create Transaction</button>
-    </div>
+        <button className="w-full lg:w-48 m-2 p-6 bg-blue-600 hover:bg-blue-500 text-white rounded-lg lg:my-2 lg:p-2 text-5xl lg:text-lg" type="submit">Create Transaction</button>
+    </form>
   )
 }
 

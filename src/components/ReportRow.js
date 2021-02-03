@@ -3,7 +3,7 @@ import { formatAmount } from '../utils'
 
 function ReportRow({ label, actualAmount, expectedAmount, difference}) {
   const intViewportWidth = window.innerWidth
-  const rowWidth = intViewportWidth > 1000 ? 1000 : 500
+  const rowWidth = intViewportWidth > 1000 ? 1000 : intViewportWidth * 0.8
   const rowHeight = intViewportWidth > 1000 ? 25 : 50
 
   const formattedActualAmount = formatAmount(actualAmount)
