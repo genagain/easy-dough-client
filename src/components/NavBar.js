@@ -7,6 +7,7 @@ function NavBar() {
 
     const [showLinks, setShowLinks] = useState(false)
 
+    console.log(showLinks)
     function toggleShowAuth() {
       setShowLinks(!showLinks)
     }
@@ -62,10 +63,10 @@ function NavBar() {
            (
              <>
                <div className="lg:flex-grow"></div>
-               <NavLink to='/signup' onClick={() => setShowLinks(false)} className={`${showLinks && 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:px-4 hover:text-blue-700`} activeClassName="font-bold  hover:text-blue-800">
+               <NavLink to='/signup' onClick={() => setShowLinks(false)} className={`${!showLinks && 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:px-4 hover:text-blue-700`} activeClassName="font-bold  hover:text-blue-800">
                  Sign Up
                </NavLink>
-               <NavLink to='/login' onClick={() => setShowLinks(false)} className={`${showLinks && 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800">
+               <NavLink to='/login' onClick={() => setShowLinks(false)} className={`${!showLinks && 'hidden'} text-blue-800 my-2 py-2 text-4xl lg:inline-block lg:text-xl lg:px-4 hover:text-blue-700`} activeClassName="font-bold hover:text-blue-800">
                  Login
                </NavLink>
              </>
