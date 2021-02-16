@@ -7,7 +7,6 @@ function NavBar() {
 
     const [showLinks, setShowLinks] = useState(false)
 
-    console.log(showLinks)
     function toggleShowAuth() {
       setShowLinks(!showLinks)
     }
