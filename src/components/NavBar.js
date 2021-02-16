@@ -19,7 +19,7 @@ function NavBar() {
         <div className="flex flex-col lg:flex-row lg:items-center">
         <div className="flex justify-between">
           <div className="flex flex-row items-center w-full">
-            <div className="flex flex-row items-center w-10/12">
+            <div className="flex flex-row items-center w-10/12 lg:w-full">
             <Link to='/' onClick={() => setShowLinks(false)}><img src="logo.svg" alt="Easy Dough Logo" className="w-20 h-20 lg:w-10 lg:h-10" /></Link>
             <Link to='/' onClick={() => setShowLinks(false)} className="text-blue-800 text-4xl mx-4 lg:w-auto lg:text-xl hover:text-blue-700">
               <h1>Easy Dough</h1>
