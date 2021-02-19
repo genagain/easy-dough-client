@@ -18,7 +18,14 @@ function AppWithContext() {
   function initialDates() {
     const endDate = new Date(Date.now())
     const startYear = endDate.getFullYear()
-    const startMonth = endDate.getMonth() > 1 ? endDate.getMonth() - 1 : 1
+    let startMonth
+    if (endDate.getMonth() <= 1) {
+      startMonth = '01'
+    } else if (endDate.getMonth() <= 9) {
+      startMonth = `0${endDate.getMonth() - 1}`
+    } else {
+      startMonth = endDate.getMonth() - 1
+    }
     const startDate = new Date(`${startYear}-${startMonth}-01`)
     return [startDate, endDate]
   }
