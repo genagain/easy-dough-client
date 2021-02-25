@@ -26,3 +26,16 @@ npm start
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+
+## Technologies
+
+This project uses the following technologies:
+
+* [React](https://reactjs.org/)
+* [React Router](https://reactrouter.com/)
+* [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+* [Jest](https://jestjs.io/)
+* [Plaid](https://plaid.com/)
+* [Font Awesome](https://fontawesome.com/)
+* [Tailwind CSS](https://tailwindcss.com/)
+
