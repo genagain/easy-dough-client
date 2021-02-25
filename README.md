@@ -26,6 +26,21 @@ npm start
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+Then please be sure to follow the quickstart [here](https://github.com/genagain/easy-dough-api) to run the backend for this application
+
+## Running tests
+
+Run the following to command to execute the tests
+```
+npm test
+```
+
+## Creating a production build
+Run the following command to create a production build
+```
+npm run build
+```
+
 
 ## Technologies
 
