@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { enUS } from 'date-fns/locale'
 import { DatePicker } from 'react-nice-dates'
-import FlashMessage from 'react-flash-message'
 import UserContext from '../UserContext'
 import { convertDateToIso, validateAmount, formatAmount } from '../utils'
 
@@ -44,17 +43,12 @@ function AddTransactionForm({setToggleCreate, spendingPlanPartLabels}) {
 
     if (response.ok) {
       setQueryParams({...queryParams})
-      setTimeout( () => setToggleCreate(false), 5000)
+      setToggleCreate(false)
     }
   }
 
   return (
     <form onSubmit={handleAddTransaction} className="flex flex-col m-auto w-3/4 lg:w-full lg:flex-row lg:items-center">
-        { flashMessage &&
-            <FlashMessage duration={5000}>
-              <strong>{flashMessage}</strong>
-            </FlashMessage>
-        }
         <label htmlFor="date-input" className="my-2 text-5xl lg:max-w-sm lg:my-4 lg:p-2 lg:text-lg">Date:</label>
         <DatePicker date={date} onDateChange={setDate} locale={enUS}>
           {({ inputProps, focused }) => (
