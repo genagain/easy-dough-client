@@ -53,3 +53,5 @@ This project uses the following technologies:
 * [Font Awesome](https://fontawesome.com/)
 * [Tailwind CSS](https://tailwindcss.com/)
 
+## Landing Page
+![Landing Page](https://i.imgur.com/zb7kHZn.png)
