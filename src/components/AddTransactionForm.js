@@ -18,7 +18,7 @@ function AddTransactionForm({setToggleCreate, spendingPlanPartLabels}) {
   async function handleAddTransaction(e) {
     e.preventDefault()
     if (!validateAmount(amount, setFlashMessage)) {
-      return
+      return flashMessage
     }
 
     const body = {
