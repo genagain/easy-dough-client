@@ -41,7 +41,6 @@ Run the following command to create a production build
 npm run build
 ```
 
-
 ## Technologies
 
 This project uses the following technologies:
